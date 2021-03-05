@@ -2,9 +2,16 @@
 
 namespace Radiocubito\Contentful;
 
+use Illuminate\Support\Facades\Blade;
+use Illuminate\View\Compilers\BladeCompiler;
+use Livewire\Livewire;
+use Radiocubito\Contentful\Http\Livewire\CreatePost;
+use Radiocubito\Contentful\Http\Livewire\EditPost;
+use Radiocubito\Contentful\Http\Livewire\ShowPost;
+use Radiocubito\Contentful\Http\Livewire\ShowPosts;
+use Radiocubito\Contentful\View\Components\ContentfulLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Radiocubito\Contentful\Commands\ContentfulCommand;
 
 class ContentfulServiceProvider extends PackageServiceProvider
 {
@@ -19,7 +26,36 @@ class ContentfulServiceProvider extends PackageServiceProvider
             ->name('laravel-contentful')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel_contentful_table')
-            ->hasCommand(ContentfulCommand::class);
+            ->hasRoute('web')
+            ->hasMigration('create_contentful_tables');
+    }
+
+    public function packageRegistered()
+    {
+        $this->app->afterResolving(BladeCompiler::class, function () {
+            Livewire::component('contentful::posts.show-posts', ShowPosts::class);
+            Livewire::component('contentful::posts.show-post', ShowPost::class);
+            Livewire::component('contentful::posts.create-post', CreatePost::class);
+            Livewire::component('contentful::posts.edit-post', EditPost::class);
+        });
+    }
+
+    public function packageBooted()
+    {
+        $this->configureComponents();
+    }
+
+    protected function configureComponents()
+    {
+        $this->callAfterResolving(BladeCompiler::class, function () {
+            $this->registerComponent('input.rich-text');
+
+            Blade::component(ContentfulLayout::class, 'contentful-layout');
+        });
+    }
+
+    protected function registerComponent(string $component)
+    {
+        Blade::component('contentful::components.'.$component, 'contentful::'.$component);
     }
 }
