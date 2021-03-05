@@ -1,0 +1,59 @@
+{
+    "name": "radiocubito/laravel-contentful",
+    "description": "Contentful",
+    "keywords": [
+        "radiocubito",
+        "laravel-contentful"
+    ],
+    "homepage": "https://github.com/radiocubito/laravel-contentful",
+    "license": "AGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Oliver Jimenez-Servin",
+            "email": "oliver@radiocubito.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "spatie/laravel-package-tools": "^1.1",
+        "illuminate/contracts": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3",
+        "spatie/laravel-ray": "^1.9",
+        "vimeo/psalm": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Radiocubito\\Contentful\\": "src",
+            "Radiocubito\\Contentful\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Radiocubito\\Contentful\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Radiocubito\\Contentful\\ContentfulServiceProvider"
+            ],
+            "aliases": {
+                "Contentful": "Radiocubito\\Contentful\\ContentfulFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
