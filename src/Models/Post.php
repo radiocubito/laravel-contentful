@@ -4,6 +4,8 @@ namespace Radiocubito\Contentful\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -21,5 +23,20 @@ class Post extends Model
             'published_at' => $this->published_at ?? $this->freshTimestamp(),
             'status' => 'published',
         ]);
+    }
+
+    public function storeImage(UploadedFile $image)
+    {
+        return $image->storePublicly('post-images', ['disk' => $this->imagesDisk()]);
+    }
+
+    public function getImageUrlAttribute($imagePath)
+    {
+        return Storage::disk($this->imagesDisk())->url($imagePath);
+    }
+
+    protected function imagesDisk()
+    {
+        return isset($_ENV['VAPOR_ARTIFACT_NAME']) ? 's3' : config('contentful.images_disk', 'public');
     }
 }

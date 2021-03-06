@@ -2,7 +2,6 @@
 
 namespace Radiocubito\Contentful\Http\Livewire;
 
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Radiocubito\Contentful\Models\Post;
@@ -42,10 +41,10 @@ class CreatePost extends Component
 
     public function completeUpload($uploadedUrl, $eventName)
     {
-        foreach ($this->newFiles as $file) {
-            if ($file->getFilename() === $uploadedUrl) {
-                $newFilename = $file->store('/', 'post-attachments');
-                $url = Storage::disk('post-attachments')->url($newFilename);
+        foreach ($this->newFiles as $image) {
+            if ($image->getFilename() === $uploadedUrl) {
+                $imagePath = $this->post->storeImage($image);
+                $url = $this->post->getImageUrlAttribute($imagePath);
 
                 $this->dispatchBrowserEvent($eventName, ['url' => $url, 'href' => $url]);
 
