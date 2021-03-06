@@ -50,6 +50,15 @@ class ContentfulServiceProvider extends PackageServiceProvider
     {
         $this->callAfterResolving(BladeCompiler::class, function () {
             $this->registerComponent('input.rich-text');
+            $this->registerComponent('input.errors');
+
+            $this->registerComponent('application-logo');
+
+            $this->registerComponent('dropdown');
+            $this->registerComponent('dropdown.link');
+
+            $this->registerComponent('nav.link');
+            $this->registerComponent('nav.responsive-link');
 
             Blade::component(ContentfulLayout::class, 'contentful-layout');
         });

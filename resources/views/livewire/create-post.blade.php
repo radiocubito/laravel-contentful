@@ -1,6 +1,6 @@
 <div class="py-12">
     <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-contentful::input.errors class="mb-4" :errors="$errors" />
 
         <form class="space-y-6" wire:submit.prevent="publish">
             <div>
