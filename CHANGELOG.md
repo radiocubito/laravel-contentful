@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/radiocubito/laravel-contentful/compare/v0.0.2...master)
 
+## [v0.0.3 (2021-03-06)](https://github.com/radiocubito/laravel-contentful/compare/v0.0.2...v0.0.3)
+
+### Fixed
+
+- Post image uploads
+
 ## [v0.0.2 (2021-03-06)](https://github.com/radiocubito/laravel-contentful/compare/v0.0.1...v0.0.2)
 
 ### Fixed
