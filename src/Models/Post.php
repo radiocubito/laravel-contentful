@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -23,6 +24,21 @@ class Post extends Model
             'published_at' => $this->published_at ?? $this->freshTimestamp(),
             'status' => 'published',
         ]);
+    }
+
+    public function getExcerptAttribute($imagePath)
+    {
+        return Str::of(strip_tags(str_replace('<br>', ' ', $this->html)))->words(60);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->whereStatus('published');
+    }
+
+    public function isPublished()
+    {
+        return $this->status === 'published';
     }
 
     public function storeImage(UploadedFile $image)
