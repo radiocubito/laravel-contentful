@@ -23,6 +23,12 @@ php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceP
 php artisan migrate
 ```
 
+You can publish the assets with:
+
+```bash
+php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="laravel-contentful-assets"
+```
+
 You can publish the config file with:
 ```bash
 php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="laravel-contentful-config"

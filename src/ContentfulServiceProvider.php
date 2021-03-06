@@ -26,6 +26,7 @@ class ContentfulServiceProvider extends PackageServiceProvider
             ->name('laravel-contentful')
             ->hasConfigFile()
             ->hasViews()
+            ->hasAssets()
             ->hasRoute('web')
             ->hasMigration('create_contentful_tables');
     }
