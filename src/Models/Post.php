@@ -36,9 +36,19 @@ class Post extends Model
         return $query->whereStatus('published');
     }
 
+    public function scopeDraft($query)
+    {
+        return $query->whereStatus('draft');
+    }
+
     public function isPublished()
     {
         return $this->status === 'published';
+    }
+
+    public function isDraft()
+    {
+        return $this->status === 'draft';
     }
 
     public function storeImage(UploadedFile $image)

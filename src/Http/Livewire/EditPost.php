@@ -28,6 +28,17 @@ class EditPost extends Component
         redirect()->to(route('contentful.posts.show', $this->post));
     }
 
+    public function saveAndPublish()
+    {
+        $this->validate();
+
+        $this->post->save();
+
+        $this->post->markAsPublished();
+
+        redirect()->to(route('contentful.posts.show', $this->post));
+    }
+
     public function completeUpload($uploadedUrl, $eventName)
     {
         foreach ($this->newFiles as $image) {

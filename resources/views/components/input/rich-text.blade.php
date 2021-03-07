@@ -35,5 +35,5 @@
     wire:ignore
 >
     <input id="x" type="hidden">
-    <trix-editor x-ref="trix" input="x" class="prose max-w-none" style="min-height: 22em;"></trix-editor>
+    <trix-editor x-ref="trix" input="x" class="prose max-w-none border-0" style="min-height: 22em;" placeholder="Write away..."></trix-editor>
 </div>

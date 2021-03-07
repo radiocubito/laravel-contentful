@@ -2,20 +2,9 @@
     <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
         <div class="pb-5 border-b border-gray-200 sm:flex sm:items-center sm:justify-between">
             <h1 class="text-3xl leading-6 font-bold text-gray-900">
-                {{ __('Posts') }}
+                {{ __('Post drafts') }}
             </h1>
-            <div class="mt-3 sm:mt-0 sm:ml-4">
-                <a href="{{ route('contentful.posts.create') }}" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    {{ __('Create post') }}
-                </a>
-            </div>
         </div>
-
-        @if ($draftCount === 1)
-            <div class="mt-5 text-center"><a href="{{ route('contentful.posts.edit', $firstDraft) }}" class="font-medium text-indigo-600 hover:text-indigo-500 underline">Continue writing your draft…</a></div>
-        @elseif ($draftCount > 1)
-            <div class="mt-5 text-center"><a href="{{ route('contentful.posts.drafts.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500 underline">Continue writing {{ $draftCount }} drafts…</a></div>
-        @endif
 
         <ul class="divide-y divide-gray-200 mt-5" x-max="1">
             @foreach ($posts as $post)

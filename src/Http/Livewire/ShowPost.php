@@ -9,6 +9,13 @@ class ShowPost extends Component
 {
     public Post $post;
 
+    public function publish()
+    {
+        $this->post->markAsPublished();
+
+        redirect()->to(route('contentful.posts.show', $this->post));
+    }
+
     public function render()
     {
         return view('contentful::livewire.show-post')->layout('contentful::layouts.contentful');

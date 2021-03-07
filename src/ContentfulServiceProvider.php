@@ -51,6 +51,8 @@ class ContentfulServiceProvider extends PackageServiceProvider
         $this->callAfterResolving(BladeCompiler::class, function () {
             $this->registerComponent('input.rich-text');
             $this->registerComponent('input.errors');
+            $this->registerComponent('input.textarea');
+            $this->registerComponent('input.text');
 
             $this->registerComponent('application-logo');
 
