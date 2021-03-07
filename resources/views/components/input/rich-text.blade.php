@@ -4,26 +4,28 @@
         isFocused() { return document.activeElement !== this.$refs.trix },
         setValue() { this.$refs.trix.editor.loadHTML(this.value) },
         uploadTrixImage(attachment) {
-            @this.upload(
-                'newFiles',
-                attachment.file,
-                function (uploadedUrl) {
-                    const eventName = `contentful:trix-upload-completed:${btoa(uploadedUrl)}`;
+            if (event.attachment.file) {
+                @this.upload(
+                    'newFiles',
+                    attachment.file,
+                    function (uploadedUrl) {
+                        const eventName = `contentful:trix-upload-completed:${btoa(uploadedUrl)}`;
 
-                    const listener = function (event) {
-                        attachment.setAttributes(event.detail);
-                        window.removeEventListener(eventName, listener);
+                        const listener = function (event) {
+                            attachment.setAttributes(event.detail);
+                            window.removeEventListener(eventName, listener);
+                        }
+
+                        window.addEventListener(eventName, listener);
+
+                        @this.call('completeUpload', uploadedUrl, eventName);
+                    },
+                    function () {},
+                    function (event) {
+                        attachment.setUploadProgress(event.detail.progress);
                     }
-
-                    window.addEventListener(eventName, listener);
-
-                    @this.call('completeUpload', uploadedUrl, eventName);
-                },
-                function () {},
-                function (event) {
-                    attachment.setUploadProgress(event.detail.progress);
-                }
-            );
+                );
+            }
         },
     }"
     x-init="setValue(); $watch('value', () => isFocused() && setValue())"
