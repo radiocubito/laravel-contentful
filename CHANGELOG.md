@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/radiocubito/laravel-contentful/compare/v0.1.0...master)
 
-## [v0.0.4 (2021-03-06)](https://github.com/radiocubito/laravel-contentful/compare/v0.0.4...v0.1.0)
+## [v0.1.0 (2021-03-07)](https://github.com/radiocubito/laravel-contentful/compare/v0.0.4...v0.1.0)
 
 ### Changed
 
