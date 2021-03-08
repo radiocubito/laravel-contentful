@@ -14,9 +14,9 @@ class CreatePost extends Component
     public $newFiles = [];
 
     protected $rules = [
-        'post.title' => '',
-        'post.slug' => '',
-        'post.html' => '',
+        'post.title' => ['required', 'string', 'max:255'],
+        'post.slug' => ['required', 'string', 'max:255', 'unique:posts,slug'],
+        'post.html' => ['required'],
     ];
 
     public function save()

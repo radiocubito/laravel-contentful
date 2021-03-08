@@ -10,9 +10,9 @@ class ShowPosts extends Component
     public function render()
     {
         return view('contentful::livewire.show-posts', [
-            'posts' => Post::published()->orderBy('created_at', 'desc')->get(),
-            'draftCount' => Post::draft()->count(),
-            'firstDraft' => Post::draft()->first(),
+            'posts' => Post::published()->ofType('post')->orderBy('created_at', 'desc')->get(),
+            'draftCount' => Post::draft()->ofType('post')->count(),
+            'firstDraft' => Post::draft()->ofType('post')->first(),
         ])->layout('contentful::layouts.contentful');
     }
 }

@@ -15,29 +15,28 @@
 
             <div>
                 <label for="html" class="sr-only">{{ __('HTML') }}</label>
-
                 <x-contentful::input.rich-text wire:model.defer="post.html" id="html" />
             </div>
 
             <div class="pt-5">
                 <div class="flex space-x-3">
                     @if ($post->isPublished())
-                        <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <x-contentful::button.primary>
                             {{ __('Save changes') }}
-                        </button>
+                        </x-contentful::button.primary>
                     @elseif  ($post->isDraft())
-                        <button type="button" wire:click="saveAndPublish" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <x-contentful::button.primary type="button" wire:click="saveAndPublish">
                             {{ __('Publish post') }}
-                        </button>
+                        </x-contentful::button.primary>
 
-                        <button type="submit" class="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <x-contentful::button.secondary>
                             {{ __('Save draft') }}
-                        </button>
+                        </x-contentful::button.secondary>
                     @endif
                 </div>
 
                 <div class="mt-2">
-                    Or, <a href="{{ route('contentful.posts.show', $post) }}" class="font-medium text-indigo-600 hover:text-indigo-500 underline">discard my changes</a>
+                    Or, <x-contentful::link href="{{ route('contentful.posts.show', $post) }}">discard my changes</x-contentful::link>
                 </div>
             </div>
         </form>

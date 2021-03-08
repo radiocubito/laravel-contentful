@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Radiocubito\Contentful\Models\Post;
 
-class EditPost extends Component
+class EditPage extends Component
 {
     use WithFileUploads;
 
@@ -28,7 +28,7 @@ class EditPost extends Component
 
         $this->post->save();
 
-        redirect()->to(route('contentful.posts.show', $this->post));
+        redirect()->to(route('contentful.pages.show', $this->post));
     }
 
     public function saveAndPublish()
@@ -39,7 +39,7 @@ class EditPost extends Component
 
         $this->post->markAsPublished();
 
-        redirect()->to(route('contentful.posts.show', $this->post));
+        redirect()->to(route('contentful.pages.show', $this->post));
     }
 
     public function completeUpload($uploadedUrl, $eventName)
@@ -58,6 +58,6 @@ class EditPost extends Component
 
     public function render()
     {
-        return view('contentful::livewire.edit-post')->layout('contentful::layouts.contentful');
+        return view('contentful::livewire.edit-page')->layout('contentful::layouts.contentful');
     }
 }

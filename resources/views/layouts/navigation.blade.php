@@ -15,6 +15,10 @@
                     <x-contentful::nav.link :href="route('contentful.posts.index')" :active="request()->routeIs('contentful.posts.*')">
                         {{ __('Posts') }}
                     </x-contentful::nav.link>
+
+                    <x-contentful::nav.link :href="route('contentful.pages.index')" :active="request()->routeIs('contentful.pages.*')">
+                        {{ __('Pages') }}
+                    </x-contentful::nav.link>
                 </div>
             </div>
 

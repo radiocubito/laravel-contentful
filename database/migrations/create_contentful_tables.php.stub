@@ -14,6 +14,7 @@ class CreateContentfulTables extends Migration
             $table->string('title');
             $table->text('html');
             $table->string('status', 50)->default('draft');
+            $table->string('type', 50)->default('post');
             $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });

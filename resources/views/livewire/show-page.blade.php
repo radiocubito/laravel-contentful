@@ -4,12 +4,12 @@
             <div class="bg-gray-50 sm:rounded-lg mb-8">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex justify-center space-x-2">
-                        <x-contentful::button.primary href="{{ route('contentful.posts.edit', $post) }}">
+                        <x-contentful::button.primary href="{{ route('contentful.pages.edit', $post) }}">
                             {{ __('Continue editing') }}
                         </x-contentful::button.primary>
 
                         <x-contentful::button.secondary type="button" wire:click="publish">
-                            {{ __('Publish this post') }}
+                            {{ __('Publish this page') }}
                         </x-contentful::button.secondary>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-contentful::dropdown.link :href="route('contentful.posts.edit', $post)">
+                            <x-contentful::dropdown.link :href="route('contentful.pages.edit', $post)">
                                 {{ __('Edit') }}
                             </x-contentful::dropdown.link>
                         </x-slot>

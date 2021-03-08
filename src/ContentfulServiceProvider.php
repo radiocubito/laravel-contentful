@@ -5,8 +5,12 @@ namespace Radiocubito\Contentful;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
+use Radiocubito\Contentful\Http\Livewire\CreatePage;
 use Radiocubito\Contentful\Http\Livewire\CreatePost;
+use Radiocubito\Contentful\Http\Livewire\EditPage;
 use Radiocubito\Contentful\Http\Livewire\EditPost;
+use Radiocubito\Contentful\Http\Livewire\ShowPage;
+use Radiocubito\Contentful\Http\Livewire\ShowPages;
 use Radiocubito\Contentful\Http\Livewire\ShowPost;
 use Radiocubito\Contentful\Http\Livewire\ShowPosts;
 use Radiocubito\Contentful\View\Components\ContentfulLayout;
@@ -38,6 +42,11 @@ class ContentfulServiceProvider extends PackageServiceProvider
             Livewire::component('contentful::posts.show-post', ShowPost::class);
             Livewire::component('contentful::posts.create-post', CreatePost::class);
             Livewire::component('contentful::posts.edit-post', EditPost::class);
+
+            Livewire::component('contentful::posts.show-pages', ShowPages::class);
+            Livewire::component('contentful::posts.show-page', ShowPage::class);
+            Livewire::component('contentful::posts.create-page', CreatePage::class);
+            Livewire::component('contentful::posts.edit-page', EditPage::class);
         });
     }
 
@@ -58,6 +67,9 @@ class ContentfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('dropdown');
             $this->registerComponent('dropdown.link');
+
+            $this->registerComponent('button.primary');
+            $this->registerComponent('button.secondary');
 
             $this->registerComponent('nav.link');
             $this->registerComponent('nav.responsive-link');

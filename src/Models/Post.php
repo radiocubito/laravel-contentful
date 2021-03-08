@@ -51,6 +51,11 @@ class Post extends Model
         return $this->status === 'draft';
     }
 
+    public function scopeOfType($query, $type)
+    {
+        return $query->where('type', $type);
+    }
+
     public function storeImage(UploadedFile $image)
     {
         return $image->storePublicly('post-images', ['disk' => $this->imagesDisk()]);

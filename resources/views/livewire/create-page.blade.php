@@ -21,7 +21,7 @@
             <div class="pt-5">
                 <div class="flex space-x-3">
                     <x-contentful::button.primary>
-                        {{ __('Publish post') }}
+                        {{ __('Publish page') }}
                     </x-contentful::button.primary>
 
                     <x-contentful::button.secondary type="button" wire:click="save">
