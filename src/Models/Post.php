@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Radiocubito\Contentful\Contentful;
 
 class Post extends Model
 {
@@ -18,6 +19,11 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
+    public function author()
+    {
+        return $this->belongsTo(Contentful::userModel());
+    }
+
     public function markAsPublished()
     {
         $this->update([
@@ -26,7 +32,7 @@ class Post extends Model
         ]);
     }
 
-    public function getExcerptAttribute($imagePath)
+    public function getExcerptAttribute()
     {
         return Str::of(strip_tags(str_replace('<br>', ' ', $this->html)))->words(60);
     }

@@ -2,6 +2,7 @@
 
 namespace Radiocubito\Contentful\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Radiocubito\Contentful\Models\Post;
@@ -21,22 +22,25 @@ class CreatePost extends Component
 
     public function save()
     {
-        $this->validate();
-
-        $this->post->save();
+        $this->savePost();
 
         redirect()->to(route('contentful.posts.show', $this->post));
     }
 
     public function publish()
     {
-        $this->validate();
-
-        $this->post->save();
+        $this->savePost();
 
         $this->post->markAsPublished();
 
         redirect()->to(route('contentful.posts.show', $this->post));
+    }
+
+    protected function savePost()
+    {
+        $this->validate();
+
+        return $this->post->fill(['author_id' => Auth::user()->id])->save();
     }
 
     public function completeUpload($uploadedUrl, $eventName)

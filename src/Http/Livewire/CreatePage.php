@@ -2,6 +2,7 @@
 
 namespace Radiocubito\Contentful\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Radiocubito\Contentful\Models\Post;
@@ -21,18 +22,14 @@ class CreatePage extends Component
 
     public function save()
     {
-        $this->validate();
-
-        $this->post->fill(['type' => 'page'])->save();
+        $this->savePost();
 
         redirect()->to(route('contentful.pages.show', $this->post));
     }
 
     public function publish()
     {
-        $this->validate();
-
-        $this->post->fill(['type' => 'page'])->save();
+        $this->savePost();
 
         $this->post->markAsPublished();
 
@@ -51,6 +48,16 @@ class CreatePage extends Component
                 return;
             }
         }
+    }
+
+    protected function savePost()
+    {
+        $this->validate();
+
+        return $this->post->fill([
+            'type' => 'page',
+            'author_id' => Auth::user()->id,
+        ])->save();
     }
 
     public function mount()
