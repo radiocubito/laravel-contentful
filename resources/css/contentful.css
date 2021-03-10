@@ -7,93 +7,51 @@ trix-toolbar {
 }
 
 .taggle_list {
-    padding: 0;
-    margin: 0;
-    line-height: 2.5;
-    width: 100%;
+    @apply leading-8;
 }
-.taggle_input {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    font-weight: 300;
-}
+
 .taggle_list li {
-    display: inline;
-    vertical-align: baseline;
-    white-space: nowrap;
-    font-weight: 500;
-    margin-bottom: 5px;
+    @apply inline-flex;
 }
+
 .taggle_list .taggle {
-    margin-right: 8px;
-    background: #E2E1DF;
-    padding: 5px 10px;
-    border-radius: 3px;
-    position: relative;
-    cursor: pointer;
-    transition: all .3s;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+    @apply relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5 cursor-pointer mr-1 transition-all duration-300;
 }
+
+.taggle_list .taggle .taggle_text {
+    @apply text-sm font-medium text-gray-900;
+}
+
 .taggle_list .taggle_hot {
     background: #cac8c4;
 }
+
 .taggle_list .taggle .close {
-    font-size: 1.1rem;
-    position: absolute;
-    top: 10px;
-    right: 3px;
-    text-decoration: none;
-    padding: 0;
-    line-height: 0.5;
-    color: #ccc;
-    color: rgba(0, 0, 0, 0.2);
-    padding-bottom: 4px;
-    display: inline-block;
-    opacity: 0;
-    pointer-events: none;
-    border: 0;
-    background: none;
-    cursor: pointer;
+    @apply text-sm absolute right-0 mr-3 leading-none text-gray-400 opacity-0 pointer-events-none cursor-pointer;
 }
+
 .taggle_list .taggle:hover {
-    padding: 5px;
-    padding-right: 15px;
-    background: #ccc;
-    transition: all .3s;
+    @apply px-3 py-0.5 pr-6 transition-all duration-300;
 }
+
 .taggle_list .taggle:hover > .close {
-    opacity: 1;
-    pointer-events: auto;
+    @apply opacity-100 pointer-events-auto;
 }
+
 .taggle_list .taggle .close:hover {
     color: #990033;
 }
+
 .taggle_placeholder {
-    position: absolute;
-    color: #CCC;
-    top: 24px;
-    left: 16px;
-    transition: opacity, .25s;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @apply absolute top-0 left-0 text-gray-400 py-0.5;
 }
+
 .taggle_input {
-    padding: 8px;
-    padding-left: 0;
-    margin-top: -5px;
-    background: none;
-    max-width: 100%;
+    @apply border border-transparent py-0.5 text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 focus:border-transparent;
 }
+
 .taggle_sizer {
-    padding: 0;
-    margin: 0;
-    position: absolute;
+    @apply absolute;
     top: -500px;
     z-index: -1;
     visibility: hidden;

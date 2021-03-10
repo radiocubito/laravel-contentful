@@ -1,8 +1,8 @@
 <div
-     class=""
-     wire:ignore
-     x-data="{ value: @entangle($attributes->wire('model')), taggle: undefined }"
-     x-init="
+    class="py-2 px-3"
+    wire:ignore
+    x-data="{ value: @entangle($attributes->wire('model')), taggle: undefined }"
+    x-init="
         taggle = new Taggle($refs.input, {
              tags: value,
              preserveCase: true,
@@ -15,5 +15,5 @@
          });
  ">
 
-    <div x-ref="input"></div>
+    <div class="relative" x-ref="input"></div>
  </div>

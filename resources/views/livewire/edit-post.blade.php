@@ -7,11 +7,11 @@
                 <form class="space-y-6" wire:submit.prevent="save">
                     <div>
                         <label for="title" class="sr-only">{{ __('Title') }}</label>
-                        <x-contentful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Type a title…') }}" rows="1" class="border-0 font-bold text-4xl leading-none resize-none" />
+                        <x-contentful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Post title…') }}" rows="1" class="border-0 font-bold text-4xl leading-none resize-none" />
                     </div>
                     <div>
                         <label for="slug" class="sr-only">{{ __('Slug') }}</label>
-                        <x-contentful::input.text type="text" wire:model.defer="post.slug" sharedBorder placeholder="{{ __('Slug') }}" class="border-0 leading-none" />
+                        <x-contentful::input.text type="text" wire:model.defer="post.slug" sharedBorder placeholder="{{ __('Post slug…') }}" class="border-0 leading-none" />
                     </div>
                     <div>
                         <label for="html" class="sr-only">{{ __('HTML') }}</label>
