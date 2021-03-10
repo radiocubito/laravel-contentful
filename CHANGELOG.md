@@ -1,6 +1,12 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-contentful/compare/v0.3.0...master)
+## [Unreleased](https://github.com/radiocubito/laravel-contentful/compare/v0.3.1...master)
+
+## [v0.3.1 (2021-03-10)](https://github.com/radiocubito/laravel-contentful/compare/v0.2.0...v0.3.0)
+
+### Fixed
+
+- Fix edit page link
 
 ## [v0.3.0 (2021-03-10)](https://github.com/radiocubito/laravel-contentful/compare/v0.2.0...v0.3.0)
 
