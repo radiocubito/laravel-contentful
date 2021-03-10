@@ -24,6 +24,11 @@ class Post extends Model
         return $this->belongsTo(Contentful::userModel());
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'posts_tags', 'post_id', 'tag_id');
+    }
+
     public function markAsPublished()
     {
         $this->update([
@@ -47,6 +52,18 @@ class Post extends Model
         return $query->whereStatus('draft');
     }
 
+    public function scopeOfType($query, $type)
+    {
+        return $query->where('type', $type);
+    }
+
+    public function scopeTag($query, string $slug)
+    {
+        return $query->whereHas('tags', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        });
+    }
+
     public function isPublished()
     {
         return $this->status === 'published';
@@ -55,11 +72,6 @@ class Post extends Model
     public function isDraft()
     {
         return $this->status === 'draft';
-    }
-
-    public function scopeOfType($query, $type)
-    {
-        return $query->where('type', $type);
     }
 
     public function storeImage(UploadedFile $image)

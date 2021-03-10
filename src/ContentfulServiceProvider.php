@@ -62,6 +62,7 @@ class ContentfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('input.errors');
             $this->registerComponent('input.textarea');
             $this->registerComponent('input.text');
+            $this->registerComponent('input.tag');
 
             $this->registerComponent('application-logo');
 

@@ -10,9 +10,10 @@ use Radiocubito\Contentful\Models\Post;
 class CreatePost extends Component
 {
     use WithFileUploads;
+    use WithTrixImages;
+    use WithTags;
 
     public Post $post;
-    public $newFiles = [];
 
     protected $rules = [
         'post.title' => ['required', 'string', 'max:255'],
@@ -40,21 +41,11 @@ class CreatePost extends Component
     {
         $this->validate();
 
-        return $this->post->fill(['author_id' => Auth::user()->id])->save();
-    }
+        $this->post->fill(['author_id' => Auth::user()->id])->save();
 
-    public function completeUpload($uploadedUrl, $eventName)
-    {
-        foreach ($this->newFiles as $image) {
-            if ($image->getFilename() === $uploadedUrl) {
-                $imagePath = $this->post->storeImage($image);
-                $url = $this->post->getImageUrlAttribute($imagePath);
-
-                $this->dispatchBrowserEvent($eventName, ['url' => $url, 'href' => $url]);
-
-                return;
-            }
-        }
+        $this->post->tags()->sync(
+            $this->collectTags()
+        );
     }
 
     public function mount()

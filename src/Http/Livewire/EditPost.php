@@ -9,9 +9,10 @@ use Radiocubito\Contentful\Models\Post;
 class EditPost extends Component
 {
     use WithFileUploads;
+    use WithTrixImages;
+    use WithTags;
 
     public Post $post;
-    public $newFiles = [];
 
     protected function rules()
     {
@@ -26,7 +27,7 @@ class EditPost extends Component
     {
         $this->validate();
 
-        $this->post->save();
+        $this->savePost();
 
         redirect()->to(route('contentful.posts.show', $this->post));
     }
@@ -35,25 +36,27 @@ class EditPost extends Component
     {
         $this->validate();
 
-        $this->post->save();
+        $this->savePost();
 
         $this->post->markAsPublished();
 
         redirect()->to(route('contentful.posts.show', $this->post));
     }
 
-    public function completeUpload($uploadedUrl, $eventName)
+    protected function savePost()
     {
-        foreach ($this->newFiles as $image) {
-            if ($image->getFilename() === $uploadedUrl) {
-                $imagePath = $this->post->storeImage($image);
-                $url = $this->post->getImageUrlAttribute($imagePath);
+        $this->validate();
 
-                $this->dispatchBrowserEvent($eventName, ['url' => $url, 'href' => $url]);
+        $this->post->save();
 
-                return;
-            }
-        }
+        $this->post->tags()->sync(
+            $this->collectTags()
+        );
+    }
+
+    public function mount()
+    {
+        $this->incomingTags = $this->post->tags->pluck('name')->toArray();
     }
 
     public function render()

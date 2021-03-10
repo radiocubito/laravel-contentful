@@ -9,9 +9,9 @@ use Radiocubito\Contentful\Models\Post;
 class EditPage extends Component
 {
     use WithFileUploads;
+    use WithTrixImages;
 
     public Post $post;
-    public $newFiles = [];
 
     protected function rules()
     {
@@ -40,20 +40,6 @@ class EditPage extends Component
         $this->post->markAsPublished();
 
         redirect()->to(route('contentful.pages.show', $this->post));
-    }
-
-    public function completeUpload($uploadedUrl, $eventName)
-    {
-        foreach ($this->newFiles as $image) {
-            if ($image->getFilename() === $uploadedUrl) {
-                $imagePath = $this->post->storeImage($image);
-                $url = $this->post->getImageUrlAttribute($imagePath);
-
-                $this->dispatchBrowserEvent($eventName, ['url' => $url, 'href' => $url]);
-
-                return;
-            }
-        }
     }
 
     public function render()

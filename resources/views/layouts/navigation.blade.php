@@ -1,17 +1,10 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-200">
     <!-- Primary Navigation Menu -->
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-12">
             <div class="flex">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-contentful::application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
-
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:flex">
                     <x-contentful::nav.link :href="route('contentful.posts.index')" :active="request()->routeIs('contentful.posts.*')">
                         {{ __('Posts') }}
                     </x-contentful::nav.link>
