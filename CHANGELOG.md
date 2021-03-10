@@ -1,6 +1,16 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-contentful/compare/v0.2.0...master)
+## [Unreleased](https://github.com/radiocubito/laravel-contentful/compare/v0.3.0...master)
+
+## [v0.3.0 (2021-03-10)](https://github.com/radiocubito/laravel-contentful/compare/v0.2.0...v0.3.0)
+
+### Added
+
+- Tags
+
+### Changed
+
+- Dashboard UI
 
 ## [v0.2.0 (2021-03-07)](https://github.com/radiocubito/laravel-contentful/compare/v0.1.0...v0.2.0)
 
