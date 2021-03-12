@@ -39,7 +39,7 @@ class Post extends Model
 
     public function getExcerptAttribute()
     {
-        return Str::of(strip_tags(str_replace('<br>', ' ', $this->html)))->words(60);
+        return Str::of(strip_tags(str_replace('<br>', ' ', html_entity_decode($this->html))))->words(60);
     }
 
     public function scopePublished($query)
