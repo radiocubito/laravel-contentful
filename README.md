@@ -19,19 +19,19 @@ composer require radiocubito/laravel-contentful
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="laravel-contentful-migrations"
+php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="contentful-migrations"
 php artisan migrate
 ```
 
 You can publish the assets with:
 
 ```bash
-php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="laravel-contentful-assets"
+php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="contentful-assets"
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="laravel-contentful-config"
+php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="contentful-config"
 ```
 
 ## Usage

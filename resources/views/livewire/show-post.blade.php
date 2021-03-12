@@ -59,6 +59,15 @@
                                 <x-contentful::dropdown.link :href="route('contentful.posts.edit', $post)">
                                     {{ __('Edit') }}
                                 </x-contentful::dropdown.link>
+
+                                <x-contentful::dropdown.link
+                                    :href="route('contentful.posts.edit', $post)"
+                                    onclick="event.preventDefault();
+                                        confirm('Are you sure you want to delete this post?') || event.stopImmediatePropagation();"
+                                    wire:click="delete"
+                                >
+                                    {{ __('Delete') }}
+                                </x-contentful::dropdown.link>
                             </x-slot>
                         </x-contentful::dropdown>
                     </div>
