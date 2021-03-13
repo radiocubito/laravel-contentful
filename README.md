@@ -8,33 +8,7 @@
 
 Just a simple blog package for Laravel.
 
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require radiocubito/laravel-contentful
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="contentful-migrations"
-php artisan migrate
-```
-
-You can publish the assets with:
-
-```bash
-php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="contentful-assets"
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Radiocubito\Contentful\ContentfulServiceProvider" --tag="contentful-config"
-```
-
-## Usage
+### [Visit the Contenful documentation &rarr;](https://contentful.radiocubito.com/docs)
 
 ## Testing
 
