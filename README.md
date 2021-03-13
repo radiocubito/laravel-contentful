@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/radiocubito/laravel-wordful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-wordful)
 
 
-Just a simple blog package for Laravel.
+Just a simple blogging package for Laravel.
 
 ## [Visit the RadioCúbito Wordful documentation &rarr;](https://wordful.radiocubito.com/docs)
 
