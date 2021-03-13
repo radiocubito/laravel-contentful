@@ -1,4 +1,4 @@
-# Wordful
+# RadioCúbito Wordful
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/radiocubito/laravel-wordful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-wordful)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/radiocubito/laravel-wordful/run-tests?label=tests)](https://github.com/radiocubito/laravel-wordful/actions?query=workflow%3ATests+branch%3Amaster)
@@ -8,7 +8,7 @@
 
 Just a simple blog package for Laravel.
 
-## [Visit the Wordful documentation &rarr;](https://wordful.radiocubito.com/docs)
+## [Visit the RadioCúbito Wordful documentation &rarr;](https://wordful.radiocubito.com/docs)
 
 ## Testing
 
