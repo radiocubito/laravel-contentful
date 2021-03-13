@@ -3,7 +3,9 @@
     "description": "Wordful – Just a simple blog package for Laravel.",
     "keywords": [
         "radiocubito",
-        "laravel-wordful"
+        "laravel",
+        "blogging",
+        "publishing"
     ],
     "homepage": "https://github.com/radiocubito/laravel-wordful",
     "license": "AGPL-3.0-or-later",
