@@ -3,8 +3,11 @@
 namespace Radiocubito\Wordful;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
+use Radiocubito\Wordful\Console\InstallCommand;
+use Radiocubito\Wordful\Console\PublishCommand;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -21,18 +24,17 @@ class WordfulServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
-            ->name('laravel-wordful')
+            ->name('wordful')
             ->hasConfigFile()
             ->hasViews()
             ->hasAssets()
             ->hasRoute('web')
-            ->hasMigration('create_wordful_tables');
+            ->hasMigration('create_wordful_tables')
+            ->hasCommands([
+                InstallCommand::class,
+                PublishCommand::class,
+            ]);
     }
 
     public function packageRegistered()
@@ -50,8 +52,19 @@ class WordfulServiceProvider extends PackageServiceProvider
         });
     }
 
+    public function bootingPackage()
+    {
+        Route::middlewareGroup('wordful', config('wordful.middleware', []));
+    }
+
     public function packageBooted()
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../stubs/VaporUiServiceProvider.stub' => app_path('Providers/WordfulServiceProvider.php'),
+            ], 'wordful-provider');
+        }
+
         $this->configureComponents();
     }
 
