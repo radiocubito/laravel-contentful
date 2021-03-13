@@ -8,7 +8,7 @@
 
 Just a simple blog package for Laravel.
 
-### [Visit the Wordful documentation &rarr;](https://wordful.radiocubito.com/docs)
+## [Visit the Wordful documentation &rarr;](https://wordful.radiocubito.com/docs)
 
 ## Testing
 
