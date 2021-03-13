@@ -1,6 +1,12 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.4.0...master)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.5.0...master)
+
+## [v0.5.0 (2021-03-13)](https://github.com/radiocubito/laravel-wordful/compare/v0.4.0...v0.5.0)
+
+### Changed
+
+- Rename package name
 
 ## [v0.4.0 (2021-03-11)](https://github.com/radiocubito/laravel-wordful/compare/v0.3.1...v0.4.0)
 
