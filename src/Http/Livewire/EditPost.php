@@ -1,10 +1,10 @@
 <?php
 
-namespace Radiocubito\Contentful\Http\Livewire;
+namespace Radiocubito\Wordful\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Radiocubito\Contentful\Models\Post;
+use Radiocubito\Wordful\Models\Post;
 
 class EditPost extends Component
 {
@@ -29,7 +29,7 @@ class EditPost extends Component
 
         $this->savePost();
 
-        redirect()->to(route('contentful.posts.show', $this->post));
+        redirect()->to(route('wordful.posts.show', $this->post));
     }
 
     public function saveAndPublish()
@@ -40,7 +40,7 @@ class EditPost extends Component
 
         $this->post->markAsPublished();
 
-        redirect()->to(route('contentful.posts.show', $this->post));
+        redirect()->to(route('wordful.posts.show', $this->post));
     }
 
     protected function savePost()
@@ -61,6 +61,6 @@ class EditPost extends Component
 
     public function render()
     {
-        return view('contentful::livewire.edit-post')->layout('contentful::layouts.contentful');
+        return view('wordful::livewire.edit-post')->layout('wordful::layouts.wordful');
     }
 }

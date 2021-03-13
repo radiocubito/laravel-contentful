@@ -6,12 +6,12 @@
                     <div class="bg-gray-50 sm:rounded-lg">
                         <div class="px-4 py-5 sm:p-6">
                             <div class="flex justify-center space-x-2">
-                                <x-contentful::button.primary href="{{ route('contentful.posts.edit', $post) }}">
+                                <x-wordful::button.primary href="{{ route('wordful.posts.edit', $post) }}">
                                     {{ __('Continue editing') }}
-                                </x-contentful::button.primary>
-                                <x-contentful::button.secondary type="button" wire:click="publish">
+                                </x-wordful::button.primary>
+                                <x-wordful::button.secondary type="button" wire:click="publish">
                                     {{ __('Publish this post') }}
-                                </x-contentful::button.secondary>
+                                </x-wordful::button.secondary>
                             </div>
                         </div>
                     </div>
@@ -39,12 +39,12 @@
                 <div class="mt-3 sm:mt-0 sm:ml-4">
                     <!-- Settings Dropdown -->
                     <div class="flex items-center space-x-4">
-                        <a class="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out" href="{{ route('contentful.posts.edit', $post) }}">
+                        <a class="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out" href="{{ route('wordful.posts.edit', $post) }}">
                             <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                             </svg>
                         </a>
-                        <x-contentful::dropdown align="right" width="48">
+                        <x-wordful::dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                     <div>
@@ -56,20 +56,20 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-contentful::dropdown.link :href="route('contentful.posts.edit', $post)">
+                                <x-wordful::dropdown.link :href="route('wordful.posts.edit', $post)">
                                     {{ __('Edit') }}
-                                </x-contentful::dropdown.link>
+                                </x-wordful::dropdown.link>
 
-                                <x-contentful::dropdown.link
-                                    :href="route('contentful.posts.edit', $post)"
+                                <x-wordful::dropdown.link
+                                    :href="route('wordful.posts.edit', $post)"
                                     onclick="event.preventDefault();
                                         confirm('Are you sure you want to delete this post?') || event.stopImmediatePropagation();"
                                     wire:click="delete"
                                 >
                                     {{ __('Delete') }}
-                                </x-contentful::dropdown.link>
+                                </x-wordful::dropdown.link>
                             </x-slot>
-                        </x-contentful::dropdown>
+                        </x-wordful::dropdown>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 <?php
 
-namespace Radiocubito\Contentful\Http\Livewire;
+namespace Radiocubito\Wordful\Http\Livewire;
 
 use Livewire\Component;
-use Radiocubito\Contentful\Models\Post;
+use Radiocubito\Wordful\Models\Post;
 
 class ShowPage extends Component
 {
@@ -13,11 +13,11 @@ class ShowPage extends Component
     {
         $this->post->markAsPublished();
 
-        redirect()->to(route('contentful.pages.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->post));
     }
 
     public function render()
     {
-        return view('contentful::livewire.show-page')->layout('contentful::layouts.contentful');
+        return view('wordful::livewire.show-page')->layout('wordful::layouts.wordful');
     }
 }

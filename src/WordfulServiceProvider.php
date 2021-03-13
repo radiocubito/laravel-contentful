@@ -1,23 +1,23 @@
 <?php
 
-namespace Radiocubito\Contentful;
+namespace Radiocubito\Wordful;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
-use Radiocubito\Contentful\Http\Livewire\CreatePage;
-use Radiocubito\Contentful\Http\Livewire\CreatePost;
-use Radiocubito\Contentful\Http\Livewire\EditPage;
-use Radiocubito\Contentful\Http\Livewire\EditPost;
-use Radiocubito\Contentful\Http\Livewire\ShowPage;
-use Radiocubito\Contentful\Http\Livewire\ShowPages;
-use Radiocubito\Contentful\Http\Livewire\ShowPost;
-use Radiocubito\Contentful\Http\Livewire\ShowPosts;
-use Radiocubito\Contentful\View\Components\ContentfulLayout;
+use Radiocubito\Wordful\Http\Livewire\CreatePage;
+use Radiocubito\Wordful\Http\Livewire\CreatePost;
+use Radiocubito\Wordful\Http\Livewire\EditPage;
+use Radiocubito\Wordful\Http\Livewire\EditPost;
+use Radiocubito\Wordful\Http\Livewire\ShowPage;
+use Radiocubito\Wordful\Http\Livewire\ShowPages;
+use Radiocubito\Wordful\Http\Livewire\ShowPost;
+use Radiocubito\Wordful\Http\Livewire\ShowPosts;
+use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ContentfulServiceProvider extends PackageServiceProvider
+class WordfulServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -27,26 +27,26 @@ class ContentfulServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-contentful')
+            ->name('laravel-wordful')
             ->hasConfigFile()
             ->hasViews()
             ->hasAssets()
             ->hasRoute('web')
-            ->hasMigration('create_contentful_tables');
+            ->hasMigration('create_wordful_tables');
     }
 
     public function packageRegistered()
     {
         $this->app->afterResolving(BladeCompiler::class, function () {
-            Livewire::component('contentful::posts.show-posts', ShowPosts::class);
-            Livewire::component('contentful::posts.show-post', ShowPost::class);
-            Livewire::component('contentful::posts.create-post', CreatePost::class);
-            Livewire::component('contentful::posts.edit-post', EditPost::class);
+            Livewire::component('wordful::posts.show-posts', ShowPosts::class);
+            Livewire::component('wordful::posts.show-post', ShowPost::class);
+            Livewire::component('wordful::posts.create-post', CreatePost::class);
+            Livewire::component('wordful::posts.edit-post', EditPost::class);
 
-            Livewire::component('contentful::posts.show-pages', ShowPages::class);
-            Livewire::component('contentful::posts.show-page', ShowPage::class);
-            Livewire::component('contentful::posts.create-page', CreatePage::class);
-            Livewire::component('contentful::posts.edit-page', EditPage::class);
+            Livewire::component('wordful::posts.show-pages', ShowPages::class);
+            Livewire::component('wordful::posts.show-page', ShowPage::class);
+            Livewire::component('wordful::posts.create-page', CreatePage::class);
+            Livewire::component('wordful::posts.edit-page', EditPage::class);
         });
     }
 
@@ -75,12 +75,12 @@ class ContentfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('nav.link');
             $this->registerComponent('nav.responsive-link');
 
-            Blade::component(ContentfulLayout::class, 'contentful-layout');
+            Blade::component(WordfulLayout::class, 'wordful-layout');
         });
     }
 
     protected function registerComponent(string $component)
     {
-        Blade::component('contentful::components.'.$component, 'contentful::'.$component);
+        Blade::component('wordful::components.'.$component, 'wordful::'.$component);
     }
 }

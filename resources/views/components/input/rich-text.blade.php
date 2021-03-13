@@ -9,7 +9,7 @@
                     'newFiles',
                     attachment.file,
                     function (uploadedUrl) {
-                        const eventName = `contentful:trix-upload-completed:${btoa(uploadedUrl)}`;
+                        const eventName = `wordful:trix-upload-completed:${btoa(uploadedUrl)}`;
 
                         const listener = function (event) {
                             attachment.setAttributes(event.detail);

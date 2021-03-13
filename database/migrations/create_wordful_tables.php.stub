@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContentfulTables extends Migration
+class CreateWordfulTables extends Migration
 {
     public function up()
     {

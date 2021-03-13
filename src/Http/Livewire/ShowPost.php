@@ -1,9 +1,9 @@
 <?php
 
-namespace Radiocubito\Contentful\Http\Livewire;
+namespace Radiocubito\Wordful\Http\Livewire;
 
 use Livewire\Component;
-use Radiocubito\Contentful\Models\Post;
+use Radiocubito\Wordful\Models\Post;
 
 class ShowPost extends Component
 {
@@ -13,18 +13,18 @@ class ShowPost extends Component
     {
         $this->post->markAsPublished();
 
-        redirect()->to(route('contentful.posts.show', $this->post));
+        redirect()->to(route('wordful.posts.show', $this->post));
     }
 
     public function delete()
     {
         $this->post->delete();
 
-        redirect()->to(route('contentful.posts.index', $this->post));
+        redirect()->to(route('wordful.posts.index', $this->post));
     }
 
     public function render()
     {
-        return view('contentful::livewire.show-post')->layout('contentful::layouts.contentful');
+        return view('wordful::livewire.show-post')->layout('wordful::layouts.wordful');
     }
 }

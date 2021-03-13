@@ -1,10 +1,10 @@
 <?php
 
-namespace Radiocubito\Contentful\View\Components;
+namespace Radiocubito\Wordful\View\Components;
 
 use Illuminate\View\Component;
 
-class ContentfulLayout extends Component
+class WordfulLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
@@ -13,6 +13,6 @@ class ContentfulLayout extends Component
      */
     public function render()
     {
-        return view('contentful::layouts.contentful');
+        return view('wordful::layouts.wordful');
     }
 }

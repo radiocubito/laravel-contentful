@@ -1,13 +1,13 @@
 <?php
 
-namespace Radiocubito\Contentful\Models;
+namespace Radiocubito\Wordful\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Radiocubito\Contentful\Contentful;
+use Radiocubito\Wordful\Wordful;
 
 class Post extends Model
 {
@@ -21,7 +21,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo(Contentful::userModel());
+        return $this->belongsTo(Wordful::userModel());
     }
 
     public function tags()
@@ -86,6 +86,6 @@ class Post extends Model
 
     protected function imagesDisk()
     {
-        return isset($_ENV['VAPOR_ARTIFACT_NAME']) ? 's3' : config('contentful.images_disk', 'public');
+        return isset($_ENV['VAPOR_ARTIFACT_NAME']) ? 's3' : config('wordful.images_disk', 'public');
     }
 }

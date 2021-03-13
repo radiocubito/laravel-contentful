@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.postCss('resources/css/contentful.css', 'resources/dist/css/app.css', [
+mix.postCss('resources/css/wordful.css', 'resources/dist/css/app.css', [
         require('postcss-import'),
         require('tailwindcss'),
     ]);

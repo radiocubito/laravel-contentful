@@ -1,9 +1,9 @@
 <?php
 
-namespace Radiocubito\Contentful\Http\Livewire;
+namespace Radiocubito\Wordful\Http\Livewire;
 
 use Illuminate\Support\Str;
-use Radiocubito\Contentful\Models\Tag;
+use Radiocubito\Wordful\Models\Tag;
 
 trait WithTags
 {

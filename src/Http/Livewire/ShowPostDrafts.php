@@ -1,16 +1,16 @@
 <?php
 
-namespace Radiocubito\Contentful\Http\Livewire;
+namespace Radiocubito\Wordful\Http\Livewire;
 
 use Livewire\Component;
-use Radiocubito\Contentful\Models\Post;
+use Radiocubito\Wordful\Models\Post;
 
 class ShowPostDrafts extends Component
 {
     public function render()
     {
-        return view('contentful::livewire.show-post-drafts', [
+        return view('wordful::livewire.show-post-drafts', [
             'posts' => Post::draft()->ofType('post')->orderBy('created_at', 'desc')->get(),
-        ])->layout('contentful::layouts.contentful');
+        ])->layout('wordful::layouts.wordful');
     }
 }

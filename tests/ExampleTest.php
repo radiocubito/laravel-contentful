@@ -1,6 +1,6 @@
 <?php
 
-namespace Radiocubito\Contentful\Tests;
+namespace Radiocubito\Wordful\Tests;
 
 class ExampleTest extends TestCase
 {

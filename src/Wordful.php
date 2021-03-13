@@ -1,8 +1,8 @@
 <?php
 
-namespace Radiocubito\Contentful;
+namespace Radiocubito\Wordful;
 
-class Contentful
+class Wordful
 {
     public static $userModel = 'App\\Models\\User';
 

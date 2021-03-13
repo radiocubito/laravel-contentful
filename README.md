@@ -1,14 +1,14 @@
-# Contentful
+# Wordful
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/radiocubito/laravel-contentful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-contentful)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/radiocubito/laravel-contentful/run-tests?label=tests)](https://github.com/radiocubito/laravel-contentful/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/radiocubito/laravel-contentful/Check%20&%20fix%20styling?label=code%20style)](https://github.com/radiocubito/laravel-contentful/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/radiocubito/laravel-contentful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-contentful)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/radiocubito/laravel-wordful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-wordful)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/radiocubito/laravel-wordful/run-tests?label=tests)](https://github.com/radiocubito/laravel-wordful/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/radiocubito/laravel-wordful/Check%20&%20fix%20styling?label=code%20style)](https://github.com/radiocubito/laravel-wordful/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/radiocubito/laravel-wordful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-wordful)
 
 
 Just a simple blog package for Laravel.
 
-### [Visit the Contenful documentation &rarr;](https://contentful.radiocubito.com/docs)
+### [Visit the Contenful documentation &rarr;](https://wordful.radiocubito.com/docs)
 
 ## Testing
 

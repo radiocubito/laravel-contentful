@@ -1,6 +1,6 @@
 <?php
 
-namespace Radiocubito\Contentful\Models;
+namespace Radiocubito\Wordful\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

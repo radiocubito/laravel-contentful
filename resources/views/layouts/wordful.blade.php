@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('vendor/contentful/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/wordful/css/app.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,7 +21,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('contentful::layouts.navigation')
+            @include('wordful::layouts.navigation')
 
             <!-- Page Content -->
             <main>

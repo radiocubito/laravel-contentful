@@ -13,7 +13,7 @@
                         <li class="relative bg-white px-4 py-5 sm:px-6 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600">
                             <div class="flex justify-between space-x-3">
                                 <div class="min-w-0 flex-1">
-                                    <a href="{{ route('contentful.posts.show', $post) }}" class="block focus:outline-none">
+                                    <a href="{{ route('wordful.posts.show', $post) }}" class="block focus:outline-none">
                                         <span class="absolute inset-0" aria-hidden="true"></span>
                                         <p class="text-lg font-bold text-gray-900 truncate">{{ $post->title }}</p>
                                         <p class="text-base text-gray-500 truncate font-medium">{{ $post->author->name }}</p>

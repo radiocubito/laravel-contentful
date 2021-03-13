@@ -1,11 +1,11 @@
 {
-    "name": "radiocubito/laravel-contentful",
-    "description": "Contentful – Just a simple blog package for Laravel.",
+    "name": "radiocubito/laravel-wordful",
+    "description": "Wordful – Just a simple blog package for Laravel.",
     "keywords": [
         "radiocubito",
-        "laravel-contentful"
+        "laravel-wordful"
     ],
-    "homepage": "https://github.com/radiocubito/laravel-contentful",
+    "homepage": "https://github.com/radiocubito/laravel-wordful",
     "license": "AGPL-3.0-or-later",
     "authors": [
         {
@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Radiocubito\\Contentful\\": "src",
-            "Radiocubito\\Contentful\\Database\\Factories\\": "database/factories"
+            "Radiocubito\\Wordful\\": "src",
+            "Radiocubito\\Wordful\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Radiocubito\\Contentful\\Tests\\": "tests"
+            "Radiocubito\\Wordful\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Radiocubito\\Contentful\\ContentfulServiceProvider"
+                "Radiocubito\\Wordful\\WordfulServiceProvider"
             ],
             "aliases": {
-                "Contentful": "Radiocubito\\Contentful\\ContentfulFacade"
+                "Wordful": "Radiocubito\\Wordful\\WordfulFacade"
             }
         }
     },

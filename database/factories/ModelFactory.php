@@ -1,6 +1,6 @@
 <?php
 
-namespace Radiocubito\Contentful\Database\Factories;
+namespace Radiocubito\Wordful\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
