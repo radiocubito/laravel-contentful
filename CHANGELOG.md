@@ -2,6 +2,13 @@
 
 ## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.5.0...master)
 
+## [v0.6.0 (2021-03-13)](https://github.com/radiocubito/laravel-wordful/compare/v0.5.0...v0.6.0)
+
+### Added
+
+- Authorization Middleware
+- Install and publish commands
+
 ## [v0.5.0 (2021-03-13)](https://github.com/radiocubito/laravel-wordful/compare/v0.4.0...v0.5.0)
 
 ### Changed
