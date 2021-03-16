@@ -1,6 +1,12 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.5.0...master)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.7.0...master)
+
+## [v0.7.0 (2021-03-15)](https://github.com/radiocubito/laravel-wordful/compare/v0.6.0...v0.7.0)
+
+### Added
+
+- Wordful Pro config
 
 ## [v0.6.0 (2021-03-13)](https://github.com/radiocubito/laravel-wordful/compare/v0.5.0...v0.6.0)
 
