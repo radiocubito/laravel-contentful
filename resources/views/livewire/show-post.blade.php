@@ -18,6 +18,10 @@
                 </div>
             @endif
 
+            @if (config('wordful.pro'))
+                <livewire:wordful-pro::email-post-to-subscribers :post="$post" />
+            @endif
+
             <div class="px-4 py-5 sm:px-6 sm:flex sm:items-start sm:justify-between">
                 <div>
                     <h1 class="text-4xl leading-10 font-semibold text-gray-900">

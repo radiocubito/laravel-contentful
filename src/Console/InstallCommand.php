@@ -22,6 +22,14 @@ class InstallCommand extends Command
         $this->comment('Publishing Wordful Assets...');
         $this->callSilent('vendor:publish', ['--tag' => 'wordful-assets']);
 
+        if (config('wordful.pro', false)) {
+            $this->comment('Publishing Wordful Pro Migrations...');
+            $this->callSilent('vendor:publish', ['--tag' => 'wordful-pro-migrations']);
+
+            $this->comment('Publishing Wordful Pro Assets...');
+            $this->callSilent('vendor:publish', ['--tag' => 'wordful-pro-assets']);
+        }
+
         $this->registerWordfulServiceProvider();
 
         $this->info('Wordful scaffolding installed successfully.');

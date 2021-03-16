@@ -61,7 +61,7 @@ class WordfulServiceProvider extends PackageServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../stubs/VaporUiServiceProvider.stub' => app_path('Providers/WordfulServiceProvider.php'),
+                __DIR__.'/../stubs/WordfulServiceProvider.stub' => app_path('Providers/WordfulServiceProvider.php'),
             ], 'wordful-provider');
         }
 
