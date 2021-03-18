@@ -3,11 +3,11 @@
 namespace Radiocubito\Wordful\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Radiocubito\Wordful\Models\Post;
 
-/*
-class ModelFactory extends Factory
+class PostFactory extends Factory
 {
-    protected $model = YourModel::class;
+    protected $model = Post::class;
 
     public function definition()
     {
@@ -16,4 +16,3 @@ class ModelFactory extends Factory
         ];
     }
 }
-*/

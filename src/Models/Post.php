@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Radiocubito\Wordful\Database\Factories\PostFactory;
 use Radiocubito\Wordful\Wordful;
 
 class Post extends Model
@@ -18,6 +19,11 @@ class Post extends Model
     protected $casts = [
         'published_at' => 'datetime',
     ];
+
+    protected static function newFactory()
+    {
+        return PostFactory::new();
+    }
 
     public function author()
     {
