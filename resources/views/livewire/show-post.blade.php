@@ -1,8 +1,8 @@
-<div class="py-12">
-    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white shadow sm:rounded-lg">
+<div class="py-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div>
             @if ($post->isDraft())
-                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                <div class="pb-6">
                     <div class="bg-gray-50 sm:rounded-lg">
                         <div class="px-4 py-5 sm:p-6">
                             <div class="flex justify-center space-x-2">
@@ -22,17 +22,14 @@
                 <livewire:wordful-pro::email-post-to-subscribers :post="$post" />
             @endif
 
-            <div class="px-4 py-5 sm:px-6 sm:flex sm:items-start sm:justify-between">
+            <div class="flex items-start justify-between space-x-4 border-b pb-6">
                 <div>
-                    <h1 class="text-4xl leading-10 font-semibold text-gray-900">
-                        {{ $post->title }}
-                    </h1>
-
-                    <p class="mt-1 max-w-2xl text-base text-gray-500">
-                        By <span class="font-medium">{{ $post->author->name }}</span>
+                    <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">{{ $post->title }}</h1>
+                    <p class="mt-2 text-sm text-gray-500">
+                        By <span class="font-medium text-gray-900">{{ $post->author->name }}</span>
 
                         @if ($post->tags->count() > 0)
-                            in <span class="font-medium">{{ $post->tags->first()->name }}</span>
+                            in <span class="font-medium text-gray-900">{{ $post->tags->first()->name }}</span>
                         @endif
 
                         @if ($post->isPublished())
@@ -40,72 +37,69 @@
                         @endif
                     </p>
                 </div>
-                <div class="mt-3 sm:mt-0 sm:ml-4">
-                    <!-- Settings Dropdown -->
-                    <div class="flex items-center space-x-4">
-                        <a class="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out" href="{{ route('wordful.posts.edit', $post) }}">
-                            <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                            </svg>
-                        </a>
-                        <x-wordful::dropdown align="right" width="48">
-                            <x-slot name="trigger">
-                                <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <div>
-                                        <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                        </svg>
-                                    </div>
-                                </button>
-                            </x-slot>
+                <div class="flex space-x-1.5 sm:mt-1">
+                    <a href="{{ route('wordful.posts.edit', $post) }}" class="p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600 hover:bg-gray-100">
+                        <span class="sr-only">Edit</span>
+                        <svg class="h-5 w-5" x-description="Heroicon name: solid/pencil" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                        </svg>
+                    </a>
 
-                            <x-slot name="content">
-                                <x-wordful::dropdown.link :href="route('wordful.posts.edit', $post)">
-                                    {{ __('Edit') }}
-                                </x-wordful::dropdown.link>
+                    <x-wordful::dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button type="button" class="p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600 hover:bg-gray-100">
+                                <span class="sr-only">Open options</span>
+                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                </svg>
+                            </button>
+                        </x-slot>
 
-                                <x-wordful::dropdown.link
-                                    :href="route('wordful.posts.edit', $post)"
-                                    onclick="event.preventDefault();
-                                        confirm('Are you sure you want to delete this post?') || event.stopImmediatePropagation();"
-                                    wire:click="delete"
-                                >
-                                    {{ __('Delete') }}
-                                </x-wordful::dropdown.link>
-                            </x-slot>
-                        </x-wordful::dropdown>
-                    </div>
+                        <x-slot name="content">
+                            <x-wordful::dropdown.link :href="route('wordful.posts.edit', $post)">
+                                {{ __('Edit') }}
+                            </x-wordful::dropdown.link>
+
+                            <x-wordful::dropdown.link
+                                :href="route('wordful.posts.edit', $post)"
+                                onclick="event.preventDefault();
+                                    confirm('Are you sure you want to delete this post?') || event.stopImmediatePropagation();"
+                                wire:click="delete"
+                            >
+                                {{ __('Delete') }}
+                            </x-wordful::dropdown.link>
+                        </x-slot>
+                    </x-wordful::dropdown>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-                <div class="prose text-gray-900">
+            <div class="py-3 xl:pt-6 xl:pb-0">
+                <h2 class="sr-only">Content</h2>
+
+                <div class="prose max-w-none">
                     {!! $post->html !!}
                 </div>
             </div>
+        </div>
 
-            @if ($post->tags->count() > 1)
-                <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-                    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-                        <div class="sm:col-span-1">
-                            <dt class="text-sm font-medium text-gray-500">
-                                All tags
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900">
-                                <ul class="leading-8">
-                                    @foreach ($post->tags as $tag)
-                                        <li class="inline">
-                                            <div class="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5">
-                                                <div class="text-sm font-medium text-gray-900">{{ $tag->name }}</div>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            @endif
+        <div class="mt-6 border-t border-gray-200 py-6 space-y-8">
+            <div>
+                <h2 class="text-sm font-medium text-gray-500">Tags</h2>
+
+                @if ($post->tags->count() > 1)
+                    <ul class="mt-2 leading-8">
+                        @foreach ($post->tags as $tag)
+                            <li class="inline">
+                                <div class="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5">
+                                    <div class="text-sm font-medium text-gray-900">{{ $tag->name }}</div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <div class="mt-2 leading-8 text-sm font-medium text-gray-900">No tags</div>
+                @endif
+            </div>
         </div>
     </div>
 </div>

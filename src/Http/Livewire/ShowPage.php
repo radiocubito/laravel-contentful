@@ -16,6 +16,13 @@ class ShowPage extends Component
         redirect()->to(route('wordful.pages.show', $this->post));
     }
 
+    public function delete()
+    {
+        $this->post->delete();
+
+        redirect()->to(route('wordful.pages.index', $this->post));
+    }
+
     public function render()
     {
         return view('wordful::livewire.show-page')->layout('wordful::layouts.wordful');

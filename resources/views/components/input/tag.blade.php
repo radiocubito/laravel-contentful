@@ -1,5 +1,5 @@
 <div
-    class="py-2 px-3"
+    class="py-2"
     wire:ignore
     x-data="{ value: @entangle($attributes->wire('model')), taggle: undefined }"
     x-init="

@@ -10,7 +10,7 @@ class ShowPostDrafts extends Component
     public function render()
     {
         return view('wordful::livewire.show-post-drafts', [
-            'posts' => Post::draft()->ofType('post')->orderBy('created_at', 'desc')->get(),
+            'posts' => Post::draft()->ofType('post')->orderBy('created_at', 'desc')->simplePaginate(10),
         ])->layout('wordful::layouts.wordful');
     }
 }
