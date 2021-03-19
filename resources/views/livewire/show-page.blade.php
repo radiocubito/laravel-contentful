@@ -3,7 +3,7 @@
         <div>
             @if ($post->isDraft())
                 <div class="pb-6">
-                    <div class="bg-gray-50 sm:rounded-lg">
+                    <div class="bg-gray-50 border border-gray-200 sm:rounded-lg">
                         <div class="px-4 py-5 sm:p-6">
                             <div class="flex justify-center space-x-2">
                                 <x-wordful::button.primary href="{{ route('wordful.pages.edit', $post) }}">

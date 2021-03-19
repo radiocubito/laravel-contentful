@@ -17,7 +17,6 @@ class EditPage extends Component
     {
         return [
             'post.title' => ['required', 'string', 'max:255'],
-            'post.slug' => ['required', 'string', 'max:255', 'unique:posts,slug,'.$this->post['id']],
             'post.html' => ['required'],
         ];
     }

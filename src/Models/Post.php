@@ -9,20 +9,30 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Radiocubito\Wordful\Database\Factories\PostFactory;
 use Radiocubito\Wordful\Wordful;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Post extends Model
 {
     use HasFactory;
+    use HasSlug;
 
     protected $guarded = [];
 
     protected $casts = [
-        'published_at' => 'datetime',
+        'published_at' => 'date:Y-m-d H:i:s',
     ];
 
     protected static function newFactory()
     {
         return PostFactory::new();
+    }
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
     }
 
     public function author()

@@ -10,10 +10,6 @@
                         <x-wordful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Post title…') }}" rows="1" class="border-0 font-bold text-4xl leading-none resize-none" />
                     </div>
                     <div>
-                        <label for="slug" class="sr-only">{{ __('Slug') }}</label>
-                        <x-wordful::input.text type="text" wire:model.defer="post.slug" sharedBorder placeholder="{{ __('Post slug…') }}" class="border-0 leading-none" />
-                    </div>
-                    <div>
                         <label for="html" class="sr-only">{{ __('HTML') }}</label>
                         <x-wordful::input.rich-text wire:model.defer="post.html" id="html" />
                     </div>

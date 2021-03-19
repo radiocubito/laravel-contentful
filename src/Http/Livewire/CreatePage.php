@@ -16,7 +16,6 @@ class CreatePage extends Component
 
     protected $rules = [
         'post.title' => ['required', 'string', 'max:255'],
-        'post.slug' => ['required', 'string', 'max:255', 'unique:posts,slug'],
         'post.html' => ['required'],
     ];
 

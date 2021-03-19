@@ -3,7 +3,7 @@
         <div>
             @if ($post->isDraft())
                 <div class="pb-6">
-                    <div class="bg-gray-50 sm:rounded-lg">
+                    <div class="bg-gray-50 border border-gray-200 sm:rounded-lg">
                         <div class="px-4 py-5 sm:p-6">
                             <div class="flex justify-center space-x-2">
                                 <x-wordful::button.primary href="{{ route('wordful.posts.edit', $post) }}">
@@ -25,11 +25,11 @@
             <div class="flex items-start justify-between space-x-4 border-b pb-6">
                 <div>
                     <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">{{ $post->title }}</h1>
-                    <p class="mt-2 text-sm text-gray-500">
-                        By <span class="font-medium text-gray-900">{{ $post->author->name }}</span>
+                    <p class="mt-2 text-sm text-gray-500 font-medium">
+                        By <span class="text-gray-900">{{ $post->author->name }}</span>
 
                         @if ($post->tags->count() > 0)
-                            in <span class="font-medium text-gray-900">{{ $post->tags->first()->name }}</span>
+                            in <span class="text-gray-900">{{ $post->tags->first()->name }}</span>
                         @endif
 
                         @if ($post->isPublished())
