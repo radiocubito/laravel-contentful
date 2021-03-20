@@ -5,7 +5,7 @@
                 <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
                     {{ $post->title }}
                 </h1>
-                <p class="mt-2 max-w-4xl text-sm font-medium text-gray-500">Manage post settings</p>
+                <p class="mt-2 max-w-4xl text-sm font-medium text-gray-500">Manage page settings</p>
             </div>
             <div class="py-6">
                 <div>
@@ -125,7 +125,7 @@
                         </x-wordful::button.primary>
                     </div>
                     <div class="mt-2">
-                        Or, <x-wordful::link href="{{ route('wordful.posts.show', $post) }}">discard my changes</x-wordful::link>
+                        Or, <x-wordful::link href="{{ route('wordful.pages.show', $post) }}">discard my changes</x-wordful::link>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@ use Livewire\Component;
 use Radiocubito\Wordful\Models\Post;
 use Radiocubito\Wordful\Models\Tag;
 
-class ManagePostSettings extends Component
+class ManagePageSettings extends Component
 {
     use WithTags;
 
@@ -35,7 +35,7 @@ class ManagePostSettings extends Component
             $this->selectedTags->pluck('id')
         );
 
-        redirect()->to(route('wordful.posts.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->post));
     }
 
     public function mount()
@@ -47,6 +47,6 @@ class ManagePostSettings extends Component
 
     public function render()
     {
-        return view('wordful::livewire.manage-post-settings')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.manage-page-settings')->layout('wordful::layouts.wordful');
     }
 }

@@ -2,28 +2,63 @@
 
 namespace Radiocubito\Wordful\Http\Livewire;
 
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Collection;
 use Radiocubito\Wordful\Models\Tag;
 
 trait WithTags
 {
-    public $incomingTags = [];
+    public Collection $selectableTags;
 
-    private function collectTags()
+    public Collection $selectedTags;
+
+    public $incomingTag = '';
+
+    public $deletingTag = '';
+
+    public $showCreateTagForm = false;
+
+    public $newTagName = '';
+
+    public function updatedIncomingTag()
     {
-        $allTags = Tag::all();
+        $this->validateOnly('incomingTag', ['incomingTag' => ['exists:tags,id']]);
 
-        return collect($this->incomingTags)->map(function ($incomingTag) use ($allTags) {
-            $tag = $allTags->where('slug', Str::slug($incomingTag))->first();
+        $incomingTag = Tag::find($this->incomingTag);
 
-            if (! $tag) {
-                $tag = Tag::create([
-                    'name' => $incomingTag,
-                    'slug' => Str::slug($incomingTag),
-                ]);
-            }
+        $this->selectedTags = $this->selectedTags->push($incomingTag);
 
-            return $tag->id;
-        })->toArray();
+        $this->selectableTags = $this->selectableTags->diff($this->selectedTags);
+
+        $this->incomingTag = '';
+    }
+
+    public function removeTag($incomingTagId)
+    {
+        $this->incomingTag = $incomingTagId;
+
+        $this->validateOnly('incomingTag', ['incomingTag' => ['exists:tags,id']]);
+
+        $incomingTag = Tag::find($this->incomingTag);
+
+        $this->selectableTags = $this->selectableTags->push($incomingTag);
+
+        $this->selectedTags = $this->selectedTags->diff($this->selectableTags);
+
+        $this->incomingTag = '';
+    }
+
+    public function saveTag()
+    {
+        $this->validateOnly('newTagName', ['newTagName' => ['required', 'string', 'max:255']]);
+
+        $tag = Tag::create(['name' => $this->newTagName]);
+
+        $this->selectedTags = $this->selectedTags->push($tag);
+
+        $this->selectableTags = $this->selectableTags->diff($this->selectedTags);
+
+        $this->newTagName = '';
+
+        $this->showCreateTagForm = false;
     }
 }

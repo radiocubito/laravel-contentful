@@ -5,6 +5,7 @@ use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
+use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
 use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
@@ -32,4 +33,5 @@ Route::prefix('wordful')
         Route::get('/pages/create', CreatePage::class)->name('wordful.pages.create');
         Route::get('/pages/{post}', ShowPage::class)->name('wordful.pages.show');
         Route::get('/pages/{post}/edit', EditPage::class)->name('wordful.pages.edit');
+        Route::get('/pages/{post}/settings', ManagePageSettings::class)->name('wordful.pages.settings');
     });

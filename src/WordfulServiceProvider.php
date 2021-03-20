@@ -12,6 +12,7 @@ use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
+use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
 use Radiocubito\Wordful\Http\Livewire\ShowPages;
@@ -47,10 +48,11 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::posts.edit-post', EditPost::class);
             Livewire::component('wordful::posts.manage-post-settings', ManagePostSettings::class);
 
-            Livewire::component('wordful::posts.show-pages', ShowPages::class);
-            Livewire::component('wordful::posts.show-page', ShowPage::class);
-            Livewire::component('wordful::posts.create-page', CreatePage::class);
-            Livewire::component('wordful::posts.edit-page', EditPage::class);
+            Livewire::component('wordful::pages.show-pages', ShowPages::class);
+            Livewire::component('wordful::pages.show-page', ShowPage::class);
+            Livewire::component('wordful::pages.create-page', CreatePage::class);
+            Livewire::component('wordful::pages.edit-page', EditPage::class);
+            Livewire::component('wordful::pages.manage-page-settings', ManagePageSettings::class);
         });
     }
 
@@ -77,7 +79,6 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('input.errors');
             $this->registerComponent('input.textarea');
             $this->registerComponent('input.text');
-            $this->registerComponent('input.tag');
             $this->registerComponent('input.label');
             $this->registerComponent('input.error');
             $this->registerComponent('input.select');
