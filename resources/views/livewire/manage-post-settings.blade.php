@@ -12,6 +12,15 @@
                     <div class="p-4 border border-gray-200 rounded-md bg-gray-50">
                         <div class="divide-y divide-gray-200 -my-4 sm:-my-5">
                             <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                <x-wordful::input.label for="slug" value="{{ __('Slug') }}" class="sm:mt-px sm:pt-2"/>
+
+                                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                    <x-wordful::input.text id="slug" type="text" class="block w-full" leading-add-on="{{ request()->getHost() }}/" wire:model.defer="post.slug" />
+                                    <x-wordful::input.error for="post.slug" class="mt-2"/>
+                                </div>
+                            </div>
+
+                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                 <x-wordful::input.label for="slug" value="{{ __('Status') }}" class="sm:mt-px sm:pt-2"/>
 
                                 <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -34,14 +43,17 @@
                                     <x-wordful::input.error for="post.status" class="mt-2"/>
                                 </div>
                             </div>
-                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                <x-wordful::input.label for="slug" value="{{ __('Slug') }}" class="sm:mt-px sm:pt-2"/>
 
-                                <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                    <x-wordful::input.text id="slug" type="text" class="block w-full" leading-add-on="{{ request()->getHost() }}/" wire:model.defer="post.slug" />
-                                    <x-wordful::input.error for="post.slug" class="mt-2"/>
+                            @if ($post->isPublished())
+                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <x-wordful::input.label for="slug" value="{{ __('Publish date') }}" class="sm:mt-px sm:pt-2"/>
+
+                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                        <x-wordful::input.text id="publish_date" type="text" class="block w-full" wire:model.defer="publishDate" placeholder="{{ now()->format('Y-m-d H:i:s') }}" />
+                                        <x-wordful::input.error for="publishDate" class="mt-2"/>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                 <x-wordful::input.label for="incomingTag" value="{{ __('Tags') }}" class="sm:mt-px sm:pt-2"/>
@@ -104,17 +116,6 @@
                                     @endif
                                 </div>
                             </div>
-
-                            @if ($post->isPublished())
-                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <x-wordful::input.label for="slug" value="{{ __('Publish date') }}" class="sm:mt-px sm:pt-2"/>
-
-                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                        <x-wordful::input.text id="publish_date" type="text" class="block w-full" wire:model.defer="publishDate" placeholder="{{ now()->format('Y-m-d H:i:s') }}" />
-                                        <x-wordful::input.error for="publishDate" class="mt-2"/>
-                                    </div>
-                                </div>
-                            @endif
                         </div>
                     </div>
                 </div>
