@@ -41,10 +41,6 @@ class CreatePost extends Component
         $this->validate();
 
         $this->post->fill(['author_id' => Auth::user()->id])->save();
-
-        $this->post->tags()->sync(
-            $this->collectTags()
-        );
     }
 
     public function mount()

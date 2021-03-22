@@ -31,16 +31,18 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        @if (Route::has('password.request'))
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
 
-                            <x-wordful::dropdown.link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log out') }}
-                            </x-wordful::dropdown.link>
-                        </form>
+                                <x-wordful::dropdown.link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log out') }}
+                                </x-wordful::dropdown.link>
+                            </form>
+                        @endif
                     </x-slot>
                 </x-wordful::dropdown>
             </div>
@@ -81,16 +83,18 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+                @if (Route::has('password.request'))
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('  ') }}">
+                        @csrf
 
-                    <x-wordful::nav.responsive-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log out') }}
-                    </x-wordful::nav.responsive-link>
-                </form>
+                        <x-wordful::nav.responsive-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log out') }}
+                        </x-wordful::nav.responsive-link>
+                    </form>
+                @endif
             </div>
         </div>
     </div>

@@ -1,6 +1,8 @@
 <?php
 
-namespace Radiocubito\Wordful\Tests;
+namespace Radiocubito\Wordful\Tests\Feature;
+
+use Radiocubito\Wordful\Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
