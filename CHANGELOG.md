@@ -4,7 +4,7 @@
 
 ## [v0.8.0 (2021-03-18)](https://github.com/radiocubito/laravel-wordful/compare/v0.7.0...v0.8.0)
 
-### Added
+### Changed
 
 - Dashboard UI
 
