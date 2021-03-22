@@ -1,6 +1,12 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.7.0...master)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.8.0...master)
+
+## [v0.8.0 (2021-03-18)](https://github.com/radiocubito/laravel-wordful/compare/v0.7.0...v0.8.0)
+
+### Added
+
+- Dashboard UI
 
 ## [v0.7.0 (2021-03-15)](https://github.com/radiocubito/laravel-wordful/compare/v0.6.0...v0.7.0)
 
