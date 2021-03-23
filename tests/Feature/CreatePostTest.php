@@ -13,7 +13,7 @@ it('can see livewire create post component on create post page', function () {
         ->assertSeeLivewire('wordful::posts.create-post');
 });
 
-it('can create a post', function () {
+it('can create a draft post', function () {
     $user = User::factory()->create();
 
     test()->actingAs($user)
@@ -29,6 +29,24 @@ it('can create a post', function () {
         'status' => 'draft',
         'type' => 'post',
         'published_at' => null,
+    ]);
+});
+
+it('can create a published post', function () {
+    $user = User::factory()->create();
+
+    test()->actingAs($user)
+        ->livewire(CreatePost::class)
+        ->set('post.title', '::title::')
+        ->set('post.html', '::html::')
+        ->call('publish');
+
+    $this->assertDatabaseHas('posts', [
+        'author_id' => $user->id,
+        'title' => '::title::',
+        'html' => '::html::',
+        'status' => 'published',
+        'type' => 'post',
     ]);
 });
 
