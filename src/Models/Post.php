@@ -20,6 +20,7 @@ class Post extends Model
     protected $guarded = [];
 
     protected $casts = [
+        'author_id' => 'integer',
         'published_at' => 'date:Y-m-d H:i:s',
     ];
 

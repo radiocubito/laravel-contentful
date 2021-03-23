@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Arr;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
-use Radiocubito\Wordful\Models\Post;
 use Radiocubito\Wordful\Tests\Fixtures\User;
 
 it('can see livewire create post component on create post page', function () {
@@ -22,8 +22,40 @@ it('can create a post', function () {
         ->set('post.html', '::html::')
         ->call('save');
 
-    $post = Post::first();
+    $this->assertDatabaseHas('posts', [
+        'author_id' => $user->id,
+        'title' => '::title::',
+        'html' => '::html::',
+        'status' => 'draft',
+        'type' => 'post',
+        'published_at' => null,
+    ]);
+});
 
-    $this->assertEquals('::title::', $post->title);
-    $this->assertEquals('::html::', $post->html);
+test('validation tests', function (array $payload, string $key, string $rule) {
+    $user = User::factory()->create();
+
+    test()->actingAs($user)
+        ->livewire(CreatePost::class)
+        ->fill($payload)
+        ->call('save')
+        ->assertHasErrors([$key => $rule]);
+})->with(function () {
+    $defaultPayload = [
+        'post.title' => '::title::',
+        'post.html' => '::html::',
+    ];
+
+    yield from [
+        'missing title' => [
+            'payload' => Arr::except($defaultPayload, 'post.title'),
+            'key' => 'post.title',
+            'rule' => 'required',
+        ],
+        'missing html' => [
+            'payload' => Arr::except($defaultPayload, 'post.html'),
+            'key' => 'post.html',
+            'rule' => 'required',
+        ],
+    ];
 });
