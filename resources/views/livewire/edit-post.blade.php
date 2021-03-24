@@ -13,10 +13,6 @@
                         <label for="html" class="sr-only">{{ __('HTML') }}</label>
                         <x-wordful::input.rich-text wire:model.defer="post.html" id="html" />
                     </div>
-                    <div>
-                        <label for="tags" class="sr-only">{{ __('Tags') }}</label>
-                        <x-wordful::input.tag wire:model.defer="incomingTags" id="tags" />
-                    </div>
                     <div class="pt-5">
                         <div class="flex space-x-3">
                             @if ($post->isPublished())

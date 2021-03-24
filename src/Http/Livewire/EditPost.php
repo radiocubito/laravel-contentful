@@ -24,8 +24,6 @@ class EditPost extends Component
 
     public function save()
     {
-        $this->validate();
-
         $this->savePost();
 
         redirect()->to(route('wordful.posts.show', $this->post));
@@ -33,8 +31,6 @@ class EditPost extends Component
 
     public function saveAndPublish()
     {
-        $this->validate();
-
         $this->savePost();
 
         $this->post->markAsPublished();
@@ -47,10 +43,6 @@ class EditPost extends Component
         $this->validate();
 
         $this->post->save();
-
-        $this->post->tags()->sync(
-            $this->collectTags()
-        );
     }
 
     public function mount()

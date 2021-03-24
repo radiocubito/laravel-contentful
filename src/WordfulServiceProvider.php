@@ -15,8 +15,10 @@ use Radiocubito\Wordful\Http\Livewire\EditPost;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
+use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPages;
 use Radiocubito\Wordful\Http\Livewire\ShowPost;
+use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\Package;
@@ -47,12 +49,14 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::posts.create-post', CreatePost::class);
             Livewire::component('wordful::posts.edit-post', EditPost::class);
             Livewire::component('wordful::posts.manage-post-settings', ManagePostSettings::class);
+            Livewire::component('wordful::posts.show-post-drafts', ShowPostDrafts::class);
 
             Livewire::component('wordful::pages.show-pages', ShowPages::class);
             Livewire::component('wordful::pages.show-page', ShowPage::class);
             Livewire::component('wordful::pages.create-page', CreatePage::class);
             Livewire::component('wordful::pages.edit-page', EditPage::class);
             Livewire::component('wordful::pages.manage-page-settings', ManagePageSettings::class);
+            Livewire::component('wordful::pages.show-page-drafts', ShowPageDrafts::class);
         });
     }
 
