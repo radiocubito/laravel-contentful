@@ -1,35 +1,66 @@
-<div class="py-12">
-    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white shadow sm:rounded-lg overflow-hidden">
-            <div class="px-4 py-5 sm:px-6 sm:flex sm:items-center sm:justify-between">
-                <h1 class="text-3xl leading-6 font-bold text-gray-900">
-                    {{ __('Page drafs') }}
-                </h1>
-            </div>
-
-            <div class="border-t border-gray-200">
-                <ul class="divide-y divide-gray-200" x-max="1">
-                    @foreach ($posts as $post)
-                        <li class="relative bg-white px-4 py-5 sm:px-6 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600">
-                            <div class="flex justify-between space-x-3">
-                                <div class="min-w-0 flex-1">
-                                    <a href="{{ route('wordful.pages.show', $post) }}" class="block focus:outline-none">
-                                        <span class="absolute inset-0" aria-hidden="true"></span>
-                                        <p class="text-lg font-bold text-gray-900 truncate">{{ $post->title }}</p>
-                                        <p class="text-base text-gray-500 truncate font-medium">{{ $post->author->name }}</p>
-                                    </a>
-                                </div>
-                                <time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-base text-gray-500">{{ optional($post->created_at)->format('F j, Y') }}</time>
-                            </div>
-                            <div class="mt-1">
-                                <p class="line-clamp-2 text-base text-gray-600">
-                                    {{ $post->excerpt }}
-                                </p>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
+<div class="py-10">
+    <header>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex-1 min-w-0">
+                    <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                        {{ __('Page drafs') }}
+                    </h1>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
+
+    <main>
+        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+            <div class="px-4 py-8 sm:px-0">
+                <div class="rounded-lg bg-white overflow-hidden border">
+                    <div class="p-6">
+                        <div class="flow-root">
+                            <ul class="-my-5 divide-y divide-gray-200">
+                                @foreach ($posts as $post)
+                                    <li class="py-5">
+                                        <div class="relative focus-within:ring-2 focus-within:ring-primary-500">
+                                            <div class="flex justify-between space-x-3">
+                                                <div class="min-w-0 flex-1">
+                                                    <h3 class="text-lg font-semibold text-gray-800">
+                                                        <a href="{{ route('wordful.pages.show', $post) }}" class="hover:underline focus:outline-none">
+                                                            <!-- Extend touch target to entire panel -->
+                                                            <span class="absolute inset-0" aria-hidden="true"></span>
+                                                            {{ $post->title }}
+                                                        </a>
+                                                    </h3>
+
+                                                    <p class="text-sm text-gray-500 truncate">
+                                                        By <span class="font-medium">{{ $post->author->name }}</span>
+                                                        @if ($post->tags->count() > 0)
+                                                            in
+                                                            @foreach ($post->tags as $tag)
+                                                                <span class="font-medium">{{ $tag->name }}</span>@unless ($loop->last)<span aria-hidden="true">,</span> @endunless
+                                                            @endforeach
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                                <time datetime="{{ optional($post->created_at)->format('Y-m-d') }}" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{ optional($post->created_at)->format('F j, Y') }}</time>
+                                            </div>
+
+                                            <p class="mt-1 text-sm text-gray-700 line-clamp-2">
+                                                {{ $post->excerpt }}
+                                            </p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        @if ($posts->hasPages())
+                            <div class="mt-6">
+                                {{ $posts->links() }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
