@@ -31,7 +31,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        @if (Route::has('password.request'))
+                        @if (Route::has('logout'))
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -83,9 +83,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                @if (Route::has('password.request'))
+                @if (Route::has('logout'))
                     <!-- Authentication -->
-                    <form method="POST" action="{{ route('  ') }}">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
                         <x-wordful::nav.responsive-link :href="route('logout')"
