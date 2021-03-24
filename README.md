@@ -5,9 +5,9 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/radiocubito/laravel-wordful/Check%20&%20fix%20styling?label=code%20style)](https://github.com/radiocubito/laravel-wordful/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/radiocubito/laravel-wordful.svg?style=flat-square)](https://packagist.org/packages/radiocubito/laravel-wordful)
 
-![](https://user-images.githubusercontent.com/7003648/112397363-8a345c80-8cc7-11eb-86f8-da63048cd0ed.png)
-
 Just a simple blogging package for Laravel.
+
+![](https://user-images.githubusercontent.com/7003648/112397363-8a345c80-8cc7-11eb-86f8-da63048cd0ed.png)
 
 ## [Visit the RadioCúbito Wordful documentation &rarr;](https://wordful.radiocubito.com/docs)
 
