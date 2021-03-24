@@ -29,7 +29,10 @@
                         By <span class="text-gray-900">{{ $post->author->name }}</span>
 
                         @if ($post->tags->count() > 0)
-                            in <span class="text-gray-900">{{ $post->tags->first()->name }}</span>
+                            in
+                            @foreach ($post->tags as $tag)
+                                <span class="font-medium">{{ $tag->name }}</span>@unless ($loop->last)<span aria-hidden="true">,</span> @endunless
+                            @endforeach
                         @endif
 
                         @if ($post->isPublished())
@@ -90,26 +93,6 @@
                 <div class="prose max-w-none">
                     {!! $post->html !!}
                 </div>
-            </div>
-        </div>
-
-        <div class="mt-6 border-t border-gray-200 py-6 space-y-8">
-            <div>
-                <h2 class="text-sm font-medium text-gray-500">Tags</h2>
-
-                @if ($post->tags->count() > 1)
-                    <ul class="mt-2 leading-8">
-                        @foreach ($post->tags as $tag)
-                            <li class="inline">
-                                <div class="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5">
-                                    <div class="text-sm font-medium text-gray-900">{{ $tag->name }}</div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <div class="mt-2 leading-8 text-sm font-medium text-gray-900">No tags</div>
-                @endif
             </div>
         </div>
     </div>

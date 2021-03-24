@@ -30,7 +30,16 @@
                                                             {{ $post->title }}
                                                         </a>
                                                     </h3>
-                                                    <p class="text-sm text-gray-500 truncate">By <span class="font-medium">{{ $post->author->name }}</span></p>
+
+                                                    <p class="text-sm text-gray-500 truncate">
+                                                        By <span class="font-medium">{{ $post->author->name }}</span>
+                                                        @if ($post->tags->count() > 0)
+                                                            in
+                                                            @foreach ($post->tags as $tag)
+                                                                <span class="font-medium">{{ $tag->name }}</span>@unless ($loop->last)<span aria-hidden="true">,</span> @endunless
+                                                            @endforeach
+                                                        @endif
+                                                    </p>
                                                 </div>
                                                 <time datetime="{{ optional($post->created_at)->format('Y-m-d') }}" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{ optional($post->created_at)->format('F j, Y') }}</time>
                                             </div>
