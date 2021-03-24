@@ -91,6 +91,11 @@ class Post extends Model
         return $this->status === 'draft';
     }
 
+    public function customExcerptEnabled()
+    {
+        return ! is_null($this->custom_excerpt);
+    }
+
     public function storeImage(UploadedFile $image)
     {
         return $image->storePublicly('post-images', ['disk' => $this->imagesDisk()]);
