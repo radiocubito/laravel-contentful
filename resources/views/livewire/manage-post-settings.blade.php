@@ -21,7 +21,7 @@
                             </div>
 
                             <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                <x-wordful::input.label for="slug" value="{{ __('Status') }}" class="sm:mt-px sm:pt-2"/>
+                                <x-wordful::input.label for="status" value="{{ __('Status') }}" class="sm:mt-px sm:pt-2"/>
 
                                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                                     <x-wordful::input.select id="status" wire:model="post.status" class="max-w-lg block w-full">

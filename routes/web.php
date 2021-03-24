@@ -5,6 +5,7 @@ use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
+use Radiocubito\Wordful\Http\Livewire\EditTag;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
@@ -13,6 +14,7 @@ use Radiocubito\Wordful\Http\Livewire\ShowPages;
 use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
+use Radiocubito\Wordful\Http\Livewire\ShowTags;
 
 Route::prefix('wordful')
     ->middleware('wordful')
@@ -34,4 +36,7 @@ Route::prefix('wordful')
         Route::get('/pages/{post}', ShowPage::class)->name('wordful.pages.show');
         Route::get('/pages/{post}/edit', EditPage::class)->name('wordful.pages.edit');
         Route::get('/pages/{post}/settings', ManagePageSettings::class)->name('wordful.pages.settings');
+
+        Route::get('/tags', ShowTags::class)->name('wordful.tags.index');
+        Route::get('/tags/{tag}/edit', EditTag::class)->name('wordful.tags.edit');
     });

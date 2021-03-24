@@ -12,6 +12,7 @@ use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
+use Radiocubito\Wordful\Http\Livewire\EditTag;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
@@ -20,6 +21,7 @@ use Radiocubito\Wordful\Http\Livewire\ShowPages;
 use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
+use Radiocubito\Wordful\Http\Livewire\ShowTags;
 use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -57,6 +59,9 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::pages.edit-page', EditPage::class);
             Livewire::component('wordful::pages.manage-page-settings', ManagePageSettings::class);
             Livewire::component('wordful::pages.show-page-drafts', ShowPageDrafts::class);
+
+            Livewire::component('wordful::pages.show-tags', ShowTags::class);
+            Livewire::component('wordful::pages.edit-tag', EditTag::class);
         });
     }
 
@@ -94,6 +99,7 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('button.primary');
             $this->registerComponent('button.secondary');
+            $this->registerComponent('button.danger');
 
             $this->registerComponent('nav.link');
             $this->registerComponent('nav.responsive-link');

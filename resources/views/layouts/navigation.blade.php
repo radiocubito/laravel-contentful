@@ -12,6 +12,10 @@
                     <x-wordful::nav.link :href="route('wordful.pages.index')" :active="request()->routeIs('wordful.pages.*')">
                         {{ __('Pages') }}
                     </x-wordful::nav.link>
+
+                    <x-wordful::nav.link :href="route('wordful.tags.index')" :active="request()->routeIs('wordful.tags.*')">
+                        {{ __('Tags') }}
+                    </x-wordful::nav.link>
                 </div>
             </div>
 
@@ -64,6 +68,14 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-wordful::nav.responsive-link :href="route('wordful.posts.index')" :active="request()->routeIs('wordful.posts.*')">
                 {{ __('Posts') }}
+            </x-wordful::nav.responsive-link>
+
+            <x-wordful::nav.responsive-link :href="route('wordful.pages.index')" :active="request()->routeIs('wordful.pages.*')">
+                {{ __('Pages') }}
+            </x-wordful::nav.responsive-link>
+
+            <x-wordful::nav.responsive-link :href="route('wordful.tags.index')" :active="request()->routeIs('wordful.tags.*')">
+                {{ __('Tags') }}
             </x-wordful::nav.responsive-link>
         </div>
 
