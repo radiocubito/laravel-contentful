@@ -13,6 +13,7 @@ use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
 use Radiocubito\Wordful\Http\Livewire\EditTag;
+use Radiocubito\Wordful\Http\Livewire\EmailPostToSubscribers;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
@@ -62,12 +63,16 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             Livewire::component('wordful::pages.show-tags', ShowTags::class);
             Livewire::component('wordful::pages.edit-tag', EditTag::class);
+
+            Livewire::component('wordful::email-post-to-subscribers', EmailPostToSubscribers::class);
         });
     }
 
     public function bootingPackage()
     {
         Route::middlewareGroup('wordful', config('wordful.middleware', []));
+
+        Route::middlewareGroup('subscribers', config('wordful.subscribers-middleware', []));
     }
 
     public function packageBooted()
@@ -103,6 +108,8 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('nav.link');
             $this->registerComponent('nav.responsive-link');
+
+            $this->registerComponent('subscribers-layout');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
         });

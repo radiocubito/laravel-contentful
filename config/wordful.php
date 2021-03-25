@@ -20,4 +20,20 @@ return [
         EnsureUserIsAuthorized::class,
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Wordful Subscribers Route Middleware
+    |--------------------------------------------------------------------------
+    |
+    | These middleware will be assigned to every Wordful subscribers route - giving you
+    | the chance to add your own middleware to this list or change any of
+    | the existing middleware. Or, you can simply stick with this list.
+    |
+    */
+
+    'subscribers-middleware' => [
+        'web',
+        'signed',
+    ],
+
 ];

@@ -16,12 +16,5 @@ class PublishCommand extends Command
             '--tag' => 'wordful-assets',
             '--force' => true,
         ]);
-
-        if (config('wordful.pro', false)) {
-            $this->call('vendor:publish', [
-                '--tag' => 'wordful-pro-assets',
-                '--force' => true,
-            ]);
-        }
     }
 }

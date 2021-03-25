@@ -18,9 +18,7 @@
                 </div>
             @endif
 
-            @if (config('wordful.pro'))
-                <livewire:wordful-pro::email-post-to-subscribers :post="$post" />
-            @endif
+            <livewire:wordful::email-post-to-subscribers :post="$post" />
 
             <div class="flex items-start justify-between space-x-4 border-b pb-6">
                 <div>

@@ -16,6 +16,7 @@ class CreateWordfulTables extends Migration
             $table->string('status', 50)->default('draft');
             $table->string('type', 50)->default('post');
             $table->dateTime('published_at')->nullable();
+            $table->dateTime('emailed_at')->nullable();
             $table->bigInteger('author_id')->unsigned()->index();
             $table->string('custom_excerpt')->nullable();
             $table->timestamps();
@@ -35,6 +36,15 @@ class CreateWordfulTables extends Migration
             $table->bigInteger('tag_id');
 
             $table->unique(['post_id', 'tag_id']);
+        });
+
+        Schema::create('subscribers', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('email')->unique();
+            $table->timestamp('confirmed_at')->index()->nullable();
+
+            $table->timestamps();
         });
     }
 }

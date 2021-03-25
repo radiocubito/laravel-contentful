@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Radiocubito\Wordful\Http\Controllers\ConfirmedSubscriberController;
+use Radiocubito\Wordful\Http\Controllers\SubscribersController;
+use Radiocubito\Wordful\Http\Controllers\UnsubscribeSubscriberController;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -39,4 +42,21 @@ Route::prefix('wordful')
 
         Route::get('/tags', ShowTags::class)->name('wordful.tags.index');
         Route::get('/tags/{tag}/edit', EditTag::class)->name('wordful.tags.edit');
+    });
+
+Route::prefix('/')
+    ->middleware('subscribers')
+    ->group(function () {
+        Route::get('/subscribers/create', [SubscribersController::class, 'create'])->withoutMiddleware('signed')->name('wordful.subscribers.create');
+        Route::post('/subscribers', [SubscribersController::class, 'store'])->withoutMiddleware('signed')->name('wordful.subscribers.store');
+
+        Route::view('/subscribers/unsubscribed', 'wordful::subscribers.unsubscribed')->withoutMiddleware('signed')->name('wordful.subscribers.unsubscribed.index');
+
+        Route::get('/subscribers/{subscriber}', [SubscribersController::class, 'show'])->name('wordful.subscribers.show');
+
+        Route::get('/subscribers/{subscriber}/confirmed', [ConfirmedSubscriberController::class, 'index'])->name('wordful.subscribers.confirmed.index');
+        Route::post('/subscribers/{subscriber}/confirmed', [ConfirmedSubscriberController::class, 'store'])->name('wordful.subscribers.confirmed.store');
+
+        Route::get('/subscribers/{subscriber}/unsubscribe', [UnsubscribeSubscriberController::class, 'index'])->name('wordful.subscribers.unsubscribe.index');
+        Route::post('/subscribers/{subscriber}/unsubscribe', [UnsubscribeSubscriberController::class, 'store'])->name('wordful.subscribers.unsubscribe.store');
     });
