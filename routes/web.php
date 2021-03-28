@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Radiocubito\Wordful\Http\Controllers\ConfirmedSubscriberController;
 use Radiocubito\Wordful\Http\Controllers\SubscribersController;
 use Radiocubito\Wordful\Http\Controllers\UnsubscribeSubscriberController;
+use Radiocubito\Wordful\Http\Livewire\Auth\Login;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -60,3 +61,5 @@ Route::prefix('/')
         Route::get('/subscribers/{subscriber}/unsubscribe', [UnsubscribeSubscriberController::class, 'index'])->name('wordful.subscribers.unsubscribe.index');
         Route::post('/subscribers/{subscriber}/unsubscribe', [UnsubscribeSubscriberController::class, 'store'])->name('wordful.subscribers.unsubscribe.store');
     });
+
+Route::get('/wordful/login', Login::class)->middleware(['web', 'guest'])->name('wordful.auth.login');

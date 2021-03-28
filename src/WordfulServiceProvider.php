@@ -8,6 +8,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
 use Radiocubito\Wordful\Console\InstallCommand;
 use Radiocubito\Wordful\Console\PublishCommand;
+use Radiocubito\Wordful\Http\Livewire\Auth\Login;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -65,6 +66,8 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::pages.edit-tag', EditTag::class);
 
             Livewire::component('wordful::email-post-to-subscribers', EmailPostToSubscribers::class);
+
+            Livewire::component('wordful::auth.login', Login::class);
         });
     }
 
@@ -110,6 +113,7 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('nav.responsive-link');
 
             $this->registerComponent('subscribers-layout');
+            $this->registerComponent('auth-layout');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
         });
