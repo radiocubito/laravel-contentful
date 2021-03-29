@@ -1,31 +1,32 @@
 <div>
-    <form wire:submit.prevent="login">
-        <div>
-            <label for="email">
-                Email address
-            </label>
-            <div>
-                <input wire:model="email" id="email" type="email" required autofocus />
-            </div>
-            @error('email') <div>{{ $message }}</div> @enderror
-        </div>
+    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="py-8 px-4 sm:px-10">
+                <form wire:submit.prevent="login" class="space-y-4">
+                    <div>
+                        <x-wordful::input.label class="sr-only" for="email" value="{{ __('Email address') }}" />
 
-        <div>
-            <label for="password">
-                Password
-            </label>
-            <div>
-                <input wire:model.lazy="password" id="password" type="password" required />
-            </div>
-            @error('password') <div>{{ $message }}</div> @enderror
-        </div>
+                        <x-wordful::input.text id="email" type="email" class="block w-full" wire:model.defer="email" placeholder="{{ __('Email address') }}" required autofocus />
+                        <x-wordful::input.error for="email" class="mt-2"/>
+                    </div>
 
-        <div>
-            <span>
-                <button type="submit">
-                    Log In
-                </button>
-            </span>
+                    <div>
+                        <x-wordful::input.label class="sr-only" for="password" value="{{ __('Password') }}" />
+
+                        <x-wordful::input.text id="password" type="password" class="block w-full" wire:model.lazy="password" placeholder="{{ __('Password') }}" required />
+                        <x-wordful::input.error for="password" class="mt-2"/>
+                    </div>
+                    <div>
+                        <x-wordful::button.primary class="w-full flex justify-center">
+                            {{ __('Sign in') }}
+                        </x-wordful::button.primary>
+                    </div>
+                </form>
+
+                <div class="text-sm mt-8 hidden">
+                    <x-wordful::link href="#">Forgot your password?</x-wordful::link>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
 </div>

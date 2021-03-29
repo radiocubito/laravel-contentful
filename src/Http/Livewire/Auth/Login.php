@@ -73,6 +73,6 @@ class Login extends Component
 
     public function render()
     {
-        return view('wordful::livewire.auth.login')->extends('wordful::components.auth-layout');
+        return view('wordful::livewire.auth.login')->layout('wordful::layouts.auth');
     }
 }

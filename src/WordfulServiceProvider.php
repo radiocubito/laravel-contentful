@@ -24,6 +24,7 @@ use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\ShowTags;
+use Radiocubito\Wordful\View\Components\AuthLayout;
 use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -113,9 +114,9 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('nav.responsive-link');
 
             $this->registerComponent('subscribers-layout');
-            $this->registerComponent('auth-layout');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
+            Blade::component(AuthLayout::class, 'auth-layout');
         });
     }
 
