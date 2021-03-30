@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Radiocubito\Wordful\Http\Controllers\ConfirmedSubscriberController;
 use Radiocubito\Wordful\Http\Controllers\SubscribersController;
 use Radiocubito\Wordful\Http\Controllers\UnsubscribeSubscriberController;
+use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
 use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -63,3 +65,5 @@ Route::prefix('/')
     });
 
 Route::get('/wordful/login', Login::class)->middleware(['web', 'guest'])->name('wordful.auth.login');
+Route::get('/wordful/forgot-password', ForgotPassword::class)->middleware(['web', 'guest'])->name('wordful.password.request');
+Route::get('/wordful/reset-password/{token}', ResetPassword::class)->middleware(['web', 'guest'])->name('wordful.password.reset');

@@ -8,7 +8,9 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
 use Radiocubito\Wordful\Console\InstallCommand;
 use Radiocubito\Wordful\Console\PublishCommand;
+use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
 use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -69,6 +71,8 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::email-post-to-subscribers', EmailPostToSubscribers::class);
 
             Livewire::component('wordful::auth.login', Login::class);
+            Livewire::component('wordful::auth.forgot-password', ForgotPassword::class);
+            Livewire::component('wordful::auth.reset-password', ResetPassword::class);
         });
     }
 
@@ -112,6 +116,8 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('nav.link');
             $this->registerComponent('nav.responsive-link');
+
+            $this->registerComponent('status.auth-session');
 
             $this->registerComponent('subscribers-layout');
 

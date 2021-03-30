@@ -2,14 +2,15 @@
     <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h1 class="text-center text-3xl font-extrabold text-gray-900">
-                Welcome back 👋
+                Forgot your password? 🙈
             </h1>
         </div>
+
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="py-8 px-4 sm:px-10">
                 <x-wordful::status.auth-session class="mb-4" :status="session('status')" />
 
-                <form wire:submit.prevent="login" class="space-y-6">
+                <form wire:submit.prevent="emailPassword" class="space-y-6">
                     <div>
                         <x-wordful::input.label for="email" value="{{ __('Email address') }}" />
 
@@ -20,26 +21,15 @@
                     </div>
 
                     <div>
-                        <x-wordful::input.label for="password" value="{{ __('Password') }}" />
-
-                        <div class="mt-1">
-                            <x-wordful::input.text id="password" type="password" class="block w-full" wire:model.lazy="password" required />
-                            <x-wordful::input.error for="password" class="mt-2"/>
-                        </div>
-
-                        <div class="mt-2 flex items-center justify-end">
-                            <div class="text-sm">
-                                <x-wordful::link href="{{ route('wordful.password.request') }}">Forgot your password?</x-wordful::link>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
                         <x-wordful::button.primary class="w-full flex justify-center">
-                            {{ __('Login') }}
+                            {{ __('Send reset link') }}
                         </x-wordful::button.primary>
                     </div>
                 </form>
+
+                <div class="text-sm mt-8 hidden">
+                    <x-wordful::link href="#">Back to login</x-wordful::link>
+                </div>
             </div>
         </div>
     </div>
