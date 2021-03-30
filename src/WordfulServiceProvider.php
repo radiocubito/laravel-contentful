@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
 use Radiocubito\Wordful\Console\InstallCommand;
+use Radiocubito\Wordful\Console\MakeUser;
 use Radiocubito\Wordful\Console\PublishCommand;
 use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
 use Radiocubito\Wordful\Http\Livewire\Auth\Login;
@@ -45,6 +46,7 @@ class WordfulServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 InstallCommand::class,
                 PublishCommand::class,
+                MakeUser::class,
             ]);
     }
 
