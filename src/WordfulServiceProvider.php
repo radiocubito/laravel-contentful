@@ -11,7 +11,9 @@ use Radiocubito\Wordful\Console\MakeUser;
 use Radiocubito\Wordful\Console\PublishCommand;
 use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
 use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\Auth\LogoutLink;
 use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResponsiveLogoutLink;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -75,6 +77,9 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::auth.login', Login::class);
             Livewire::component('wordful::auth.forgot-password', ForgotPassword::class);
             Livewire::component('wordful::auth.reset-password', ResetPassword::class);
+
+            Livewire::component('wordful::auth.logout-link', LogoutLink::class);
+            Livewire::component('wordful::auth.responsive-logout-link', ResponsiveLogoutLink::class);
         });
     }
 
