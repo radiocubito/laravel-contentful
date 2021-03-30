@@ -1,5 +1,6 @@
 <?php
 
+use Radiocubito\Wordful\Features;
 use Radiocubito\Wordful\Http\Middleware\EnsureUserIsAuthorized;
 
 return [
@@ -34,6 +35,20 @@ return [
     'subscribers-middleware' => [
         'web',
         'signed',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Features
+    |--------------------------------------------------------------------------
+    |
+    | Some of the Marketplaceful features are optional. You may disable the features
+    | by removing them from this array.
+    |
+    */
+
+    'features' => [
+        // Features::authentication(),
     ],
 
 ];
