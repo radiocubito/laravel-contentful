@@ -5,3 +5,19 @@
 trix-toolbar {
     @apply sticky top-0 z-10 bg-white;
 }
+
+.attachment-gallery {
+    @apply flex flex-wrap relative;
+}
+
+.attachment-gallery .attachment {
+    @apply px-2;
+    flex: 1 0 33%;
+    max-width: 33%;
+}
+
+.attachment-gallery.attachment-gallery--2 .attachment,
+.attachment-gallery.attachment-gallery--4 .attachment {
+    flex-basis: 50%;
+    max-width: 50%;
+}

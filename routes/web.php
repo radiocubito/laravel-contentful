@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Radiocubito\Wordful\Http\Controllers\ConfirmedSubscriberController;
 use Radiocubito\Wordful\Http\Controllers\SubscribersController;
 use Radiocubito\Wordful\Http\Controllers\UnsubscribeSubscriberController;
+use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
+use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -18,6 +21,7 @@ use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\ShowTags;
+use Radiocubito\Wordful\Wordful;
 
 Route::prefix('wordful')
     ->middleware('wordful')
@@ -60,3 +64,9 @@ Route::prefix('/')
         Route::get('/subscribers/{subscriber}/unsubscribe', [UnsubscribeSubscriberController::class, 'index'])->name('wordful.subscribers.unsubscribe.index');
         Route::post('/subscribers/{subscriber}/unsubscribe', [UnsubscribeSubscriberController::class, 'store'])->name('wordful.subscribers.unsubscribe.store');
     });
+
+if (Wordful::hasAuthenticationFeature()) {
+    Route::get('/wordful/login', Login::class)->middleware(['web', 'guest'])->name('wordful.auth.login');
+    Route::get('/wordful/forgot-password', ForgotPassword::class)->middleware(['web', 'guest'])->name('wordful.password.request');
+    Route::get('/wordful/reset-password/{token}', ResetPassword::class)->middleware(['web', 'guest'])->name('wordful.password.reset');
+}

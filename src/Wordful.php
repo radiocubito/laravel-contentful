@@ -24,4 +24,9 @@ class Wordful
 
         return new static;
     }
+
+    public static function hasAuthenticationFeature()
+    {
+        return Features::hasAuthenticationFeature();
+    }
 }
