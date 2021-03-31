@@ -6,7 +6,7 @@
 
 ### Added
 
-- Production assets
+- Authentication
 
 ## [v0.10.0 (2021-03-25)](https://github.com/radiocubito/laravel-wordful/compare/v0.10.0...v0.10.1)
 
