@@ -7,7 +7,13 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
 use Radiocubito\Wordful\Console\InstallCommand;
+use Radiocubito\Wordful\Console\MakeUser;
 use Radiocubito\Wordful\Console\PublishCommand;
+use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
+use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\Auth\LogoutLink;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResponsiveLogoutLink;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
@@ -23,6 +29,7 @@ use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\ShowTags;
+use Radiocubito\Wordful\View\Components\AuthLayout;
 use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -41,6 +48,7 @@ class WordfulServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 InstallCommand::class,
                 PublishCommand::class,
+                MakeUser::class,
             ]);
     }
 
@@ -65,6 +73,13 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::pages.edit-tag', EditTag::class);
 
             Livewire::component('wordful::email-post-to-subscribers', EmailPostToSubscribers::class);
+
+            Livewire::component('wordful::auth.login', Login::class);
+            Livewire::component('wordful::auth.forgot-password', ForgotPassword::class);
+            Livewire::component('wordful::auth.reset-password', ResetPassword::class);
+
+            Livewire::component('wordful::auth.logout-link', LogoutLink::class);
+            Livewire::component('wordful::auth.responsive-logout-link', ResponsiveLogoutLink::class);
         });
     }
 
@@ -109,9 +124,12 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('nav.link');
             $this->registerComponent('nav.responsive-link');
 
+            $this->registerComponent('status.auth-session');
+
             $this->registerComponent('subscribers-layout');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
+            Blade::component(AuthLayout::class, 'auth-layout');
         });
     }
 

@@ -35,7 +35,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        @if (Route::has('logout'))
+                        @if (\Radiocubito\Wordful\Wordful::hasAuthenticationFeature())
+                            <livewire:wordful::auth.logout-link />
+                        @elseif (Route::has('logout'))
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -95,7 +97,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                @if (Route::has('logout'))
+                @if (\Radiocubito\Wordful\Wordful::hasAuthenticationFeature())
+                    <livewire:wordful::auth.responsive-logout-link />
+                @elseif (Route::has('logout'))
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
