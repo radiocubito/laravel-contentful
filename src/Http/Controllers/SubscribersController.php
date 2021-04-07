@@ -4,17 +4,18 @@ namespace Radiocubito\Wordful\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\View\View;
 use Radiocubito\Wordful\Models\Subscriber;
 use Radiocubito\Wordful\Notifications\ConfirmSubscription;
 
 class SubscribersController
 {
-    public function create()
+    public function create(): View
     {
         return view('wordful::subscribers.create');
     }
 
-    public function show(Subscriber $subscriber)
+    public function show(Subscriber $subscriber): View
     {
         return view('wordful::subscribers.show', [
             'subscriber' => $subscriber,

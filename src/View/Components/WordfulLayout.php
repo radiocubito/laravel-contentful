@@ -3,15 +3,11 @@
 namespace Radiocubito\Wordful\View\Components;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class WordfulLayout extends Component
 {
-    /**
-     * Get the view / contents that represents the component.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function render()
+    public function render(): View
     {
         return view('wordful::layouts.wordful');
     }

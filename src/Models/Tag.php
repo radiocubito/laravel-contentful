@@ -14,7 +14,7 @@ class Tag extends Model
 
     protected $guarded = [];
 
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')

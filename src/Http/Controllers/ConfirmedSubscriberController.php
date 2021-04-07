@@ -2,19 +2,19 @@
 
 namespace Radiocubito\Wordful\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Radiocubito\Wordful\Models\Subscriber;
 
 class ConfirmedSubscriberController
 {
-    public function index(Subscriber $subscriber)
+    public function index(Subscriber $subscriber): View
     {
         return view('wordful::subscribers.confirmed', [
             'subscriber' => $subscriber,
         ]);
     }
 
-    public function store(Subscriber $subscriber, Request $request)
+    public function store(Subscriber $subscriber)
     {
         if (is_null($subscriber->confirmed_at)) {
             $subscriber->forceFill([

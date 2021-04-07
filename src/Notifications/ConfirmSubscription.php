@@ -14,34 +14,17 @@ class ConfirmSubscription extends Notification implements ShouldQueue
 
     public $subscriber;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
     public function __construct($subscriber)
     {
         $this->subscriber = $subscriber;
     }
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function via($notifiable)
+    public function via(): array
     {
         return ['mail'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toMail($notifiable)
+    public function toMail(): MailMessage
     {
         $url = URL::signedRoute('wordful.subscribers.confirmed.index', $this->subscriber);
         $siteName = config('app.name');
@@ -51,18 +34,5 @@ class ConfirmSubscription extends Notification implements ShouldQueue
             ->line("You‘re almost subscribed to updates from {$siteName}.")
             ->line('If you want to get notified whenever they decide to send something new, click the button below to confirm.')
             ->action('Confirm my subscription', $url);
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
     }
 }

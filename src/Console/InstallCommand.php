@@ -11,7 +11,7 @@ class InstallCommand extends Command
 
     protected $description = 'Install all of the Wordful resources';
 
-    public function handle()
+    public function handle(): void
     {
         $this->comment('Publishing Wordful Service Provider...');
         $this->callSilent('vendor:publish', ['--tag' => 'wordful-provider']);
@@ -27,7 +27,7 @@ class InstallCommand extends Command
         $this->info('Wordful scaffolding installed successfully.');
     }
 
-    protected function registerWordfulServiceProvider()
+    protected function registerWordfulServiceProvider(): void
     {
         $namespace = Str::replaceLast('\\', '', $this->laravel->getNamespace());
 

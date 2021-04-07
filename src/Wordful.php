@@ -25,7 +25,7 @@ class Wordful
         return new static;
     }
 
-    public static function hasAuthenticationFeature()
+    public static function hasAuthenticationFeature(): bool
     {
         return Features::hasAuthenticationFeature();
     }

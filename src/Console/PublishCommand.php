@@ -10,7 +10,7 @@ class PublishCommand extends Command
 
     protected $description = 'Publish all of the Wordful resources';
 
-    public function handle()
+    public function handle(): void
     {
         $this->call('vendor:publish', [
             '--tag' => 'wordful-assets',

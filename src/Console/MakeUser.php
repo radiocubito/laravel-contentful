@@ -18,7 +18,7 @@ class MakeUser extends Command
 
     protected $password;
 
-    public function handle()
+    public function handle(): void
     {
         $this
             ->promptEmail()
@@ -27,7 +27,7 @@ class MakeUser extends Command
             ->createUser();
     }
 
-    protected function promptEmail()
+    protected function promptEmail(): self
     {
         $this->email = $this->ask('Email');
 
@@ -38,21 +38,21 @@ class MakeUser extends Command
         return $this;
     }
 
-    protected function promptName()
+    protected function promptName(): self
     {
         $this->name = $this->ask('Name', false);
 
         return $this;
     }
 
-    protected function promptPassword()
+    protected function promptPassword(): self
     {
         $this->password = $this->secret('Password (Your input will be hidden)');
 
         return $this;
     }
 
-    protected function createUser()
+    protected function createUser(): void
     {
         if ($this->emailValidationFails()) {
             return;
@@ -67,7 +67,7 @@ class MakeUser extends Command
         $this->info('User created successfully.');
     }
 
-    private function emailValidationFails()
+    private function emailValidationFails(): bool
     {
         if (! filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             return true;
@@ -76,5 +76,7 @@ class MakeUser extends Command
         if (Wordful::newUserModel()->where('email', $this->email)->exists()) {
             return true;
         }
+
+        return false;
     }
 }

@@ -29,7 +29,7 @@ class Post extends Model
         return PostFactory::new();
     }
 
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
@@ -46,7 +46,7 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'posts_tags', 'post_id', 'tag_id');
     }
 
-    public function markAsPublished()
+    public function markAsPublished(): void
     {
         $this->update([
             'published_at' => $this->published_at ?? $this->freshTimestamp(),
@@ -54,44 +54,44 @@ class Post extends Model
         ]);
     }
 
-    public function getExcerptAttribute()
+    public function getExcerptAttribute(): string
     {
         return Str::of(strip_tags(str_replace('<br>', ' ', html_entity_decode($this->html))))->words(60);
     }
 
-    public function scopePublished($query)
+    public function scopePublished($query): void
     {
-        return $query->whereStatus('published');
+        $query->whereStatus('published');
     }
 
-    public function scopeDraft($query)
+    public function scopeDraft($query): void
     {
-        return $query->whereStatus('draft');
+        $query->whereStatus('draft');
     }
 
-    public function scopeOfType($query, $type)
+    public function scopeOfType($query, $type): void
     {
-        return $query->where('type', $type);
+        $query->where('type', $type);
     }
 
-    public function scopeTag($query, string $slug)
+    public function scopeTag($query, string $slug): void
     {
-        return $query->whereHas('tags', function ($query) use ($slug) {
+        $query->whereHas('tags', function ($query) use ($slug) {
             $query->where('slug', $slug);
         });
     }
 
-    public function isPublished()
+    public function isPublished(): bool
     {
         return $this->status === 'published';
     }
 
-    public function isDraft()
+    public function isDraft(): bool
     {
         return $this->status === 'draft';
     }
 
-    public function customExcerptEnabled()
+    public function customExcerptEnabled(): bool
     {
         return ! is_null($this->custom_excerpt);
     }
@@ -101,12 +101,12 @@ class Post extends Model
         return $image->storePublicly('post-images', ['disk' => $this->imagesDisk()]);
     }
 
-    public function getImageUrlAttribute($imagePath)
+    public function getImageUrlAttribute($imagePath): string
     {
         return Storage::disk($this->imagesDisk())->url($imagePath);
     }
 
-    protected function imagesDisk()
+    protected function imagesDisk(): string
     {
         return isset($_ENV['VAPOR_ARTIFACT_NAME']) ? 's3' : config('wordful.images_disk', 'public');
     }

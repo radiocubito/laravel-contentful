@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Gate;
 
 class EnsureUserIsAuthorized
 {
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
         $allowed = app()->environment('local')
             || Gate::allows('viewWordful', [$request->user()]);
