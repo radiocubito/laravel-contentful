@@ -7,11 +7,11 @@ trix-toolbar {
 }
 
 .attachment-gallery {
-    @apply flex flex-wrap relative;
+    @apply flex flex-wrap relative -mx-4 my-4;
 }
 
 .attachment-gallery .attachment {
-    @apply px-2;
+    @apply px-4 my-0;
     flex: 1 0 33%;
     max-width: 33%;
 }

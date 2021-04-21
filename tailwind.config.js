@@ -11,6 +11,16 @@ module.exports = {
             colors: {
                 gray: colors.warmGray,
                 primary: colors.cyan,
+            },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        'figure > a > img': {
+                            marginTop: '0',
+                            marginBottom: '0',
+                        }
+                    },
+                },
             }
         },
     },

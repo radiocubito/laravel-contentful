@@ -28,7 +28,7 @@
             }
         },
     }"
-    x-init="setValue(); $watch('value', () => isFocused() && setValue())"
+    x-init="Trix.config.blockAttributes.heading1.tagName = 'h2'; setValue(); $watch('value', () => isFocused() && setValue());"
     x-on:trix-change="value = $event.target.value"
     x-on:trix-attachment-add="uploadTrixImage($event.attachment)"
     {{ $attributes->whereDoesntStartWith('wire:model') }}
