@@ -6,7 +6,7 @@
 
 ### Changed
 
-- Authentication
+- Trix heading to h2 tag
 
 ## [v0.11.0 (2021-03-30)](https://github.com/radiocubito/laravel-wordful/compare/v0.10.1...v0.11.0)
 
