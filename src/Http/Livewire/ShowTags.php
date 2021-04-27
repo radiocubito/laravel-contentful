@@ -24,14 +24,14 @@ class ShowTags extends Component
 
         $this->newTag->save();
 
-        $this->tags = Tag::get();
+        $this->tags = Tag::orderBy('slug')->get();
 
         $this->showCreateTagForm = false;
     }
 
     public function mount()
     {
-        $this->tags = Tag::get();
+        $this->tags = Tag::orderBy('slug')->get();
         $this->newTag = new Tag;
     }
 

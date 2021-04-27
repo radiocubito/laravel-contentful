@@ -42,7 +42,7 @@ class ManagePageSettings extends Component
     {
         $this->publishDate = optional($this->post->published_at)->format('Y-m-d H:i:s');
         $this->selectedTags = $this->post->tags;
-        $this->selectableTags = Tag::whereNotIn('id', $this->post->tags->pluck('id'))->get();
+        $this->selectableTags = Tag::whereNotIn('id', $this->post->tags->pluck('id'))->orderBy('slug')->get();
     }
 
     public function render()
