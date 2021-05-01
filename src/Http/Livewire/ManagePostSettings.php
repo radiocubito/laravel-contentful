@@ -37,11 +37,16 @@ class ManagePostSettings extends Component
         $this->post->fill([
             'published_at' => $this->publishDate ?? null,
             'custom_excerpt' => $this->customExcerptEnabled ? $this->post->custom_excerpt : null,
-            'meta' => [
-                'meta_title' => $this->customMetaDataEnabled ? $this->post->meta['meta_title'] : null,
-                'meta_description' => $this->customMetaDataEnabled ? $this->post->meta['meta_description'] : null,
-            ],
-        ])->save();
+        ]);
+
+        if (! $this->customMetaDataEnabled) {
+            $this->post->fill(['meta' => [
+                'meta_title' => null,
+                'meta_description' => null,
+            ]]);
+        }
+
+        $this->post->save();
 
         $this->post->tags()->sync(
             $this->selectedTags->pluck('id')
