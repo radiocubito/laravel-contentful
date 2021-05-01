@@ -137,7 +137,7 @@
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                     <x-wordful::input.label for="excerpt" value="{{ __('Excerpt') }}" class="sm:mt-px sm:pt-2"/>
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                        <x-wordful::input.textarea id="custom_excerpt" type="text" class="block w-full" wire:model.defer="post.custom_excerpt" :placeholder="$post->excerpt" rows="5" />
+                                        <x-wordful::input.textarea id="custom_excerpt" class="block w-full" wire:model.defer="post.custom_excerpt" :placeholder="$post->excerpt" rows="5" />
                                         <x-wordful::input.error for="post.custom_excerpt" class="mt-2"/>
                                     </div>
                                 </div>

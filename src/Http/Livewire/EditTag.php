@@ -14,6 +14,7 @@ class EditTag extends Component
         return [
             'tag.name' => ['required', 'string', 'max:255'],
             'tag.slug' => ['required', 'string', 'max:255', 'unique:tags,slug,'.$this->tag->id],
+            'tag.description' => ['nullable', 'string', 'max:300'],
         ];
     }
 

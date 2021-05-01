@@ -28,6 +28,15 @@
                                     <x-wordful::input.error for="tag.slug" class="mt-2"/>
                                 </div>
                             </div>
+
+                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                <x-wordful::input.label for="description" value="{{ __('Description') }}" class="sm:mt-px sm:pt-2"/>
+
+                                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                    <x-wordful::input.textarea id="description" class="block w-full" wire:model.defer="tag.description" rows="4" />
+                                    <x-wordful::input.error for="tag.description" class="mt-2"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
