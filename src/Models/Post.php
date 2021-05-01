@@ -2,6 +2,7 @@
 
 namespace Radiocubito\Wordful\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
@@ -22,6 +23,7 @@ class Post extends Model
     protected $casts = [
         'author_id' => 'integer',
         'published_at' => 'date:Y-m-d H:i:s',
+        'meta' => AsCollection::class,
     ];
 
     protected static function newFactory()
@@ -94,6 +96,16 @@ class Post extends Model
     public function customExcerptEnabled(): bool
     {
         return ! is_null($this->custom_excerpt);
+    }
+
+    public function customMetaDataEnabled(): bool
+    {
+        if (is_null($this->meta)) {
+            return false;
+        }
+
+        return (bool) $this->meta['meta_title'] ?? false
+            || (bool) $this->meta['meta_description'] ?? false;
     }
 
     public function storeImage(UploadedFile $image)

@@ -16,6 +16,8 @@ class ManagePostSettings extends Component
 
     public $customExcerptEnabled = false;
 
+    public $customMetaDataEnabled = false;
+
     protected function rules()
     {
         return [
@@ -23,6 +25,8 @@ class ManagePostSettings extends Component
             'post.slug' => ['required', 'string', 'max:255', 'unique:posts,slug,'.$this->post['id']],
             'post.custom_excerpt' => ['nullable', 'string', 'max:300'],
             'publishDate' => ['nullable', 'required_if:post.status,published', 'date_format:Y-m-d H:i:s'],
+            'post.meta.meta_title' => ['nullable', 'string', 'max:300'],
+            'post.meta.meta_description' => ['nullable', 'string', 'max:500'],
         ];
     }
 
@@ -33,6 +37,10 @@ class ManagePostSettings extends Component
         $this->post->fill([
             'published_at' => $this->publishDate ?? null,
             'custom_excerpt' => $this->customExcerptEnabled ? $this->post->custom_excerpt : null,
+            'meta' => [
+                'meta_title' => $this->customMetaDataEnabled ? $this->post->meta['meta_title'] : null,
+                'meta_description' => $this->customMetaDataEnabled ? $this->post->meta['meta_description'] : null,
+            ],
         ])->save();
 
         $this->post->tags()->sync(
@@ -48,6 +56,7 @@ class ManagePostSettings extends Component
         $this->selectedTags = $this->post->tags;
         $this->selectableTags = Tag::whereNotIn('id', $this->post->tags->pluck('id'))->orderBy('slug')->get();
         $this->customExcerptEnabled = $this->post->customExcerptEnabled();
+        $this->customMetaDataEnabled = $this->post->customMetaDataEnabled();
     }
 
     public function render()

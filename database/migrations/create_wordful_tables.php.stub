@@ -19,6 +19,7 @@ class CreateWordfulTables extends Migration
             $table->dateTime('emailed_at')->nullable();
             $table->bigInteger('author_id')->unsigned()->index();
             $table->string('custom_excerpt')->nullable();
+            $table->json('meta')->nullable();
             $table->timestamps();
         });
 
