@@ -1,6 +1,12 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.11.3...main)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.11.4...main)
+
+## [v0.11.4 (2021-05-01)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.3...v0.11.4)
+
+### Added
+
+- Post meta data
 
 ## [v0.11.3 (2021-04-30)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.2...v0.11.3)
 
