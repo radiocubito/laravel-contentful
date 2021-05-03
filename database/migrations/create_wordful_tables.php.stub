@@ -28,6 +28,7 @@ class CreateWordfulTables extends Migration
             $table->string('slug')->unique();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->json('meta')->nullable();
             $table->timestamps();
 
             $table->index('created_at');
