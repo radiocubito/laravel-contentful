@@ -18,6 +18,7 @@ class PostFactory extends Factory
             'status' => 'draft',
             'type' => 'post',
             'author_id' => Wordful::userModel()::factory(),
+            'meta' => [],
         ];
     }
 

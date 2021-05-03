@@ -104,8 +104,8 @@ class Post extends Model
             return false;
         }
 
-        return (bool) $this->meta['meta_title'] ?? false
-            || (bool) $this->meta['meta_description'] ?? false;
+        return (bool) ($this->meta['meta_title'] ?? false)
+            || (bool) ($this->meta['meta_description'] ?? false);
     }
 
     public function storeImage(UploadedFile $image)
