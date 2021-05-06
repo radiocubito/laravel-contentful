@@ -99,6 +99,8 @@ class WordfulServiceProvider extends PackageServiceProvider
         }
 
         $this->configureComponents();
+
+        $this->bootTranslations();
     }
 
     protected function configureComponents()
@@ -136,5 +138,10 @@ class WordfulServiceProvider extends PackageServiceProvider
     protected function registerComponent(string $component)
     {
         Blade::component('wordful::components.'.$component, 'wordful::'.$component);
+    }
+
+    protected function bootTranslations()
+    {
+        $this->loadJSONTranslationsFrom(__DIR__ . '/../resources/lang/');
     }
 }

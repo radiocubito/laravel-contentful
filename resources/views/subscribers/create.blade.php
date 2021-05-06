@@ -6,14 +6,14 @@
                     @csrf
 
                     <label for="email" class="font-bold">
-                        Subscribe below to get future posts from <span class="whitespace-nowrap">{{ config('app.name', 'Wordful') }}</span>
+                        {{ __('Subscribe below to get future posts from') }} <span class="whitespace-nowrap">{{ config('app.name', 'Wordful') }}</span>
                     </label>
 
                     <div class="flex mt-2">
-                        <input type="email" name="email" placeholder="Type your email…" required class="text-sm lg:text-base rounded-full rounded-r border-r-0 py-2 px-4 w-full border-gray-200" />
+                        <input type="email" name="email" placeholder="{{ __('Type your email…') }}" required class="text-sm lg:text-base rounded-full rounded-r border-r-0 py-2 px-4 w-full border-gray-200" />
 
                         <button class="text-sm lg:text-base rounded-full rounded-l border bg-gray-100 px-4 py-2 border-gray-200">
-                            Subscribe
+                            {{ __('Subscribe') }}
                         </button>
                     </div>
                 </form>

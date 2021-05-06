@@ -3,10 +3,10 @@
         <section>
             <div class="p-6 mx-auto text-center rounded shadow-lg lg:p-8 max-w-lg border">
                 <h1 class="m-0 text-2xl lg:text-3xl font-bold leading-none text-center">
-                    You’re almost done.
+                    {{ __('You’re almost done.') }}
                 </h1>
 
-                <p class="mt-5 text-lg lg:text-xl">Check your email for a confirmation link.</p>
+                <p class="mt-5 text-lg lg:text-xl">{{ __('Check your email for a confirmation link.') }}</p>
             </div>
         </section>
     </main>

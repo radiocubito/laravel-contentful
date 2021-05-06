@@ -7,7 +7,7 @@
                 <form class="space-y-6" wire:submit.prevent="save">
                     <div>
                         <label for="title" class="sr-only">{{ __('Title') }}</label>
-                        <x-wordful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Post title…') }}" rows="1" class="border-0 font-bold text-4xl leading-none resize-none" />
+                        <x-wordful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Post title') }}" rows="1" class="border-0 font-bold text-4xl leading-none resize-none" />
                     </div>
                     <div>
                         <label for="html" class="sr-only">{{ __('HTML') }}</label>
