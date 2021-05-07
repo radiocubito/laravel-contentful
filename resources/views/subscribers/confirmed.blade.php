@@ -11,7 +11,7 @@
 
                     <form method="POST" action="{{ \URL::signedRoute('wordful.subscribers.confirmed.store', $subscriber) }}" class="mt-1">
                         @csrf
-                        <input type="submit" value="Confirm subscription" class="font-medium text-xs border rounded-full py-1 px-2 bg-white border-gray-900 cursor-pointer">
+                        <input type="submit" value="{{ __('Confirm subscription') }}" class="font-medium text-xs border rounded-full py-1 px-2 bg-white border-gray-900 cursor-pointer">
                     </form>
 
                     <script>document.getElementsByTagName("form")[0].submit()</script>
