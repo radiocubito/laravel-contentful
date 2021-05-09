@@ -20,10 +20,12 @@
             <hr class="border--top">
 
             <p class="txt--xx-small flush push--bottom">
-                You’re subscribed to <a class="permalink" href="{{ url('/') }}">{{ config('app.name', 'Wordful') }}</a>
+                {{ __('You’re subscribed to') }} <a class="permalink" href="{{ url('/') }}">{{ config('app.name', 'Wordful') }}</a>
             </p>
 
-            <p class="txt--xx-small flush push--bottom">Don’t want these posts anymore? <a class="permalink" href="{{ \URL::signedRoute('wordful.subscribers.unsubscribe.index', $subscriber) }}">Unsubscribe</a></p>
+            <p class="txt--xx-small flush push--bottom">
+                {{ __('Don’t want these posts anymore?') }} <a class="permalink" href="{{ \URL::signedRoute('wordful.subscribers.unsubscribe.index', $subscriber) }}">{{ __('Unsubscribe') }}</a>
+            </p>
         </div>
     </body>
 </html>

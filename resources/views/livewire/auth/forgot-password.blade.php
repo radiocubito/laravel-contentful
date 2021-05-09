@@ -2,7 +2,7 @@
     <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h1 class="text-center text-3xl font-extrabold text-gray-900">
-                Forgot your password? 🙈
+                {{ __('Forgot your password?') }} 🙈
             </h1>
         </div>
 
@@ -28,7 +28,7 @@
                 </form>
 
                 <div class="text-sm mt-8 hidden">
-                    <x-wordful::link href="#">Back to login</x-wordful::link>
+                    <x-wordful::link href="#">{{ __('Back to login') }}</x-wordful::link>
                 </div>
             </div>
         </div>

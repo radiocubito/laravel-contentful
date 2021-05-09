@@ -25,11 +25,11 @@
                         @if ($posts->count() > 0)
                             @if ($draftCount === 1)
                                 <div class="text-center mb-6">
-                                    <x-wordful::link href="{{ route('wordful.pages.edit', $firstDraft) }}">Continue writing your draft…</x-wordful::link>
+                                    <x-wordful::link href="{{ route('wordful.pages.edit', $firstDraft) }}">{{ __('Continue writing your draft…') }}</x-wordful::link>
                                 </div>
                             @elseif ($draftCount > 1)
                                 <div class="text-center mb-6">
-                                    <x-wordful::link href="{{ route('wordful.pages.drafts.index') }}">Continue writing {{ $draftCount }} drafts…</x-wordful::link>
+                                    <x-wordful::link href="{{ route('wordful.pages.drafts.index') }}">{{ __('Continue writing :draftCount drafts…', ['draftCount', $draftCount]) }}</x-wordful::link>
                                 </div>
                             @endif
 
@@ -68,29 +68,29 @@
                             @endif
                         @else
                             <div class="flex items-center flex-col justify-center" style="min-height: 60vh;">
-                                <p class="text-gray-500">No published pages.</p>
+                                <p class="text-gray-500">{{ __('No published pages.') }}</p>
 
                                 @if ($draftCount === 1)
                                     <div>
-                                        <x-wordful::link href="{{ route('wordful.pages.edit', $firstDraft) }}">Continue writing your draft</x-wordful::link>
+                                        <x-wordful::link href="{{ route('wordful.pages.edit', $firstDraft) }}">{{ __('Continue writing your draft') }}</x-wordful::link>
                                     </div>
 
                                     <div class="text-gray-500">
-                                        Or,
-                                        <x-wordful::link href="{{ route('wordful.pages.create') }}">create a new page</x-wordful::link>
+                                        {{ __('Or,') }}
+                                        <x-wordful::link href="{{ route('wordful.pages.create') }}">{{ __('create a new page') }}</x-wordful::link>
                                     </div>
                                 @elseif ($draftCount > 1)
                                     <div>
-                                        <x-wordful::link href="{{ route('wordful.pages.drafts.index') }}">Continue writing {{ $draftCount }} drafts</x-wordful::link>
+                                        <x-wordful::link href="{{ route('wordful.pages.drafts.index') }}">{{ __('Continue writing :draftCount drafts', ['$draftCount' => $draftCount]) }}</x-wordful::link>
                                     </div>
 
                                     <div class="text-gray-500">
-                                        Or,
-                                        <x-wordful::link href="{{ route('wordful.pages.create') }}">create a new page</x-wordful::link>
+                                        {{ __('Or,') }}
+                                        <x-wordful::link href="{{ route('wordful.pages.create') }}">{{ __('create a new page') }}</x-wordful::link>
                                     </div>
                                 @else
                                     <div>
-                                        <x-wordful::link href="{{ route('wordful.pages.create') }}">Create a new page</x-wordful::link>
+                                        <x-wordful::link href="{{ route('wordful.pages.create') }}">{{ __('Create a new page') }}</x-wordful::link>
                                     </div>
                                 @endif
                             </div>

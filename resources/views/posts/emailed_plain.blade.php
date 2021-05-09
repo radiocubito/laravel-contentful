@@ -2,6 +2,6 @@
 
 --
 
-You’re subscribed to {{ config('app.name', 'Wordful') }}
+{{ __('You’re subscribed to :siteName', ['siteName' => config('app.name', 'Wordful')]) }}
 
-Don’t want these posts anymore? Unsubscribe: {{ \URL::signedRoute('wordful.subscribers.unsubscribe.index', $subscriber) }}
+{{ __('Don’t want these posts anymore? Unsubscribe:') }} {{ \URL::signedRoute('wordful.subscribers.unsubscribe.index', $subscriber) }}

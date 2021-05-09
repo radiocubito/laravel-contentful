@@ -5,7 +5,7 @@
                 <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
                     {{ $tag->name }}
                 </h1>
-                <p class="mt-2 max-w-4xl text-sm font-medium text-gray-500">Manage tag settings</p>
+                <p class="mt-2 max-w-4xl text-sm font-medium text-gray-500">{{ __('Manage tag settings') }}</p>
             </div>
             <div class="py-6">
                 <div>
@@ -43,11 +43,11 @@
                 <div x-data="{ on: @entangle('customMetaDataEnabled') }">
                     <div class="flex pt-6 items-center justify-between">
                         <span class="flex-grow flex flex-col" id="availability-label" @click="on = !on; $refs.switch.focus()">
-                            <span class="text-sm font-medium text-gray-900">Use custom meta data</span>
-                            <span class="text-sm leading-normal text-gray-500">Customise extra content for search engines.</span>
+                            <span class="text-sm font-medium text-gray-900">{{ __('Use custom meta data') }}</span>
+                            <span class="text-sm leading-normal text-gray-500">{{ __('Customise extra content for search engines.') }}</span>
                         </span>
                         <button wire:click="$toggle('customMetaDataEnabled')" type="button" class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" aria-pressed="false" x-ref="switch" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'bg-primary-600': on, 'bg-gray-200': !(on) }" aria-labelledby="availability-label" :aria-pressed="on.toString()">
-                            <span class="sr-only">Use custom excerpt setting</span>
+                            <span class="sr-only">{{ __('Use custom excerpt setting') }}</span>
                             <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'translate-x-5': on, 'translate-x-0': !(on) }"></span>
                         </button>
                     </div>
@@ -80,7 +80,7 @@
                         </x-wordful::button.primary>
                     </div>
                     <div class="mt-2">
-                        Or, <x-wordful::link href="{{ route('wordful.tags.index') }}">discard my changes</x-wordful::link>
+                        {{ __('Or,') }} <x-wordful::link href="{{ route('wordful.tags.index') }}">{{ __('discard my changes') }}</x-wordful::link>
                     </div>
                 </div>
             </div>

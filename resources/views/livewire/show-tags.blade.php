@@ -2,14 +2,14 @@
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="pb-5 border-b border-gray-200">
             <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                Tags
+                {{ __('Tags') }}
             </h1>
-            <p class="mt-2 max-w-4xl text-sm font-medium text-gray-500">Manage tag settings</p>
+            <p class="mt-2 max-w-4xl text-sm font-medium text-gray-500">{{ __('Manage tag settings') }}</p>
         </div>
 
         <div class="flex items-center justify-between pt-6">
             <p class="max-w-xs text-sm text-gray-500">
-                Tags make it easy to organize your posts or pages.
+                {{ __('Tags make it easy to organize your posts or pages.') }}
             </p>
 
             <div class="flex-shrink-0 ml-4">

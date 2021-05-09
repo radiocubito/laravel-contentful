@@ -29,7 +29,7 @@
                             @endif
                         </div>
                         <div class="mt-2">
-                            Or, <x-wordful::link href="{{ route('wordful.pages.show', $post) }}">discard my changes</x-wordful::link>
+                            {{ __('Or,') }} <x-wordful::link href="{{ route('wordful.pages.show', $post) }}">{{ __('discard my changes') }}</x-wordful::link>
                         </div>
                     </div>
                 </form>
