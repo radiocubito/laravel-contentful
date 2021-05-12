@@ -24,10 +24,10 @@
                 <div>
                     <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">{{ $post->title }}</h1>
                     <p class="mt-2 text-sm text-gray-500 font-medium">
-                        By <span class="text-gray-900">{{ $post->author->name }}</span>
+                        {{ __('By') }} <span class="text-gray-900">{{ $post->author->name }}</span>
 
                         @if ($post->tags->count() > 0)
-                            in
+                            {{ __('en') }}
                             @foreach ($post->tags as $tag)
                                 <span class="font-medium">{{ $tag->name }}</span>@unless ($loop->last)<span aria-hidden="true">,</span> @endunless
                             @endforeach

@@ -25,7 +25,7 @@
                     <div class="flex-1 min-w-0">
                         <div class="flex">
                             <div class="flex-grow">
-                                <x-wordful::input.text id="newTagName" wire:model.defer="newTag.name" type="text" class="block w-full" placeholder="Tag name" />
+                                <x-wordful::input.text id="newTagName" wire:model.defer="newTag.name" type="text" class="block w-full" placeholder="{{ __('Tag name') }}" />
                             </div>
                             <span class="ml-2 flex space-x-2 border-l border-gray-100 pl-2">
                                 <x-wordful::button.secondary type="button" wire:click="$set('showCreateTagForm', false)">

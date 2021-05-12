@@ -49,9 +49,9 @@
                                                         </h3>
 
                                                         <p class="text-sm text-gray-500 truncate">
-                                                            By <span class="font-medium">{{ $post->author->name }}</span>
+                                                            {{ __('By') }} <span class="font-medium">{{ $post->author->name }}</span>
                                                             @if ($post->tags->count() > 0)
-                                                                in
+                                                                {{ __('in') }}
                                                                 @foreach ($post->tags as $tag)
                                                                     <span class="font-medium">{{ $tag->name }}</span>@unless ($loop->last)<span aria-hidden="true">,</span> @endunless
                                                                 @endforeach

@@ -62,7 +62,7 @@
                                     @unless ($showCreateTagForm)
                                         <div class="flex">
                                             <div class="flex-grow">
-                                                <x-wordful::input.select id="incomingTag" wire:model="incomingTag" class="block w-full" placeholder="Add Tag">
+                                                <x-wordful::input.select id="incomingTag" wire:model="incomingTag" class="block w-full" placeholder="{{ __('Add tag') }}">
                                                     @foreach ($selectableTags as $tag)
                                                         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                                     @endforeach
@@ -81,7 +81,7 @@
                                     @if ($showCreateTagForm)
                                         <div class="flex">
                                             <div class="flex-grow">
-                                                <x-wordful::input.text id="newTagName" wire:model.defer="newTagName" type="text" class="block w-full" placeholder="Tag name" />
+                                                <x-wordful::input.text id="newTagName" wire:model.defer="newTagName" type="text" class="block w-full" placeholder="{{ __('Tag name') }}" />
                                             </div>
                                             <span class="ml-2 flex space-x-2 border-l border-gray-100 pl-2">
                                                 <x-wordful::button.secondary type="button" wire:click="$set('showCreateTagForm', false)">
