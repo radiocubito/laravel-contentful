@@ -1,6 +1,13 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.11.6...main)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.11.7...main)
+
+## [v0.11.7 (2021-05-12)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.6...v0.11.7)
+
+### Added
+
+- Translations
+- Spanish language
 
 ## [v0.11.6 (2021-05-02)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.5...v0.11.6)
 
