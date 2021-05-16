@@ -20,8 +20,18 @@ class Features
         return static::enabled(static::authentication());
     }
 
+    public static function managesSettings(): bool
+    {
+        return static::enabled(static::settings());
+    }
+
     public static function authentication(): string
     {
         return 'authentication';
+    }
+
+    public static function settings(): string
+    {
+        return 'settings';
     }
 }

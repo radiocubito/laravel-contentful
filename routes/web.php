@@ -1,27 +1,29 @@
 <?php
 
+use Radiocubito\Wordful\Wordful;
+use Radiocubito\Wordful\Models\Post;
 use Illuminate\Support\Facades\Route;
-use Radiocubito\Wordful\Http\Controllers\ConfirmedSubscriberController;
-use Radiocubito\Wordful\Http\Controllers\SubscribersController;
-use Radiocubito\Wordful\Http\Controllers\UnsubscribeSubscriberController;
-use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
-use Radiocubito\Wordful\Http\Livewire\Auth\Login;
-use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
-use Radiocubito\Wordful\Http\Livewire\CreatePage;
-use Radiocubito\Wordful\Http\Livewire\CreatePost;
+use Radiocubito\Wordful\Http\Livewire\EditTag;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
-use Radiocubito\Wordful\Http\Livewire\EditTag;
+use Radiocubito\Wordful\Http\Livewire\ShowPage;
+use Radiocubito\Wordful\Http\Livewire\ShowPost;
+use Radiocubito\Wordful\Http\Livewire\ShowTags;
+use Radiocubito\Wordful\Http\Livewire\ShowPages;
+use Radiocubito\Wordful\Http\Livewire\ShowPosts;
+use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\CreatePage;
+use Radiocubito\Wordful\Http\Livewire\CreatePost;
+use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
+use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
-use Radiocubito\Wordful\Http\Livewire\ShowPage;
-use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
-use Radiocubito\Wordful\Http\Livewire\ShowPages;
-use Radiocubito\Wordful\Http\Livewire\ShowPost;
-use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
-use Radiocubito\Wordful\Http\Livewire\ShowPosts;
-use Radiocubito\Wordful\Http\Livewire\ShowTags;
-use Radiocubito\Wordful\Wordful;
+use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
+use Radiocubito\Wordful\Http\Livewire\ManageGeneralSettings;
+use Radiocubito\Wordful\Http\Controllers\SubscribersController;
+use Radiocubito\Wordful\Http\Controllers\ConfirmedSubscriberController;
+use Radiocubito\Wordful\Http\Controllers\UnsubscribeSubscriberController;
 
 Route::prefix('wordful')
     ->middleware('wordful')
@@ -46,6 +48,10 @@ Route::prefix('wordful')
 
         Route::get('/tags', ShowTags::class)->name('wordful.tags.index');
         Route::get('/tags/{tag}/edit', EditTag::class)->name('wordful.tags.edit');
+
+        if (Wordful::managesSettings()) {
+            Route::get('/settings/general', ManageGeneralSettings::class)->name('wordful.settings.general');
+        }
     });
 
 Route::prefix('/')

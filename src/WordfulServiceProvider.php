@@ -2,37 +2,40 @@
 
 namespace Radiocubito\Wordful;
 
+use Livewire\Livewire;
+use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
-use Illuminate\View\Compilers\BladeCompiler;
-use Livewire\Livewire;
-use Radiocubito\Wordful\Console\InstallCommand;
+use Spatie\LaravelPackageTools\Package;
 use Radiocubito\Wordful\Console\MakeUser;
+use Illuminate\View\Compilers\BladeCompiler;
+use Radiocubito\Wordful\Http\Livewire\EditTag;
+use Radiocubito\Wordful\Console\InstallCommand;
 use Radiocubito\Wordful\Console\PublishCommand;
-use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
-use Radiocubito\Wordful\Http\Livewire\Auth\Login;
-use Radiocubito\Wordful\Http\Livewire\Auth\LogoutLink;
-use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
-use Radiocubito\Wordful\Http\Livewire\Auth\ResponsiveLogoutLink;
-use Radiocubito\Wordful\Http\Livewire\CreatePage;
-use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Http\Livewire\EditPage;
 use Radiocubito\Wordful\Http\Livewire\EditPost;
-use Radiocubito\Wordful\Http\Livewire\EditTag;
-use Radiocubito\Wordful\Http\Livewire\EmailPostToSubscribers;
+use Radiocubito\Wordful\Http\Livewire\ShowPage;
+use Radiocubito\Wordful\Http\Livewire\ShowPost;
+use Radiocubito\Wordful\Http\Livewire\ShowTags;
+use Radiocubito\Wordful\Http\Livewire\ShowPages;
+use Radiocubito\Wordful\Http\Livewire\ShowPosts;
+use Radiocubito\Wordful\Http\Livewire\Auth\Login;
+use Radiocubito\Wordful\Http\Livewire\CreatePage;
+use Radiocubito\Wordful\Http\Livewire\CreatePost;
+use Radiocubito\Wordful\View\Components\AuthLayout;
+use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
+use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
+use Radiocubito\Wordful\Support\SiteConfiguration;
+use Radiocubito\Wordful\Http\Livewire\Auth\LogoutLink;
+use Radiocubito\Wordful\View\Components\WordfulLayout;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
-use Radiocubito\Wordful\Http\Livewire\ShowPage;
-use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
-use Radiocubito\Wordful\Http\Livewire\ShowPages;
-use Radiocubito\Wordful\Http\Livewire\ShowPost;
-use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
-use Radiocubito\Wordful\Http\Livewire\ShowPosts;
-use Radiocubito\Wordful\Http\Livewire\ShowTags;
-use Radiocubito\Wordful\View\Components\AuthLayout;
-use Radiocubito\Wordful\View\Components\WordfulLayout;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
+use Radiocubito\Wordful\Http\Livewire\ManageGeneralSettings;
+use Radiocubito\Wordful\Http\Livewire\EmailPostToSubscribers;
+use Radiocubito\Wordful\Http\Livewire\Auth\ResponsiveLogoutLink;
 
 class WordfulServiceProvider extends PackageServiceProvider
 {
@@ -80,7 +83,11 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             Livewire::component('wordful::auth.logout-link', LogoutLink::class);
             Livewire::component('wordful::auth.responsive-logout-link', ResponsiveLogoutLink::class);
+
+            Livewire::component('wordful::settings.manage-general-settings', ManageGeneralSettings::class);
         });
+
+        $this->registerGeneralConfiguration();
     }
 
     public function bootingPackage()
@@ -143,5 +150,19 @@ class WordfulServiceProvider extends PackageServiceProvider
     protected function bootTranslations()
     {
         $this->loadJSONTranslationsFrom(__DIR__ . '/../resources/lang/');
+    }
+
+    protected function registerGeneralConfiguration()
+    {
+        $this->app->bind(SiteConfiguration::class, function () {
+            $valueStore = Valuestore::make(base_path('config-wordful-app/site.json'));
+
+            return new SiteConfiguration(
+                $valueStore,
+                app()->get('config'),
+            );
+        });
+
+        app(SiteConfiguration::class)->registerConfigValues();
     }
 }

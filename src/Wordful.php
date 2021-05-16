@@ -29,4 +29,9 @@ class Wordful
     {
         return Features::hasAuthenticationFeature();
     }
+
+    public static function managesSettings(): bool
+    {
+        return Features::managesSettings();
+    }
 }
