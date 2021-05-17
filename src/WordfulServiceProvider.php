@@ -36,6 +36,7 @@ use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
 use Radiocubito\Wordful\Http\Livewire\ManageGeneralSettings;
 use Radiocubito\Wordful\Http\Livewire\EmailPostToSubscribers;
 use Radiocubito\Wordful\Http\Livewire\Auth\ResponsiveLogoutLink;
+use Radiocubito\Wordful\View\Components\DevWordfulLayout;
 
 class WordfulServiceProvider extends PackageServiceProvider
 {
@@ -137,7 +138,12 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('subscribers-layout');
 
+            $this->registerComponent('posts-table');
+            $this->registerComponent('posts-lists');
+            $this->registerComponent('page-heading');
+
             Blade::component(WordfulLayout::class, 'wordful-layout');
+            Blade::component(DevWordfulLayout::class, 'dev-wordful-layout');
             Blade::component(AuthLayout::class, 'auth-layout');
         });
     }

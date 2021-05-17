@@ -32,6 +32,10 @@ Route::prefix('wordful')
             return redirect()->to(route('wordful.posts.index'));
         });
 
+        Route::view('/ui', 'wordful::new-ui.index', [
+            'post' => Post::find(1),
+        ]);
+
         Route::get('/posts', ShowPosts::class)->name('wordful.posts.index');
         Route::get('/posts/drafts', ShowPostDrafts::class)->name('wordful.posts.drafts.index');
         Route::get('/posts/create', CreatePost::class)->name('wordful.posts.create');
