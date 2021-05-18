@@ -41,7 +41,7 @@
     </x-wordful::page-heading>
 
     <div class="py-8 xl:py-10">
-        <div class="max-w-2xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="max-w-3xl px-4 sm:px-6 lg:px-8 mx-auto">
             <div>
                 <x-wordful::input.errors class="mb-4" :errors="$errors" />
 

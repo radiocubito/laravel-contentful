@@ -2,11 +2,9 @@
     <x-wordful::page-heading>
         <x-slot name="heading">
             <div class="flex items-center">
-                <a href="{{ route('wordful.posts.index') }}" class="text-gray-500 mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </a>
+                <span class="mr-2">
+                    <x-wordful::button.back href="{{ route('wordful.posts.index') }}" />
+                </span>
                 <h1 class="text-sm font-medium leading-4 text-gray-900 sm:truncate">
                     {{ $post->title }}
                 </h1>
@@ -26,9 +24,11 @@
                             <x-wordful::dropdown.link :href="route('wordful.posts.edit', $post)">
                                 {{ __('Edit') }}
                             </x-wordful::dropdown.link>
+
                             <x-wordful::dropdown.link :href="route('wordful.posts.settings', $post)">
                                 {{ __('Settings') }}
                             </x-wordful::dropdown.link>
+
                             <x-wordful::dropdown.link
                                 :href="route('wordful.posts.edit', $post)"
                                 onclick="event.preventDefault();
@@ -52,7 +52,7 @@
     </x-wordful::page-heading>
 
     <div class="py-8 xl:py-10">
-        <div class="max-w-2xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="max-w-3xl px-4 sm:px-6 lg:px-8 mx-auto">
             <div>
                 <livewire:wordful::email-post-to-subscribers :post="$post" />
 

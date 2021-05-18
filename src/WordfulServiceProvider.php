@@ -145,9 +145,11 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('button.edit');
             $this->registerComponent('button.settings');
             $this->registerComponent('button.options');
+            $this->registerComponent('button.back');
             $this->registerComponent('icon.edit');
             $this->registerComponent('icon.settings');
             $this->registerComponent('icon.options');
+            $this->registerComponent('icon.back');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
             Blade::component(DevWordfulLayout::class, 'dev-wordful-layout');
