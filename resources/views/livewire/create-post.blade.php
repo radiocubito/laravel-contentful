@@ -2,11 +2,9 @@
     <x-wordful::page-heading>
         <x-slot name="heading">
             <div class="flex items-center">
-                <a href="{{ route('wordful.posts.index') }}" class="text-gray-500 mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </a>
+                <span class="mr-2 inline-flex">
+                    <x-wordful::button.back href="{{ route('wordful.posts.index') }}" />
+                </span>
                 <h1 class="text-sm font-medium leading-4 text-gray-900 sm:truncate">
                     {{ __('New post') }}
                 </h1>
@@ -16,19 +14,19 @@
         <x-slot name="actions">
             <div class="flex items-center divide-x">
                 <div class="flex items-center space-x-2">
-                    <a href="{{ route('wordful.posts.index') }}" class="px-3 py-2 text-sm leading-4 font-medium rounded flex items-center text-gray-500 hover:bg-gray-200">
-                        Cancel
-                    </a>
+                    <x-wordful::button color="white" href="{{ route('wordful.posts.index') }}">
+                        {{ __('Cancel') }}
+                    </x-wordful::button>
                 </div>
 
                 <div class="ml-3 pl-3 flex items-center space-x-2">
-                    <button type="button" wire:click="save" class="px-3 py-2 text-sm leading-4 font-medium rounded flex items-center text-gray-500 hover:bg-gray-200">
-                        Save draft
-                    </button>
+                    <x-wordful::button color="white" type="button" wire:click="save">
+                        {{ __('Save draft') }}
+                    </x-wordful::button>
 
-                    <button type="submit" class="order-0 inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded text-gray-700 bg-gray-100 hover:bg-gray-200">
-                        Publish
-                    </button>
+                    <x-wordful::button color="secondary">
+                        {{ __('Publish') }}
+                    </x-wordful::button>
                 </div>
             </div>
         </x-slot>
