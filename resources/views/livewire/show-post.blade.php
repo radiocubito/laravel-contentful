@@ -2,7 +2,7 @@
     <x-wordful::page-heading>
         <x-slot name="heading">
             <div class="flex items-center">
-                <span class="mr-2">
+                <span class="mr-2 inline-flex">
                     <x-wordful::button.back href="{{ route('wordful.posts.index') }}" />
                 </span>
                 <h1 class="text-sm font-medium leading-4 text-gray-900 sm:truncate">
