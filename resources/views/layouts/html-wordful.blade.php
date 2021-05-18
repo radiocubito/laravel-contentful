@@ -19,23 +19,9 @@
         @livewireStyles
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.2.3/dist/trix.css">
     </head>
-    <body class="font-sans antialiased">
-        <div class="h-screen flex overflow-hidden bg-white" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
-            @include('wordful::new-ui.sidebar.mobile')
+    <body>
+        {{ $slot }}
 
-            @include('wordful::new-ui.sidebar.desktop')
-
-            <!-- Main column -->
-            <div class="flex flex-col w-0 flex-1 overflow-hidden">
-                @include('wordful::new-ui.search-header')
-
-                <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0" x-data="" x-init="$el.focus()">
-                    {{ $slot }}
-                </main>
-            </div>
-        </div>
-
-        @livewireScripts
         <script src="https://unpkg.com/trix@1.2.3/dist/trix.js"></script>
     </body>
 </html>

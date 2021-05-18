@@ -10,9 +10,21 @@ class ShowPosts extends Component
 {
     public function render()
     {
+        $groupedPosts = [
+            [
+                'status' => 'draft',
+                'sectionTitle' => __('Draft'),
+                'posts' => Post::draft()->ofType('post')->orderBy('created_at', 'desc')->get(),
+            ],
+            [
+                'status' => 'published',
+                'sectionTitle' => __('Published'),
+                'posts' => Post::published()->ofType('post')->orderBy('created_at', 'desc')->get(),
+            ],
+        ];
+
         return view('wordful::livewire.show-posts', [
-            'publishedPosts' => Post::published()->ofType('post')->orderBy('created_at', 'desc')->get(),
-            'draftPosts' => Post::draft()->ofType('post')->orderBy('created_at', 'desc')->get(),
-        ])->layout('wordful::layouts.dev-wordful');
+            'groupedPosts' => $groupedPosts,
+        ])->layout('wordful::layouts.html-wordful');
     }
 }

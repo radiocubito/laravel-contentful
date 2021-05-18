@@ -1,6 +1,6 @@
 <div class="relative z-10 flex-shrink-0 flex h-14 bg-white border-b border-gray-200 lg:hidden">
     <button x-description="Sidebar toggle, controls the 'sidebarOpen' sidebar state." @click.stop="sidebarOpen = true" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 lg:hidden">
-        <span class="sr-only">Open sidebar</span>
+        <span class="sr-only">{{ __('Open sidebar') }}</span>
         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
         </svg>
@@ -11,7 +11,7 @@
             <div @click.away="open = false" class="ml-3 relative" x-data="{ open: false }">
                 <div>
                     <button @click="open = !open" class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" id="user-menu" aria-haspopup="true" x-bind:aria-expanded="open">
-                        <span class="sr-only">Open user menu</span>
+                        <span class="sr-only">{{ __('Open user menu') }}</span>
                         <img class="h-5 w-5 rounded-full" src="{{ Auth::user()->profile_photo_url }}">
                     </button>
                 </div>

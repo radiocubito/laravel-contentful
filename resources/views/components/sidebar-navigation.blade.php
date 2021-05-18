@@ -1,3 +1,11 @@
+@props([
+    'links' => [
+        [__('Posts'), route('wordful.posts.index'), 'wordful::icon.post', request()->routeIs('wordful.posts.*')],
+        [__('Pages'), route('wordful.pages.index'), 'wordful::icon.page', request()->routeIs('wordful.pages.*')],
+        [__('Tags'), route('wordful.tags.index'), 'wordful::icon.tag', request()->routeIs('wordful.tags.*')],
+    ]
+])
+
 <div class="hidden lg:flex lg:flex-shrink-0">
     <div class="flex flex-col w-56 border-r border-gray-200 pt-5 pb-4 bg-gray-100">
         <div class="relative" x-data="{ profileOpen: false }" >
@@ -37,40 +45,32 @@
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
             <div class="px-3 mt-5">
                 <a href="{{ route('wordful.posts.create') }}" class="flex items-center px-2 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded text-gray-700 bg-white hover:bg-gray-50">
-                    <svg class="text-gray-500 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                        <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
-                    </svg>
-                    New post
+                    <x-wordful::icon.new-post class="text-gray-500 mr-3 h-4 w-4" />
+                    {{ __('New post') }}
                 </a>
             </div>
+
             <!-- Navigation -->
             <nav class="px-3 mt-6">
-                <div
-                    class="space-y-1">
-                    <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-700 hover:text-gray-900 hover:bg-gray-50" -->
-                    <a href="{{ route('wordful.posts.index') }}" class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded">
-                        <!-- Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500" -->
-                        <svg class="text-gray-500 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
-                            <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
-                        </svg>
-                        Posts
-                    </a>
-                    <a href="{{ route('wordful.pages.index') }}" class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded">
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
-                        </svg>
-                        Pages
-                    </a>
-                    <a href="{{ route('wordful.tags.index') }}" class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded">
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                        </svg>
-                        Tags
-                    </a>
+                <div class="space-y-1">
+                    @foreach ($links as list($title, $link, $icon, $active))
+                        <a
+                            href="{{ $link }}"
+                            class="{{ $active ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded"
+                        >
+                            <x-dynamic-component
+                                :component="$icon"
+                                class="{{ $active ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-4 w-4"
+                            />
+                            {{ $title }}
+                        </a>
+                    @endforeach
                 </div>
             </nav>
         </div>
     </div>
+</div>
+
+<div x-show="sidebarOpen" class="lg:hidden" x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state.">
+    <x-wordful::mobile-menu :links="$links" />
 </div>

@@ -22,21 +22,23 @@ use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\Auth\Login;
 use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
+use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\View\Components\AuthLayout;
 use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
-use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\Http\Livewire\Auth\LogoutLink;
 use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
+use Radiocubito\Wordful\View\Components\DevWordfulLayout;
 use Radiocubito\Wordful\Http\Livewire\Auth\ForgotPassword;
+use Radiocubito\Wordful\View\Components\HtmlWordfulLayout;
 use Radiocubito\Wordful\Http\Livewire\ManageGeneralSettings;
 use Radiocubito\Wordful\Http\Livewire\EmailPostToSubscribers;
+use Radiocubito\Wordful\View\Components\DashboardWordfulLayout;
 use Radiocubito\Wordful\Http\Livewire\Auth\ResponsiveLogoutLink;
-use Radiocubito\Wordful\View\Components\DevWordfulLayout;
 
 class WordfulServiceProvider extends PackageServiceProvider
 {
@@ -138,7 +140,6 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('subscribers-layout');
 
-            $this->registerComponent('posts-table');
             $this->registerComponent('posts-lists');
             $this->registerComponent('page-heading');
             $this->registerComponent('button');
@@ -151,9 +152,19 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('icon.options');
             $this->registerComponent('icon.back');
             $this->registerComponent('icon.new');
+            $this->registerComponent('icon.page');
+            $this->registerComponent('icon.post');
+            $this->registerComponent('icon.tag');
+            $this->registerComponent('icon.new-post');
+
+            $this->registerComponent('mobile-menu');
+            $this->registerComponent('navbar');
+            $this->registerComponent('sidebar-navigation');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
             Blade::component(DevWordfulLayout::class, 'dev-wordful-layout');
+            Blade::component(HtmlWordfulLayout::class, 'html-wordful-layout');
+            Blade::component(DashboardWordfulLayout::class, 'dashboard-wordful-layout');
             Blade::component(AuthLayout::class, 'auth-layout');
         });
     }
