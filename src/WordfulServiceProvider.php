@@ -142,27 +142,28 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('subscribers-layout');
 
+            $this->registerComponent('navbar');
             $this->registerComponent('posts-lists');
-            $this->registerComponent('mobile-posts-lists');
+            $this->registerComponent('mobile-menu');
             $this->registerComponent('page-heading');
+            $this->registerComponent('mobile-posts-lists');
+            $this->registerComponent('sidebar-navigation');
+
             $this->registerComponent('button');
-            $this->registerComponent('button.edit');
-            $this->registerComponent('button.settings');
-            $this->registerComponent('button.options');
             $this->registerComponent('button.back');
-            $this->registerComponent('icon.edit');
-            $this->registerComponent('icon.settings');
-            $this->registerComponent('icon.options');
+            $this->registerComponent('button.edit');
+            $this->registerComponent('button.options');
+            $this->registerComponent('button.settings');
+
             $this->registerComponent('icon.back');
+            $this->registerComponent('icon.edit');
+            $this->registerComponent('icon.new-post');
             $this->registerComponent('icon.new');
+            $this->registerComponent('icon.options');
             $this->registerComponent('icon.page');
             $this->registerComponent('icon.post');
+            $this->registerComponent('icon.settings');
             $this->registerComponent('icon.tag');
-            $this->registerComponent('icon.new-post');
-
-            $this->registerComponent('mobile-menu');
-            $this->registerComponent('navbar');
-            $this->registerComponent('sidebar-navigation');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
             Blade::component(HtmlLayout::class, 'wf-html');
