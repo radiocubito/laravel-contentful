@@ -24,11 +24,13 @@ use Radiocubito\Wordful\Http\Livewire\CreatePage;
 use Radiocubito\Wordful\Http\Livewire\CreatePost;
 use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\View\Components\AuthLayout;
+use Radiocubito\Wordful\View\Components\HtmlLayout;
 use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\Auth\LogoutLink;
 use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Radiocubito\Wordful\View\Components\DashboardLayout;
 use Radiocubito\Wordful\Http\Livewire\Auth\ResetPassword;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
@@ -141,6 +143,7 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('subscribers-layout');
 
             $this->registerComponent('posts-lists');
+            $this->registerComponent('mobile-posts-lists');
             $this->registerComponent('page-heading');
             $this->registerComponent('button');
             $this->registerComponent('button.edit');
@@ -162,9 +165,8 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('sidebar-navigation');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
-            Blade::component(DevWordfulLayout::class, 'dev-wordful-layout');
-            Blade::component(HtmlWordfulLayout::class, 'html-wordful-layout');
-            Blade::component(DashboardWordfulLayout::class, 'dashboard-wordful-layout');
+            Blade::component(HtmlLayout::class, 'wf-html');
+            Blade::component(DashboardLayout::class, 'wf-dashboard');
             Blade::component(AuthLayout::class, 'auth-layout');
         });
     }

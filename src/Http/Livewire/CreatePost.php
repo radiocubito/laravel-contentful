@@ -50,6 +50,6 @@ class CreatePost extends Component
 
     public function render()
     {
-        return view('wordful::livewire.create-post')->layout('wordful::layouts.dev-wordful');
+        return view('wordful::livewire.create-post')->layout('wordful::layouts.html');
     }
 }

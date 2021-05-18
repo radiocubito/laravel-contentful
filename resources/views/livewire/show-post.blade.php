@@ -1,4 +1,12 @@
-<div>
+<x-wf-dashboard>
+    <x-slot name="sidebar">
+        <x-wordful::sidebar-navigation />
+    </x-slot>
+
+    <x-slot name="header">
+        <x-wordful::navbar />
+    </x-slot>
+
     <x-wordful::page-heading>
         <x-slot name="heading">
             <div class="flex items-center">
@@ -68,4 +76,4 @@
             </div>
         </div>
     </div>
-</div>
+</x-wf-dashboard>
