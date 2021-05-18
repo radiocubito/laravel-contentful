@@ -1,6 +1,5 @@
 @props(['heading', 'posts'])
 
-
 <div class="px-4 sm:px-6">
     <h2 class="text-gray-500 text-sm leading-4 font-medium">{{ $heading }}</h2>
 </div>
