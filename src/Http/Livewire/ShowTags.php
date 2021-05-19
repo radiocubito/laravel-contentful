@@ -37,6 +37,6 @@ class ShowTags extends Component
 
     public function render()
     {
-        return view('wordful::livewire.show-tags')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.show-tags')->layout('wordful::layouts.html');
     }
 }

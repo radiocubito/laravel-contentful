@@ -25,5 +25,5 @@ it('can see livewire show page drafts component on show page drafts page', funct
         ->get('/wordful/pages')
         ->assertSuccessful()
         ->assertSeeLivewire('wordful::pages.show-pages')
-        ->assertDontSee($draftPage->title);
+        ->assertSee($draftPage->title);
 });

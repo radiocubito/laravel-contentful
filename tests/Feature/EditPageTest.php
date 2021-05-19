@@ -31,9 +31,9 @@ it('can save page', function () {
     ]);
 
     test()->actingAs($user)
-        ->livewire(EditPage::class, ['post' => $page])
-        ->set('post.title', '::title::')
-        ->set('post.html', '::html::')
+        ->livewire(EditPage::class, ['page' => $page])
+        ->set('page.title', '::title::')
+        ->set('page.html', '::html::')
         ->call('save');
 
     $this->assertDatabaseHas('posts', [
@@ -52,9 +52,9 @@ it('can save and publish page', function () {
     ]);
 
     test()->actingAs($user)
-        ->livewire(EditPage::class, ['post' => $page])
-        ->set('post.title', '::title::')
-        ->set('post.html', '::html::')
+        ->livewire(EditPage::class, ['page' => $page])
+        ->set('page.title', '::title::')
+        ->set('page.html', '::html::')
         ->call('saveAndPublish');
 
     $this->assertDatabaseHas('posts', [
@@ -74,29 +74,29 @@ test('validation tests', function (array $payload, string $key, string $rule) {
     ]);
 
     test()->actingAs($user)
-        ->livewire(EditPost::class, ['post' => $page])
+        ->livewire(EditPage::class, ['page' => $page])
         ->fill($payload)
         ->call('save')
         ->assertHasErrors([$key => $rule]);
 })->with(function () {
     $defaultPayload = [
-        'post.title' => '::title::',
-        'post.html' => '::html::',
+        'page.title' => '::title::',
+        'page.html' => '::html::',
     ];
 
     yield from [
         'missing title' => [
             'payload' => array_merge($defaultPayload, [
-                'post.title' => '',
+                'page.title' => '',
             ]),
-            'key' => 'post.title',
+            'key' => 'page.title',
             'rule' => 'required',
         ],
         'missing html' => [
             'payload' => array_merge($defaultPayload, [
-                'post.html' => '',
+                'page.html' => '',
             ]),
-            'key' => 'post.html',
+            'key' => 'page.html',
             'rule' => 'required',
         ],
     ];

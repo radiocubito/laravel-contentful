@@ -68,14 +68,12 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::posts.create-post', CreatePost::class);
             Livewire::component('wordful::posts.edit-post', EditPost::class);
             Livewire::component('wordful::posts.manage-post-settings', ManagePostSettings::class);
-            Livewire::component('wordful::posts.show-post-drafts', ShowPostDrafts::class);
 
             Livewire::component('wordful::pages.show-pages', ShowPages::class);
             Livewire::component('wordful::pages.show-page', ShowPage::class);
             Livewire::component('wordful::pages.create-page', CreatePage::class);
             Livewire::component('wordful::pages.edit-page', EditPage::class);
             Livewire::component('wordful::pages.manage-page-settings', ManagePageSettings::class);
-            Livewire::component('wordful::pages.show-page-drafts', ShowPageDrafts::class);
 
             Livewire::component('wordful::pages.show-tags', ShowTags::class);
             Livewire::component('wordful::pages.edit-tag', EditTag::class);

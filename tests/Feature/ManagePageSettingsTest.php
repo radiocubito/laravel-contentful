@@ -28,9 +28,9 @@ it('can save page settings', function () {
     ]);
 
     test()->actingAs($user)
-        ->livewire(ManagePageSettings::class, ['post' => $page])
-        ->set('post.status', 'draft')
-        ->set('post.slug', '::slug::')
+        ->livewire(ManagePageSettings::class, ['page' => $page])
+        ->set('page.status', 'draft')
+        ->set('page.slug', '::slug::')
         ->call('save');
 
     $page->refresh();
@@ -52,45 +52,45 @@ test('validation tests', function (array $payload, string $key, string $rule, ca
     ]);
 
     test()->actingAs($user)
-        ->livewire(ManagePageSettings::class, ['post' => $page])
+        ->livewire(ManagePageSettings::class, ['page' => $page])
         ->fill($payload)
         ->call('save')
         ->assertHasErrors([$key => $rule]);
 })->with(function () {
     $defaultPayload = [
-        'post.status' => 'draft',
-        'post.slug' => '::slug::',
+        'page.status' => 'draft',
+        'page.slug' => '::slug::',
     ];
 
     yield from [
         'missing status' => [
             'payload' => array_merge($defaultPayload, [
-                'post.status' => '',
+                'page.status' => '',
             ]),
-            'key' => 'post.status',
+            'key' => 'page.status',
             'rule' => 'required',
         ],
         'invalid status' => [
             'payload' => array_merge($defaultPayload, [
-                'post.status' => '::invalid-status::',
+                'page.status' => '::invalid-status::',
             ]),
-            'key' => 'post.status',
+            'key' => 'page.status',
             'rule' => 'in',
         ],
         'missing slug' => [
             'payload' => array_merge($defaultPayload, [
-                'post.slug' => '',
+                'page.slug' => '',
             ]),
-            'key' => 'post.slug',
+            'key' => 'page.slug',
             'rule' => 'required',
         ],
         'slug already exists' => [
             'payload' => $defaultPayload,
-            'key' => 'post.slug',
+            'key' => 'page.slug',
             'rule' => 'unique',
             'setup' => function () use ($defaultPayload) {
                 Post::factory()->page()->create()->fill([
-                    'slug' => $defaultPayload['post.slug'],
+                    'slug' => $defaultPayload['page.slug'],
                 ])->save();
             },
         ],
