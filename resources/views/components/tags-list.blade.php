@@ -26,6 +26,14 @@
                                         <x-wordful::dropdown.link :href="route('wordful.tags.edit', $tag)">
                                             {{ __('Edit') }}
                                         </x-wordful::dropdown.link>
+                                        <x-wordful::dropdown.link
+                                            :href="route('wordful.tags.index')"
+                                            onclick="event.preventDefault();
+                                                confirm('{{ __('Are you sure you want to delete this tag?') }}') || event.stopImmediatePropagation();"
+                                            wire:click="deleteTag({{ $tag->id }})"
+                                        >
+                                            {{ __('Delete') }}
+                                        </x-wordful::dropdown.link>
                                     </x-slot>
                                 </x-wordful::dropdown>
                             </td>

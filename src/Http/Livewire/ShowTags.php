@@ -31,6 +31,13 @@ class ShowTags extends Component
         $this->showCreateTagForm = false;
     }
 
+    public function deleteTag(Tag $tag)
+    {
+        $tag->delete();
+
+        $this->tags = Tag::orderBy('slug')->get();
+    }
+
     public function mount()
     {
         $this->tags = Tag::orderBy('slug')->get();
