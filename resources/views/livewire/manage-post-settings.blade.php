@@ -50,6 +50,7 @@
                                         <x-wordful::input.error for="post.slug" class="mt-2"/>
                                     </div>
                                 </div>
+
                                 <div class="sm:grid sm:grid-cols-3 sm:gap-4">
                                     <x-wordful::input.label for="status" value="{{ __('Status') }}" class="sm:mt-px sm:pt-2"/>
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -71,6 +72,7 @@
                                         <x-wordful::input.error for="post.status" class="mt-2"/>
                                     </div>
                                 </div>
+
                                 @if ($post->isPublished())
                                     <div class="sm:grid sm:grid-cols-3 sm:gap-4">
                                         <x-wordful::input.label for="slug" value="{{ __('Publish date') }}" class="sm:mt-px sm:pt-2"/>
@@ -80,6 +82,7 @@
                                         </div>
                                     </div>
                                 @endif
+
                                 <div class="sm:grid sm:grid-cols-3 sm:gap-4">
                                     <x-wordful::input.label for="incomingTag" value="{{ __('Tags') }}" class="sm:mt-px sm:pt-2"/>
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -145,10 +148,9 @@
                                 <span class="text-sm font-medium text-gray-900">{{ __('Use custom excerpt') }}</span>
                                 <span class="text-sm leading-normal text-gray-500">{{ __('Customise excerpt data.') }}</span>
                             </span>
-                            <button wire:click="$toggle('customExcerptEnabled')" type="button" class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" aria-pressed="false" x-ref="switch" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'bg-primary-600': on, 'bg-gray-200': !(on) }" aria-labelledby="availability-label" :aria-pressed="on.toString()">
+                            <x-wordful::toggle wire:click="$toggle('customExcerptEnabled')" x-ref="switch">
                                 <span class="sr-only">{{ __('Use custom excerpt setting') }}</span>
-                                <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'translate-x-5': on, 'translate-x-0': !(on) }"></span>
-                            </button>
+                            </x-wordful::toggle>
                         </div>
                         <div>
                             <div x-show="on" class="mt-4 p-4 rounded-md bg-gray-50">
@@ -171,10 +173,9 @@
                                 <span class="text-sm font-medium text-gray-900">{{ __('Use custom meta data') }}</span>
                                 <span class="text-sm leading-normal text-gray-500">{{ __('Customise extra content for search engines.') }}</span>
                             </span>
-                            <button wire:click="$toggle('customMetaDataEnabled')" type="button" class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" aria-pressed="false" x-ref="switch" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'bg-primary-600': on, 'bg-gray-200': !(on) }" aria-labelledby="availability-label" :aria-pressed="on.toString()">
-                                <span class="sr-only">{{ __('Use custom excerpt setting') }}</span>
-                                <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200" x-state:on="Enabled" x-state:off="Not Enabled" :class="{ 'translate-x-5': on, 'translate-x-0': !(on) }"></span>
-                            </button>
+                            <x-wordful::toggle wire:click="$toggle('customMetaDataEnabled')" x-ref="switch">
+                                <span class="sr-only">{{ __('Use custom meta data setting') }}</span>
+                            </x-wordful::toggle>
                         </div>
                         <div>
                             <div x-show="on" class="mt-4 p-4 rounded-md bg-gray-50">

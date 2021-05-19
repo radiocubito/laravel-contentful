@@ -165,6 +165,8 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('icon.settings');
             $this->registerComponent('icon.tag');
 
+            $this->registerComponent('toggle');
+
             Blade::component(WordfulLayout::class, 'wordful-layout');
             Blade::component(HtmlLayout::class, 'wf-html');
             Blade::component(DashboardLayout::class, 'wf-dashboard');
