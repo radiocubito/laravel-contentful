@@ -23,13 +23,13 @@
             <x-slot name="actions">
                 <div class="flex items-center divide-x">
                     <div class="flex items-center space-x-2">
-                        <x-wordful::button color="white" href="{{ route('wordful.pages.index') }}">
+                        <x-wordful::button color="transparent" href="{{ route('wordful.pages.index') }}">
                             {{ __('Cancel') }}
                         </x-wordful::button>
                     </div>
 
                     <div class="ml-3 pl-3 flex items-center space-x-2">
-                        <x-wordful::button color="white" type="button" wire:click="save">
+                        <x-wordful::button color="transparent" type="button" wire:click="save">
                             {{ __('Save draft') }}
                         </x-wordful::button>
 

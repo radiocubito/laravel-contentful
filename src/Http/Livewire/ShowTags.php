@@ -24,6 +24,8 @@ class ShowTags extends Component
 
         $this->newTag->save();
 
+        $this->newTag = new Tag;
+
         $this->tags = Tag::orderBy('slug')->get();
 
         $this->showCreateTagForm = false;

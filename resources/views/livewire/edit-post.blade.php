@@ -23,7 +23,7 @@
             <x-slot name="actions">
                 <div class="flex items-center divide-x">
                     <div class="flex items-center space-x-2">
-                        <x-wordful::button color="white" href="{{ route('wordful.posts.show', $post) }}">
+                        <x-wordful::button color="transparent" href="{{ route('wordful.posts.show', $post) }}">
                             {{ __('Cancel') }}
                         </x-wordful::button>
                     </div>
@@ -34,7 +34,7 @@
                                 {{ __('Save') }}
                             </x-wordful::button>
                         @elseif ($post->isDraft())
-                            <x-wordful::button color="white">
+                            <x-wordful::button color="transparent">
                                 {{ __('Save') }}
                             </x-wordful::button>
 
