@@ -27,7 +27,7 @@
     <x-wordful::tags-list :tags="$tags" />
 
     @if ($showCreateTagForm)
-        <form wire:submit.prevent="saveNewTag" x-data x-init="$refs.newTagName.focus()">
+        <form wire:submit.prevent="saveNewTag" wire:keydown.escape="$set('showCreateTagForm', false)" x-data x-init="$refs.newTagName.focus()">
             <div class="px-4 sm:px-6 lg:px-5 py-3">
                 <div class="bg-gray-50 rounded p-3">
                     <div class="flex items-center">
