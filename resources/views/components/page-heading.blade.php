@@ -4,7 +4,9 @@
             {{ $heading }}
         </h1>
     </div>
-    <div class="mt-4 sm:mt-0 sm:ml-4">
-        {{ $actions }}
-    </div>
+    @if (isset($actions))
+        <div class="mt-4 sm:mt-0 sm:ml-4">
+            {{ $actions }}
+        </div>
+    @endif
 </div>
