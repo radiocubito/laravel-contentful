@@ -7,24 +7,24 @@ use Radiocubito\Wordful\Models\Post;
 
 class ShowPage extends Component
 {
-    public Post $post;
+    public Post $page;
 
     public function publish()
     {
-        $this->post->markAsPublished();
+        $this->page->markAsPublished();
 
-        redirect()->to(route('wordful.pages.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->page));
     }
 
     public function delete()
     {
-        $this->post->delete();
+        $this->page->delete();
 
-        redirect()->to(route('wordful.pages.index', $this->post));
+        redirect()->to(route('wordful.pages.index', $this->page));
     }
 
     public function render()
     {
-        return view('wordful::livewire.show-page')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.show-page')->layout('wordful::layouts.html');
     }
 }

@@ -37,7 +37,7 @@
 
         <div class="py-6">
             <div class="px-4 sm:px-6 lg:px-8">
-                <h2 class="text-gray-500 text-sm leading-4 font-medium">Manage post settings</h2>
+                <h2 class="text-gray-500 text-sm leading-4 font-medium">{{ __('Manage post settings') }}</h2>
 
                 <div class="mt-4 space-y-6">
                     <div>

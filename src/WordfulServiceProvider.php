@@ -143,10 +143,8 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('subscribers-layout');
 
             $this->registerComponent('navbar');
-            $this->registerComponent('posts-lists');
             $this->registerComponent('mobile-menu');
             $this->registerComponent('page-heading');
-            $this->registerComponent('mobile-posts-lists');
             $this->registerComponent('sidebar-navigation');
 
             $this->registerComponent('button');
@@ -166,6 +164,11 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('icon.tag');
 
             $this->registerComponent('toggle');
+
+            $this->registerComponent('posts-lists');
+            $this->registerComponent('mobile-posts-lists');
+            $this->registerComponent('pages-lists');
+            $this->registerComponent('mobile-pages-lists');
 
             Blade::component(WordfulLayout::class, 'wordful-layout');
             Blade::component(HtmlLayout::class, 'wf-html');

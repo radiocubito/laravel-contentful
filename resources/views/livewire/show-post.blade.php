@@ -40,7 +40,7 @@
                             <x-wordful::dropdown.link
                                 :href="route('wordful.posts.edit', $post)"
                                 onclick="event.preventDefault();
-                                    confirm('Are you sure you want to delete this post?') || event.stopImmediatePropagation();"
+                                    confirm('{{ __('Are you sure you want to delete this post?') }}') || event.stopImmediatePropagation();"
                                 wire:click="delete"
                             >
                                 {{ __('Delete') }}
