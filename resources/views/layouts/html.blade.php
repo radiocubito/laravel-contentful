@@ -22,6 +22,8 @@
     <body>
         {{ $slot }}
 
+        @livewireScripts
+
         <script src="https://unpkg.com/trix@1.2.3/dist/trix.js"></script>
     </body>
 </html>
