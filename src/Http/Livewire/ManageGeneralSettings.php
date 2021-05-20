@@ -36,6 +36,6 @@ class ManageGeneralSettings extends Component
 
     public function render()
     {
-        return view('wordful::livewire.manage-general-settings')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.manage-general-settings')->layout('wordful::layouts.html');
     }
 }

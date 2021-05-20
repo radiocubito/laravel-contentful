@@ -3,6 +3,9 @@
         [__('Posts'), route('wordful.posts.index'), 'wordful::icon.post', request()->routeIs('wordful.posts.*')],
         [__('Pages'), route('wordful.pages.index'), 'wordful::icon.page', request()->routeIs('wordful.pages.*')],
         [__('Tags'), route('wordful.tags.index'), 'wordful::icon.tag', request()->routeIs('wordful.tags.*')],
+    ],
+    'secondaryLinks' => [
+        [__('General'), route('wordful.settings.general'), request()->routeIs('wordful.settings.general')],
     ]
 ])
 
@@ -68,7 +71,7 @@
 
             <!-- Navigation -->
             <nav class="px-3 mt-6">
-                <div class="space-y-1">
+                <div class="space-y-0.5">
                     @foreach ($links as list($title, $link, $icon, $active))
                         <a
                             href="{{ $link }}"
@@ -83,10 +86,27 @@
                     @endforeach
                 </div>
             </nav>
+
+            <div class="px-3 mt-8">
+                <!-- Secondary navigation -->
+                <h3 class="px-2 text-xs font-medium text-gray-500"">
+                    {{ __('Settings') }}
+                </h3>
+                <div class="mt-1 space-y-0.5">
+                    @foreach ($secondaryLinks as list($title, $link, $active))
+                        <a
+                            href="{{ $link }}"
+                            class="{{ $active ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded"
+                        >
+                            {{ $title }}
+                        </a>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div x-show="sidebarOpen" class="lg:hidden" x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state.">
-    <x-wordful::mobile-menu :links="$links" />
+<div x-show="sidebarOpen" class="lg:hidden">
+    <x-wordful::mobile-menu :links="$links" :secondaryLinks="$secondaryLinks" />
 </div>
