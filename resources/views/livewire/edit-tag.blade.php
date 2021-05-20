@@ -106,13 +106,14 @@
                             <x-wordful::input.label for="meta-description" value="{{ __('Meta description') }}" />
                         </x-slot>
 
-                        <x-wordful::input.textarea id="meta-description" class="block w-full max-w-lg" wire:model.defer="tag.meta_description" :placeholder="$tag->description" rows="4" />
+                        <x-wordful::input.textarea id="meta-description" class="block w-full max-w-lg" wire:model.defer="tag.meta.meta_description" :placeholder="$tag->description" rows="4" />
+
                         <x-wordful::input.error for="tag.meta.meta_description" class="mt-2"/>
                     </x-wordful::input.inline-group>
                 </x-wordful::input.section>
 
                 <x-wordful::input.section-actions>
-                    <x-wordful::button color="transparent" href="{{ route('wordful.tags.index') }}">
+                    <x-wordful::button color="white" href="{{ route('wordful.tags.index') }}">
                         {{ __('Cancel') }}
                     </x-wordful::Cancel>
 
