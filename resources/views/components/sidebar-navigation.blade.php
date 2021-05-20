@@ -4,9 +4,9 @@
         [__('Pages'), route('wordful.pages.index'), 'wordful::icon.page', request()->routeIs('wordful.pages.*')],
         [__('Tags'), route('wordful.tags.index'), 'wordful::icon.tag', request()->routeIs('wordful.tags.*')],
     ],
-    'secondaryLinks' => [
+    'settingsLinks' => \Radiocubito\Wordful\Wordful::managesSettings() ? [
         [__('General'), route('wordful.settings.general'), request()->routeIs('wordful.settings.general')],
-    ]
+    ] : [],
 ])
 
 <div class="hidden lg:flex lg:flex-shrink-0">
@@ -87,26 +87,28 @@
                 </div>
             </nav>
 
-            <div class="px-3 mt-8">
-                <!-- Secondary navigation -->
-                <h3 class="px-2 text-xs font-medium text-gray-500"">
-                    {{ __('Settings') }}
-                </h3>
-                <div class="mt-1 space-y-0.5">
-                    @foreach ($secondaryLinks as list($title, $link, $active))
-                        <a
-                            href="{{ $link }}"
-                            class="{{ $active ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded"
-                        >
-                            {{ $title }}
-                        </a>
-                    @endforeach
+            @if (\Radiocubito\Wordful\Wordful::hasAuthenticationFeature())
+                <div class="px-3 mt-8">
+                    <!-- Settings navigation -->
+                    <h3 class="px-2 text-xs font-medium text-gray-500"">
+                        {{ __('Settings') }}
+                    </h3>
+                    <div class="mt-1 space-y-0.5">
+                        @foreach ($settingsLinks as list($title, $link, $active))
+                            <a
+                                href="{{ $link }}"
+                                class="{{ $active ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm leading-4 font-medium rounded"
+                            >
+                                {{ $title }}
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>
 
 <div x-show="sidebarOpen" class="lg:hidden">
-    <x-wordful::mobile-menu :links="$links" :secondaryLinks="$secondaryLinks" />
+    <x-wordful::mobile-menu :links="$links" :settingsLinks="$settingsLinks" />
 </div>
