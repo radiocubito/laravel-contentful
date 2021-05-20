@@ -35,7 +35,7 @@
             </x-slot>
         </x-wordful::page-heading>
 
-        <div class="py-6 px-16">
+        <div class="py-6 px-6 sm:px-14 lg:px-16">
             <div class="space-y-8">
                 <x-wordful::input.section>
                     <x-slot name="heading">
