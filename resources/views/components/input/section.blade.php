@@ -20,7 +20,7 @@
         @if ($expandable)
             x-show="on"
         @endif
-        class="space-y-6 sm:space-y-5 p-5 bg-gray-50 rounded border-gray-100 border"
+        class="space-y-5 p-5 bg-gray-50 rounded border-gray-100 border"
     >
         {{ $content ?? $slot }}
     </div>
