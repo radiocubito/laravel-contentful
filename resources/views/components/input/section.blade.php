@@ -1,4 +1,4 @@
-@props(['expandable' => false, 'clickExpression' => 'on = !on; $refs.switch.focus()'])
+@props(['expandable' => false])
 
 <div
     @if ($expandable)

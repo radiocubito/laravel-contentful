@@ -151,7 +151,7 @@
                     <x-slot name="heading">
                         <div class="flex flex-col">
                             <h2 id="custom-excerpt-label"
-                                    @click="{{ $component->attributes->get('clickExpression') }}"
+                                    @click="on = !on; $refs.switch.focus()"
                                     class="text-sm font-medium text-gray-900">
                                 {{ __('Use custom excerpt') }}
                             </h2>
@@ -180,7 +180,7 @@
                     <x-slot name="heading">
                         <div class="flex flex-col">
                             <h2 id="custom-metadata-label"
-                                    @click="{{ $component->attributes->get('clickExpression') }}"
+                                    @click="on = !on; $refs.switch.focus()"
                                     class="text-sm font-medium text-gray-900">
                                 {{ __('Use custom meta data') }}
                             </h2>
