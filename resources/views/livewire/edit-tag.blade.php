@@ -77,11 +77,11 @@
                 <x-wordful::input.section wire:model="customMetaDataEnabled" expandable>
                     <x-slot name="heading">
                         <div class="flex flex-col">
-                            <h2
-                                id="custom-metadata-label"
-                                @click="{{ $component->attributes->get('clickExpression') }}"
-                                class="text-sm font-medium text-gray-900"
-                            >{{ __('Use custom meta data') }}</h2>
+                            <h2 id="custom-metadata-label"
+                                    @click="{{ $component->attributes->get('clickExpression') }}"
+                                    class="text-sm font-medium text-gray-900">
+                                {{ __('Use custom meta data') }}
+                            </h2>
                             <p class="text-sm leading-normal text-gray-500">{{ __('Customise extra content for search engines.') }}</p>
                         </div>
                     </x-slot>
