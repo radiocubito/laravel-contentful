@@ -32,7 +32,6 @@ use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\View\Components\AuthLayout;
 use Radiocubito\Wordful\View\Components\DashboardLayout;
 use Radiocubito\Wordful\View\Components\HtmlLayout;
-use Radiocubito\Wordful\View\Components\WordfulLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\Valuestore\Valuestore;
