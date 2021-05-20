@@ -1,7 +1,6 @@
 <?php
 
 use Radiocubito\Wordful\Http\Livewire\EditPage;
-use Radiocubito\Wordful\Http\Livewire\EditPost;
 use Radiocubito\Wordful\Models\Post;
 use Radiocubito\Wordful\Tests\Fixtures\User;
 use Radiocubito\Wordful\Wordful;

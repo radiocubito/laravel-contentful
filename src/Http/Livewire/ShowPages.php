@@ -3,7 +3,6 @@
 namespace Radiocubito\Wordful\Http\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
 use Radiocubito\Wordful\Models\Post;
 
 class ShowPages extends Component
