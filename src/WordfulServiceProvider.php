@@ -123,6 +123,9 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('input.label');
             $this->registerComponent('input.error');
             $this->registerComponent('input.select');
+            $this->registerComponent('input.section');
+            $this->registerComponent('input.section-actions');
+            $this->registerComponent('input.inline-group');
 
             $this->registerComponent('application-logo');
 
@@ -150,6 +153,7 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('button.edit');
             $this->registerComponent('button.options');
             $this->registerComponent('button.settings');
+            $this->registerComponent('button.switch');
 
             $this->registerComponent('icon.back');
             $this->registerComponent('icon.edit');
