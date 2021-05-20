@@ -3,8 +3,8 @@
 namespace Radiocubito\Wordful\Models;
 
 use Illuminate\Http\UploadedFile;
-use Radiocubito\Wordful\Features;
 use Illuminate\Support\Facades\Storage;
+use Radiocubito\Wordful\Features;
 
 trait HasProfilePhoto
 {
