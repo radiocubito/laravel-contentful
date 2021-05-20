@@ -15,30 +15,45 @@
                     <span class="text-sm leading-4 font-medium ml-2.5 whitespace-nowrap overflow-hidden overflow-ellipsis">{{ config('app.name') }}</span>
                 </div>
 
-                <!-- User account dropdown -->
                 <div @keydown.escape="profileOpen = false" @click.away="profileOpen = false" class="relative inline-block text-left">
-                    <div x-description="Dropdown menu toggle, controlling the show/hide state of dropdown menu.">
-                        <button @click="profileOpen = !profileOpen" type="button" class="group bg-gray-100 rounded px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500" id="options-menu" aria-haspopup="true" aria-expanded="true" x-bind:aria-expanded="profileOpen">
-                            <span class="flex items-center space-x-2">
-                                <span class="min-w-0">
-                                    <img class="w-5 h-5 bg-gray-300 rounded-full flex-shrink-0" src="{{ Auth::user()->profile_photo_url }}">
-                                </span>
-                                <svg class="flex-shrink-0 h-4 w-4 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/selector" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
+                    <button @click="profileOpen = !profileOpen" type="button" class="group bg-gray-100 rounded p-1.5 border border-transparent text-sm leading-4 font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-500">
+                        <span class="flex items-center space-x-2">
+                            <span class="min-w-0">
+                                <img class="w-5 h-5 bg-gray-300 rounded-full flex-shrink-0" src="{{ Auth::user()->profile_photo_url }}">
                             </span>
-                        </button>
-                    </div>
+                            <svg class="flex-shrink-0 h-4 w-4 text-gray-400 group-hover:text-gray-500" x-description="Heroicon name: solid/selector" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </div>
 
-            <transition enter-active-class="transition ease-out duration-100" enter-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                <div x-show="profileOpen" x-description="Dropdown panel, show/hide based on dropdown state." class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Logout</a>
-                    </div>
+            <div x-show="profileOpen"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="transform opacity-0 scale-95"
+                    x-transition:enter-end="transform opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-75"
+                    x-transition:leave-start="transform opacity-100 scale-100"
+                    x-transition:leave-end="transform opacity-0 scale-95"
+                    class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200">
+                <div class="py-1">
+                    @if (\Radiocubito\Wordful\Wordful::hasAuthenticationFeature())
+                        <livewire:wordful::auth.logout-link />
+                    @elseif (Route::has('logout'))
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-wordful::dropdown.link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log out') }}
+                            </x-wordful::dropdown.link>
+                        </form>
+                    @endif
                 </div>
-            </transition>
+            </div>
         </div>
 
         <!-- Sidebar component, swap this element with another sidebar if you like -->
