@@ -96,33 +96,33 @@
 
                         @unless ($showCreateTagForm)
                             <div class="flex" id="tag-select">
-                                <div class="flex-grow">
-                                    <x-wordful::input.select id="incomingTag" wire:model="incomingTag" class="block w-full max-w-xs" placeholder="{{ __('Add tag') }}">
-                                        @foreach ($selectableTags as $tag)
-                                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                                        @endforeach
-                                    </x-wordful::input.select>
-                                </div>
+                                <x-wordful::input.select id="incomingTag" wire:model="incomingTag" class="block w-full max-w-xs" placeholder="{{ __('Add tag') }}">
+                                    @foreach ($selectableTags as $tag)
+                                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                    @endforeach
+                                </x-wordful::input.select>
+
                                 <span class="ml-2 border-l border-gray-100 pl-2">
-                                    <x-wordful::button.primary type="button" wire:click="$set('showCreateTagForm', true)">
+                                    <x-wordful::button color="secondary" type="button" wire:click="$set('showCreateTagForm', true)">
                                         {{ __('Create tag') }}
-                                    </x-wordful::button.primary>
+                                    </x-wordful::button>
                                 </span>
                             </div>
                             <x-wordful::input.error for="incomingTag" class="mt-2"/>
                         @endunless
                         @if ($showCreateTagForm)
                             <div class="flex">
-                                <div class="flex-grow">
+                                <div class="max-w-xs w-full">
                                     <x-wordful::input.text id="newTagName" wire:model.defer="newTagName" type="text" class="block w-full" placeholder="{{ __('Tag name') }}" />
                                 </div>
+
                                 <span class="ml-2 flex space-x-2 border-l border-gray-100 pl-2">
-                                    <x-wordful::button.secondary type="button" wire:click="$set('showCreateTagForm', false)">
+                                    <x-wordful::button color="transparent" type="button" wire:click="$set('showCreateTagForm', false)">
                                         {{ __('Cancel') }}
-                                    </x-wordful::button.secondary>
-                                    <x-wordful::button.primary type="button" wire:click.prevent="saveTag">
-                                        {{ __('Save') }}
-                                    </x-wordful::button.primary>
+                                    </x-wordful::button>
+                                    <x-wordful::button color="primary" type="button" wire:click.prevent="saveTag">
+                                        {{ __('Create tag') }}
+                                    </x-wordful::button>
                                 </span>
                             </div>
                             <x-wordful::input.error for="newTagName" class="mt-2"/>
