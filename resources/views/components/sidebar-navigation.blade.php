@@ -36,6 +36,7 @@
                     x-transition:leave="transition ease-in duration-75"
                     x-transition:leave-start="transform opacity-100 scale-100"
                     x-transition:leave-end="transform opacity-0 scale-95"
+                    style="display: none;"
                     class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200">
                 <div class="py-1">
                     @if (\Radiocubito\Wordful\Wordful::hasAuthenticationFeature())
