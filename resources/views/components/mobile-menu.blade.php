@@ -10,7 +10,7 @@
             x-description="Off-canvas menu overlay, show/hide based on off-canvas menu state."
             class="fixed inset-0"
             aria-hidden="true">
-        <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
+        <div class="absolute inset-0 bg-transparent"></div>
     </div>
 
     <div x-show="sidebarOpen"
@@ -21,11 +21,11 @@
             x-transition:leave="transition ease-in-out duration-300 transform"
             x-transition:leave-start="translate-x-0"
             x-transition:leave-end="-translate-x-full"
-            class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
+            class="relative flex-1 flex flex-col w-full pt-5 pb-4 border-r border-gray-200 bg-gray-100" style="max-width: 14rem;">
         <div class="absolute top-0 right-0 -mr-12 pt-2">
             <button x-show="sidebarOpen" @click="sidebarOpen = false" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                 <span class="sr-only">Close sidebar</span>
-                <svg class="h-6 w-6 text-white" x-description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <svg class="h-5 w-5 text-gray-500" x-description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
