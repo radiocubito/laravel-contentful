@@ -35,9 +35,9 @@
                     </div>
 
                     <div>
-                        <x-wordful::button.primary class="w-full flex justify-center">
+                        <x-wordful::button color="primary">
                             {{ __('Reset password') }}
-                        </x-wordful::button.primary>
+                        </x-wordful::button>
                     </div>
                 </form>
             </div>

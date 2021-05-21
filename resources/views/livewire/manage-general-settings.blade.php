@@ -55,7 +55,7 @@
                     <x-wordful::input.section-actions>
                         <x-wordful::button color="primary">
                             {{ __('Save settings') }}
-                        </x-wordful::button.primary>
+                        </x-wordful::button>
                     </x-wordful::input.section-actions>
                 </x-wordful::input.section>
             </form>
