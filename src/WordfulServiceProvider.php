@@ -24,8 +24,6 @@ use Radiocubito\Wordful\Http\Livewire\ManageGeneralSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
-use Radiocubito\Wordful\Http\Livewire\ShowPages;
-use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\ShowTags;
 use Radiocubito\Wordful\Support\SiteConfiguration;
