@@ -1,6 +1,13 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.11.7...main)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.12.0...main)
+
+## [v0.12.0 (2021-05-20)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.7...v0.12.0)
+
+### Added
+
+- New dashboard UI
+- Manage site settings from dashboard UI
 
 ## [v0.11.7 (2021-05-12)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.6...v0.11.7)
 
