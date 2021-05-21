@@ -31,7 +31,7 @@ it('can publish page', function () {
     ]);
 
     test()->actingAs($user)
-        ->livewire(ShowPage::class, ['post' => $page])
+        ->livewire(ShowPage::class, ['page' => $page])
         ->call('publish');
 
     $page->refresh();
@@ -50,7 +50,7 @@ it('can delete page', function () {
     ]);
 
     test()->actingAs($user)
-        ->livewire(ShowPage::class, ['post' => $page])
+        ->livewire(ShowPage::class, ['page' => $page])
         ->call('delete');
 
     $this->assertDeleted($page);

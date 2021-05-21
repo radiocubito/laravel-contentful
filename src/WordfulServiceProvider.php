@@ -24,15 +24,14 @@ use Radiocubito\Wordful\Http\Livewire\ManageGeneralSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePageSettings;
 use Radiocubito\Wordful\Http\Livewire\ManagePostSettings;
 use Radiocubito\Wordful\Http\Livewire\ShowPage;
-use Radiocubito\Wordful\Http\Livewire\ShowPageDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPages;
 use Radiocubito\Wordful\Http\Livewire\ShowPost;
-use Radiocubito\Wordful\Http\Livewire\ShowPostDrafts;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\ShowTags;
 use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\View\Components\AuthLayout;
-use Radiocubito\Wordful\View\Components\WordfulLayout;
+use Radiocubito\Wordful\View\Components\DashboardLayout;
+use Radiocubito\Wordful\View\Components\HtmlLayout;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\Valuestore\Valuestore;
@@ -63,14 +62,12 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::posts.create-post', CreatePost::class);
             Livewire::component('wordful::posts.edit-post', EditPost::class);
             Livewire::component('wordful::posts.manage-post-settings', ManagePostSettings::class);
-            Livewire::component('wordful::posts.show-post-drafts', ShowPostDrafts::class);
 
             Livewire::component('wordful::pages.show-pages', ShowPages::class);
             Livewire::component('wordful::pages.show-page', ShowPage::class);
             Livewire::component('wordful::pages.create-page', CreatePage::class);
             Livewire::component('wordful::pages.edit-page', EditPage::class);
             Livewire::component('wordful::pages.manage-page-settings', ManagePageSettings::class);
-            Livewire::component('wordful::pages.show-page-drafts', ShowPageDrafts::class);
 
             Livewire::component('wordful::pages.show-tags', ShowTags::class);
             Livewire::component('wordful::pages.edit-tag', EditTag::class);
@@ -120,6 +117,9 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('input.label');
             $this->registerComponent('input.error');
             $this->registerComponent('input.select');
+            $this->registerComponent('input.section');
+            $this->registerComponent('input.section-actions');
+            $this->registerComponent('input.inline-group');
 
             $this->registerComponent('application-logo');
 
@@ -128,16 +128,40 @@ class WordfulServiceProvider extends PackageServiceProvider
 
             $this->registerComponent('button.primary');
             $this->registerComponent('button.secondary');
-            $this->registerComponent('button.danger');
-
-            $this->registerComponent('nav.link');
-            $this->registerComponent('nav.responsive-link');
 
             $this->registerComponent('status.auth-session');
 
             $this->registerComponent('subscribers-layout');
 
-            Blade::component(WordfulLayout::class, 'wordful-layout');
+            $this->registerComponent('navbar');
+            $this->registerComponent('mobile-menu');
+            $this->registerComponent('page-heading');
+            $this->registerComponent('sidebar-navigation');
+
+            $this->registerComponent('button');
+            $this->registerComponent('button.back');
+            $this->registerComponent('button.edit');
+            $this->registerComponent('button.options');
+            $this->registerComponent('button.settings');
+            $this->registerComponent('button.switch');
+
+            $this->registerComponent('icon.back');
+            $this->registerComponent('icon.edit');
+            $this->registerComponent('icon.new-post');
+            $this->registerComponent('icon.new');
+            $this->registerComponent('icon.options');
+            $this->registerComponent('icon.page');
+            $this->registerComponent('icon.post');
+            $this->registerComponent('icon.settings');
+            $this->registerComponent('icon.tag');
+
+            $this->registerComponent('posts-lists');
+            $this->registerComponent('mobile-posts-lists');
+            $this->registerComponent('pages-lists');
+            $this->registerComponent('mobile-pages-lists');
+
+            Blade::component(HtmlLayout::class, 'wf-html');
+            Blade::component(DashboardLayout::class, 'wf-dashboard');
             Blade::component(AuthLayout::class, 'auth-layout');
         });
     }

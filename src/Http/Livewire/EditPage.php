@@ -11,13 +11,13 @@ class EditPage extends Component
     use WithFileUploads;
     use WithTrixImages;
 
-    public Post $post;
+    public Post $page;
 
     protected function rules()
     {
         return [
-            'post.title' => ['required', 'string', 'max:255'],
-            'post.html' => ['required'],
+            'page.title' => ['required', 'string', 'max:255'],
+            'page.html' => ['required'],
         ];
     }
 
@@ -25,24 +25,24 @@ class EditPage extends Component
     {
         $this->validate();
 
-        $this->post->save();
+        $this->page->save();
 
-        redirect()->to(route('wordful.pages.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->page));
     }
 
     public function saveAndPublish()
     {
         $this->validate();
 
-        $this->post->save();
+        $this->page->save();
 
-        $this->post->markAsPublished();
+        $this->page->markAsPublished();
 
-        redirect()->to(route('wordful.pages.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->page));
     }
 
     public function render()
     {
-        return view('wordful::livewire.edit-page')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.edit-page')->layout('wordful::layouts.html');
     }
 }

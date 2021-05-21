@@ -9,7 +9,7 @@
             {{ $leadingIcon }}
         </div>
 
-        <select {{ $attributes->merge(['class' => 'focus:ring-primary-500 focus:border-primary-500 pl-10 sm:text-sm border-gray-300 rounded']) }}>
+        <select {{ $attributes->merge(['class' => 'focus:ring-primary-500 focus:border-primary-500 pl-10 text-sm py-1.5 border-gray-300 rounded']) }}>
             @if ($placeholder)
                 <option disabled value="">{{ $placeholder }}</option>
             @endif
@@ -19,7 +19,7 @@
     </div>
 
 @else
-    <select {{ $attributes->merge(['class' => 'focus:ring-primary-500 focus:border-primary-500 sm:max-w-xs sm:text-sm border-gray-300 rounded']) }}>
+    <select {{ $attributes->merge(['class' => 'focus:ring-primary-500 focus:border-primary-500 text-sm py-1.5 border-gray-300 rounded']) }}>
         @if ($placeholder)
             <option disabled value="">{{ $placeholder }}</option>
         @endif

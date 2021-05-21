@@ -12,34 +12,34 @@ class CreatePage extends Component
     use WithFileUploads;
     use WithTrixImages;
 
-    public Post $post;
+    public Post $page;
 
     protected $rules = [
-        'post.title' => ['required', 'string', 'max:255'],
-        'post.html' => ['required'],
+        'page.title' => ['required', 'string', 'max:255'],
+        'page.html' => ['required'],
     ];
 
     public function save()
     {
-        $this->savePost();
+        $this->savePage();
 
-        redirect()->to(route('wordful.pages.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->page));
     }
 
     public function publish()
     {
-        $this->savePost();
+        $this->savePage();
 
-        $this->post->markAsPublished();
+        $this->page->markAsPublished();
 
-        redirect()->to(route('wordful.pages.show', $this->post));
+        redirect()->to(route('wordful.pages.show', $this->page));
     }
 
-    protected function savePost()
+    protected function savePage()
     {
         $this->validate();
 
-        return $this->post->fill([
+        return $this->page->fill([
             'type' => 'page',
             'author_id' => Auth::user()->id,
         ])->save();
@@ -47,11 +47,11 @@ class CreatePage extends Component
 
     public function mount()
     {
-        $this->post = new Post;
+        $this->page = new Post;
     }
 
     public function render()
     {
-        return view('wordful::livewire.create-page')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.create-page')->layout('wordful::layouts.html');
     }
 }

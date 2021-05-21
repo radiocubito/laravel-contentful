@@ -33,18 +33,16 @@ Route::prefix('wordful')
         });
 
         Route::get('/posts', ShowPosts::class)->name('wordful.posts.index');
-        Route::get('/posts/drafts', ShowPostDrafts::class)->name('wordful.posts.drafts.index');
         Route::get('/posts/create', CreatePost::class)->name('wordful.posts.create');
         Route::get('/posts/{post}', ShowPost::class)->name('wordful.posts.show');
         Route::get('/posts/{post}/edit', EditPost::class)->name('wordful.posts.edit');
         Route::get('/posts/{post}/settings', ManagePostSettings::class)->name('wordful.posts.settings');
 
         Route::get('/pages', ShowPages::class)->name('wordful.pages.index');
-        Route::get('/pages/drafts', ShowPageDrafts::class)->name('wordful.pages.drafts.index');
         Route::get('/pages/create', CreatePage::class)->name('wordful.pages.create');
-        Route::get('/pages/{post}', ShowPage::class)->name('wordful.pages.show');
-        Route::get('/pages/{post}/edit', EditPage::class)->name('wordful.pages.edit');
-        Route::get('/pages/{post}/settings', ManagePageSettings::class)->name('wordful.pages.settings');
+        Route::get('/pages/{page}', ShowPage::class)->name('wordful.pages.show');
+        Route::get('/pages/{page}/edit', EditPage::class)->name('wordful.pages.edit');
+        Route::get('/pages/{page}/settings', ManagePageSettings::class)->name('wordful.pages.settings');
 
         Route::get('/tags', ShowTags::class)->name('wordful.tags.index');
         Route::get('/tags/{tag}/edit', EditTag::class)->name('wordful.tags.edit');

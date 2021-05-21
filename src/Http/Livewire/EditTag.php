@@ -52,6 +52,6 @@ class EditTag extends Component
 
     public function render()
     {
-        return view('wordful::livewire.edit-tag')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.edit-tag')->layout('wordful::layouts.html');
     }
 }
