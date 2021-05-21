@@ -39,6 +39,8 @@ class SiteConfiguration
     public function registerConfigValues()
     {
         config()->set('app.name', $this->valuestore->get('name', config('app.name')));
+        config()->set('app.locale', $this->valuestore->get('locale', config('app.locale')));
+        config()->set('app.timezone', $this->valuestore->get('timezone', config('app.timezone')));
         config()->set('site.name', $this->valuestore->get('name', config('app.name')));
         config()->set('site.description', $this->valuestore->get('description'));
 
