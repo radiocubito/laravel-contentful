@@ -8,9 +8,9 @@
                     <div class="flex justify-center space-x-2 mt-5">
                         <x-wordful::button color="primary" wire:click="emailPost">
                             @if ($subscribersCount === 1)
-                                {{ __('Email it to :subscribersCount subscriber', ['subscribersCount', $subscribersCount]) }}
+                                {{ __('Email it to :subscribersCount subscriber', ['subscribersCount' => $subscribersCount]) }}
                             @elseif ($subscribersCount > 1)
-                                {{ __('Email it to :subscribersCount subscribers', ['subscribersCount', $subscribersCount]) }}
+                                {{ __('Email it to :subscribersCount subscribers', ['subscribersCount' => $subscribersCount]) }}
                             @endif
                         </x-wordful::button>
                     </div>
