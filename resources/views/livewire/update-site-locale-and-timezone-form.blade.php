@@ -22,7 +22,7 @@
                 <x-wordful::input.label for="timezone" value="{{ __('Timezone') }}" />
             </x-slot>
 
-            <x-wordful::input.select id="timezone" wire:model="timezone" class="max-w-xs block w-full">
+            <x-wordful::input.select id="timezone" wire:model="state.timezone" class="max-w-xs block w-full">
                 @foreach($timeZones as $optionValue => $label)
                     <option value="{{ $optionValue }}">
                         {{ $label }}

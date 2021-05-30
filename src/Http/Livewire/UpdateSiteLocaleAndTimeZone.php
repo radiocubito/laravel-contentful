@@ -16,16 +16,16 @@ class UpdateSiteLocaleAndTimeZone extends Component
     protected function rules()
     {
         return [
-            'icon' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-            'logo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'state.locale' => ['required'],
+            'state.timezone' => ['required', Rule::in($this->timeZones)],
         ];
     }
 
     protected function validationAttributes()
     {
          return [
-            'icon' => __('icon'),
-            'logo' => __('logo'),
+            'state.locale' => __('locale'),
+            'state.timezone' => __('timezone'),
         ];
     }
 
