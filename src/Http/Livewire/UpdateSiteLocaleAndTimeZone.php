@@ -23,7 +23,7 @@ class UpdateSiteLocaleAndTimeZone extends Component
 
     protected function validationAttributes()
     {
-         return [
+        return [
             'state.locale' => __('locale'),
             'state.timezone' => __('timezone'),
         ];

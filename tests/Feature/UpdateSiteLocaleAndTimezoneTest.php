@@ -1,17 +1,16 @@
 <?php
 
 use Radiocubito\Wordful\Http\Livewire\UpdateSiteLocaleAndTimeZone;
+use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\Tests\Fixtures\User;
 use Radiocubito\Wordful\Tests\SettingsFeatureEnabled;
 use Radiocubito\Wordful\Wordful;
-use Radiocubito\Wordful\Support\SiteConfiguration;
-use Radiocubito\Wordful\Support\TimeZone;
 
 uses(SettingsFeatureEnabled::class);
 
 beforeEach(function () {
     if (! is_dir(base_path('config-wordful-app'))) {
-          mkdir(base_path('config-wordful-app'));
+        mkdir(base_path('config-wordful-app'));
     }
 
     if (file_exists($storageFile = base_path('config-wordful-app/site.json'))) {

@@ -14,7 +14,7 @@ trait HasIdentityImages
                 'logo_path' => $logo->storePublicly(
                     'identity-images',
                     ['disk' => $this->wordfulImagesDisk()]
-                )
+                ),
             ]);
 
             if ($previous) {
@@ -31,7 +31,7 @@ trait HasIdentityImages
                 $icon->storePublicly(
                     'identity-images',
                     ['disk' => $this->wordfulImagesDisk()]
-                )
+                ),
             ]);
 
             if ($previous) {

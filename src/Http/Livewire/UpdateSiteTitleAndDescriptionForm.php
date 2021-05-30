@@ -20,7 +20,7 @@ class UpdateSiteTitleAndDescriptionForm extends Component
 
     protected function validationAttributes()
     {
-         return [
+        return [
             'state.name' => __('name'),
             'state.description' => __('description'),
         ];
