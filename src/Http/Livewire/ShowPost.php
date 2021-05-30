@@ -25,6 +25,6 @@ class ShowPost extends Component
 
     public function render()
     {
-        return view('wordful::livewire.show-post')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.show-post')->layout('wordful::layouts.html');
     }
 }

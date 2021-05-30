@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Schema;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Radiocubito\Wordful\WordfulServiceProvider;
+use Spatie\LaravelRay\RayServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -16,13 +17,16 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
+        ray()->enable();
+        ray()->newScreen();
+
+        $this->withoutExceptionHandling();
+
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Radiocubito\\Wordful\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
 
-        Gate::define('viewWordful', function ($user = null) {
-            return true;
-        });
+        Gate::define('viewWordful', fn () => true);
     }
 
     protected function getPackageProviders($app)
@@ -30,10 +34,11 @@ class TestCase extends Orchestra
         return [
             WordfulServiceProvider::class,
             LivewireServiceProvider::class,
+            RayServiceProvider::class,
         ];
     }
 
-    public function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [

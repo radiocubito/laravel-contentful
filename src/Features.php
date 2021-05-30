@@ -25,6 +25,11 @@ class Features
         return static::enabled(static::settings());
     }
 
+    public static function managesProfilePhotos(): bool
+    {
+        return static::enabled(static::profilePhotos());
+    }
+
     public static function authentication(): string
     {
         return 'authentication';
@@ -33,5 +38,10 @@ class Features
     public static function settings(): string
     {
         return 'settings';
+    }
+
+    public static function profilePhotos(): string
+    {
+        return 'profile-photos';
     }
 }

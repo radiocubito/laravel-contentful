@@ -24,9 +24,18 @@ class ShowTags extends Component
 
         $this->newTag->save();
 
+        $this->newTag = new Tag;
+
         $this->tags = Tag::orderBy('slug')->get();
 
         $this->showCreateTagForm = false;
+    }
+
+    public function deleteTag(Tag $tag)
+    {
+        $tag->delete();
+
+        $this->tags = Tag::orderBy('slug')->get();
     }
 
     public function mount()
@@ -37,6 +46,6 @@ class ShowTags extends Component
 
     public function render()
     {
-        return view('wordful::livewire.show-tags')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.show-tags')->layout('wordful::layouts.html');
     }
 }

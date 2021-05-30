@@ -52,6 +52,6 @@ class EditPost extends Component
 
     public function render()
     {
-        return view('wordful::livewire.edit-post')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.edit-post')->layout('wordful::layouts.html');
     }
 }

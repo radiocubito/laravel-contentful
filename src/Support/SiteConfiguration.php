@@ -7,6 +7,8 @@ use Spatie\Valuestore\Valuestore;
 
 class SiteConfiguration
 {
+    use HasIdentityImages;
+
     protected Valuestore $valuestore;
 
     protected Repository $config;
@@ -19,7 +21,7 @@ class SiteConfiguration
         $this->config = $config;
     }
 
-    public function put(array $values)
+    public function put(string|array $values)
     {
         $this->valuestore->flush();
 
@@ -39,8 +41,15 @@ class SiteConfiguration
     public function registerConfigValues()
     {
         config()->set('app.name', $this->valuestore->get('name', config('app.name')));
+        config()->set('app.locale', $this->valuestore->get('locale', config('app.locale')));
+        config()->set('app.timezone', $this->valuestore->get('timezone', config('app.timezone')));
         config()->set('site.name', $this->valuestore->get('name', config('app.name')));
         config()->set('site.description', $this->valuestore->get('description'));
+        config()->set('site.logo_path', $this->valuestore->get('logo_path'));
+        config()->set('site.logo_url', $this->getLogoUrlAttribute());
+        config()->set('site.description', $this->valuestore->get('description'));
+        config()->set('site.icon_path', $this->valuestore->get('icon_path'));
+        config()->set('site.icon_url', $this->getIconUrlAttribute());
 
         ConfigCache::clear();
     }

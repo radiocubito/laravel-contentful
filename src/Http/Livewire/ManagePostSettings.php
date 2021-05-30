@@ -66,6 +66,6 @@ class ManagePostSettings extends Component
 
     public function render()
     {
-        return view('wordful::livewire.manage-post-settings')->layout('wordful::layouts.wordful');
+        return view('wordful::livewire.manage-post-settings')->layout('wordful::layouts.html');
     }
 }

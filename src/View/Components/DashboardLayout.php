@@ -5,10 +5,10 @@ namespace Radiocubito\Wordful\View\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class WordfulLayout extends Component
+class DashboardLayout extends Component
 {
     public function render(): View
     {
-        return view('wordful::layouts.wordful');
+        return view('wordful::layouts.dashboard');
     }
 }

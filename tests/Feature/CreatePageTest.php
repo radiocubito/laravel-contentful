@@ -18,8 +18,8 @@ it('can create a draft page', function () {
 
     test()->actingAs($user)
         ->livewire(CreatePage::class)
-        ->set('post.title', '::title::')
-        ->set('post.html', '::html::')
+        ->set('page.title', '::title::')
+        ->set('page.html', '::html::')
         ->call('save');
 
     $this->assertDatabaseHas('posts', [
@@ -37,8 +37,8 @@ it('can create a published page', function () {
 
     test()->actingAs($user)
         ->livewire(CreatePage::class)
-        ->set('post.title', '::title::')
-        ->set('post.html', '::html::')
+        ->set('page.title', '::title::')
+        ->set('page.html', '::html::')
         ->call('publish');
 
     $this->assertDatabaseHas('posts', [
@@ -60,19 +60,19 @@ test('validation tests', function (array $payload, string $key, string $rule) {
         ->assertHasErrors([$key => $rule]);
 })->with(function () {
     $defaultPayload = [
-        'post.title' => '::title::',
-        'post.html' => '::html::',
+        'page.title' => '::title::',
+        'page.html' => '::html::',
     ];
 
     yield from [
         'missing title' => [
-            'payload' => Arr::except($defaultPayload, 'post.title'),
-            'key' => 'post.title',
+            'payload' => Arr::except($defaultPayload, 'page.title'),
+            'key' => 'page.title',
             'rule' => 'required',
         ],
         'missing html' => [
-            'payload' => Arr::except($defaultPayload, 'post.html'),
-            'key' => 'post.html',
+            'payload' => Arr::except($defaultPayload, 'page.html'),
+            'key' => 'page.html',
             'rule' => 'required',
         ],
     ];
