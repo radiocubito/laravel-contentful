@@ -21,7 +21,7 @@ class SiteConfiguration
         $this->config = $config;
     }
 
-    public function put(string | array $values)
+    public function put(array $values)
     {
         $this->valuestore->flush();
 
