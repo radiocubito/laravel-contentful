@@ -25,8 +25,8 @@ class UpdateSiteIdentityForm extends Component
     protected function validationAttributes()
     {
         return [
-            'state.locale' => __('locale'),
-            'state.timezone' => __('timezone'),
+            'icon' => __('icon'),
+            'logo' => __('logo'),
         ];
     }
 
@@ -48,11 +48,15 @@ class UpdateSiteIdentityForm extends Component
     public function deleteSiteIcon(SiteConfiguration $generalConfiguration)
     {
         $generalConfiguration->deleteIcon();
+
+        ConfigCache::clear();
     }
 
     public function deleteSiteLogo(SiteConfiguration $generalConfiguration)
     {
         $generalConfiguration->deleteLogo();
+
+        ConfigCache::clear();
     }
 
     public function render()

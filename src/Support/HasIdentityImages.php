@@ -44,14 +44,14 @@ trait HasIdentityImages
     {
         Storage::disk($this->wordfulImagesDisk())->delete($this->logo_path);
 
-        $this->put('logo_path', null);
+        $this->put(['logo_path' => null]);
     }
 
     public function deleteIcon(): void
     {
         Storage::disk($this->wordfulImagesDisk())->delete($this->icon_path);
 
-        $this->put('icon_path', null);
+        $this->put(['icon_path' => null]);
     }
 
     public function getLogoUrlAttribute(): string

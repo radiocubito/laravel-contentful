@@ -23,8 +23,6 @@ class SiteConfiguration
 
     public function put(array $values)
     {
-        $this->valuestore->flush();
-
         return $this->valuestore->put($values);
     }
 
@@ -47,7 +45,6 @@ class SiteConfiguration
         config()->set('site.description', $this->valuestore->get('description'));
         config()->set('site.logo_path', $this->valuestore->get('logo_path'));
         config()->set('site.logo_url', $this->getLogoUrlAttribute());
-        config()->set('site.description', $this->valuestore->get('description'));
         config()->set('site.icon_path', $this->valuestore->get('icon_path'));
         config()->set('site.icon_url', $this->getIconUrlAttribute());
 
