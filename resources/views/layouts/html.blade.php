@@ -11,19 +11,13 @@
         <link rel="stylesheet" href="{{ asset('vendor/wordful/css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <!-- Alpine -->
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script src="{{ asset('vendor/wordful/js/app.js') }}" defer></script>
 
         @livewireStyles
-        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.2.3/dist/trix.css">
     </head>
     <body>
         {{ $slot }}
 
         @livewireScripts
-
-        <script src="https://unpkg.com/trix@1.2.3/dist/trix.js"></script>
     </body>
 </html>

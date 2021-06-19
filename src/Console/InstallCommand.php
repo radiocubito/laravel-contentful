@@ -20,7 +20,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'wordful-migrations']);
 
         $this->comment('Publishing Wordful Assets...');
-        $this->callSilent('vendor:publish', ['--tag' => 'wordful-assets']);
+        $this->callSilent('vendor:publish', ['--tag' => 'wordful-assets', '--force' => true]);
 
         $this->registerWordfulServiceProvider();
 

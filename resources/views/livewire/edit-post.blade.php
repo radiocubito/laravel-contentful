@@ -54,12 +54,12 @@
 
                     <div>
                         <label for="title" class="sr-only">{{ __('Title') }}</label>
-                        <x-wordful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Post title') }}" rows="1" class="border-0 text-2xl font-bold text-gray-900 resize-none" />
+                        <x-wordful::input.textarea wire:model.defer="post.title" sharedBorder placeholder="{{ __('Post title') }}" rows="1" class="border-0 text-4xl py-0 font-extrabold text-gray-900 resize-none" />
                     </div>
 
                     <div class="py-3 xl:pt-6 xl:pb-0">
                         <label for="html" class="sr-only">{{ __('HTML') }}</label>
-                        <x-wordful::input.rich-text wire:model.defer="post.html" id="html" />
+                        <x-wordful::input.editor wire:model.defer="post.html" id="html" />
                     </div>
                 </div>
             </div>

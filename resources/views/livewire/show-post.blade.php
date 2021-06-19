@@ -65,7 +65,7 @@
                 <livewire:wordful::email-post-to-subscribers :post="$post" />
 
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-900">{{ $post->title }}</h1>
+                    <h1 class="text-4xl font-extrabold text-gray-900">{{ $post->title }}</h1>
                 </div>
 
                 <div class="py-3 xl:pt-6 xl:pb-0">

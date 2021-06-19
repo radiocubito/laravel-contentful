@@ -110,7 +110,6 @@ class WordfulServiceProvider extends PackageServiceProvider
     protected function configureComponents()
     {
         $this->callAfterResolving(BladeCompiler::class, function () {
-            $this->registerComponent('input.rich-text');
             $this->registerComponent('input.errors');
             $this->registerComponent('input.textarea');
             $this->registerComponent('input.text');
@@ -120,6 +119,7 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('input.section');
             $this->registerComponent('input.section-actions');
             $this->registerComponent('input.inline-group');
+            $this->registerComponent('input.editor');
 
             $this->registerComponent('application-logo');
 
@@ -154,6 +154,25 @@ class WordfulServiceProvider extends PackageServiceProvider
             $this->registerComponent('icon.post');
             $this->registerComponent('icon.settings');
             $this->registerComponent('icon.tag');
+
+            $this->registerComponent('icon.bold');
+            $this->registerComponent('icon.code');
+            $this->registerComponent('icon.figure');
+            $this->registerComponent('icon.h1');
+            $this->registerComponent('icon.h2');
+            $this->registerComponent('icon.hr');
+            $this->registerComponent('icon.image');
+            $this->registerComponent('icon.italic');
+            $this->registerComponent('icon.link');
+            $this->registerComponent('icon.ol');
+            $this->registerComponent('icon.paragraph');
+            $this->registerComponent('icon.pre');
+            $this->registerComponent('icon.quote');
+            $this->registerComponent('icon.redo');
+            $this->registerComponent('icon.strike');
+            $this->registerComponent('icon.ul');
+            $this->registerComponent('icon.undo');
+            $this->registerComponent('icon.unlink');
 
             $this->registerComponent('posts-lists');
             $this->registerComponent('mobile-posts-lists');
