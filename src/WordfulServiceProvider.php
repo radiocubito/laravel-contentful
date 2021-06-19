@@ -28,6 +28,9 @@ use Radiocubito\Wordful\Http\Livewire\ShowPages;
 use Radiocubito\Wordful\Http\Livewire\ShowPost;
 use Radiocubito\Wordful\Http\Livewire\ShowPosts;
 use Radiocubito\Wordful\Http\Livewire\ShowTags;
+use Radiocubito\Wordful\Http\Livewire\UpdateSiteIdentityForm;
+use Radiocubito\Wordful\Http\Livewire\UpdateSiteLocaleAndTimeZone;
+use Radiocubito\Wordful\Http\Livewire\UpdateSiteTitleAndDescriptionForm;
 use Radiocubito\Wordful\Support\SiteConfiguration;
 use Radiocubito\Wordful\View\Components\AuthLayout;
 use Radiocubito\Wordful\View\Components\DashboardLayout;
@@ -82,6 +85,9 @@ class WordfulServiceProvider extends PackageServiceProvider
             Livewire::component('wordful::auth.responsive-logout-link', ResponsiveLogoutLink::class);
 
             Livewire::component('wordful::settings.manage-general-settings', ManageGeneralSettings::class);
+            Livewire::component('wordful::settings.update-site-title-and-description-form', UpdateSiteTitleAndDescriptionForm::class);
+            Livewire::component('wordful::settings.update-site-locale-and-timezone-form', UpdateSiteLocaleAndTimeZone::class);
+            Livewire::component('wordful::settings.update-site-identity-form', UpdateSiteIdentityForm::class);
         });
 
         $this->registerGeneralConfiguration();

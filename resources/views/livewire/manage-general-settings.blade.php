@@ -26,81 +26,11 @@
                 {{ __('General') }}
             </h1>
 
-            <form wire:submit.prevent="save">
-                <x-wordful::input.section>
-                    <x-slot name="heading">
-                        <div>
-                            <h2 class="text-sm font-medium text-gray-900">
-                                {{ __('Title & description') }}
-                            </h2>
-                            <p class="text-sm leading-normal text-gray-500">{{ __('The details used to identify your site around the web.') }}</p>
-                        </div>
-                    </x-slot>
+            <livewire:wordful::settings.update-site-title-and-description-form />
 
-                    <x-wordful::input.inline-group>
-                        <x-slot name="label">
-                            <x-wordful::input.label for="name" value="{{ __('Site name') }}" />
-                        </x-slot>
-                        <x-wordful::input.text id="name" type="text" class="block w-full max-w-lg sm:max-w-xs" wire:model.defer="name" />
-                        <x-wordful::input.error for="name" class="mt-2"/>
-                    </x-wordful::input.inline-group>
-                    <x-wordful::input.inline-group>
-                        <x-slot name="label">
-                            <x-wordful::input.label for="description" value="{{ __('Site description') }}" />
-                        </x-slot>
-                        <x-wordful::input.textarea id="description" class="block w-full max-w-lg" wire:model.defer="description" rows="4" />
-                        <x-wordful::input.error for="description" class="mt-2"/>
-                    </x-wordful::input.inline-group>
+            <livewire:wordful::settings.update-site-locale-and-timezone-form />
 
-                    <x-wordful::input.section-actions>
-                        <x-wordful::button color="primary">
-                            {{ __('Save settings') }}
-                        </x-wordful::button>
-                    </x-wordful::input.section-actions>
-                </x-wordful::input.section>
-            </form>
-
-            <form wire:submit.prevent="save">
-                <x-wordful::input.section>
-                    <x-slot name="heading">
-                        <div>
-                            <h2 class="text-sm font-medium text-gray-900">
-                                {{ __('Time zone & language') }}
-                            </h2>
-                            <p class="text-sm leading-normal text-gray-500">{{ __('Set the timezone and locale/language of your site.') }}</p>
-                        </div>
-                    </x-slot>
-
-                    <x-wordful::input.inline-group>
-                        <x-slot name="label">
-                            <x-wordful::input.label for="name" value="{{ __('Locale') }}" />
-                        </x-slot>
-                        <x-wordful::input.text id="locale" type="text" class="block w-full max-w-lg sm:max-w-xs" wire:model.defer="locale" />
-                        <x-wordful::input.error for="locale" class="mt-2"/>
-                    </x-wordful::input.inline-group>
-
-                    <x-wordful::input.inline-group>
-                        <x-slot name="label">
-                            <x-wordful::input.label for="timezone" value="{{ __('Timezone') }}" />
-                        </x-slot>
-
-                        <x-wordful::input.select id="timezone" wire:model="timezone" class="max-w-xs block w-full">
-                            @foreach($timeZones as $optionValue => $label)
-                                <option value="{{ $optionValue }}">
-                                    {{ $label }}
-                                </option>
-                            @endforeach
-                        </x-wordful::input.select>
-                        <x-wordful::input.error for="timezone" class="mt-2"/>
-                    </x-wordful::input.inline-group>
-
-                    <x-wordful::input.section-actions>
-                        <x-wordful::button color="primary">
-                            {{ __('Save settings') }}
-                        </x-wordful::button>
-                    </x-wordful::input.section-actions>
-                </x-wordful::input.section>
-            </form>
+            <livewire:wordful::settings.update-site-identity-form />
         </div>
     </div>
 </x-wf-dashboard>
