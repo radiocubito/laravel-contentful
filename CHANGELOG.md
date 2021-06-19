@@ -1,6 +1,11 @@
 # Release Notes
 
-## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.12.0...main)
+## [Unreleased](https://github.com/radiocubito/laravel-wordful/compare/v0.13.0...main)
+
+## [v0.13.0 (2021-06-19)](https://github.com/radiocubito/laravel-wordful/compare/v0.12.0...v0.13.0)
+
+- Integrate Tiptap editor instead of Trix
+- Site identity settings form
 
 ## [v0.12.0 (2021-05-20)](https://github.com/radiocubito/laravel-wordful/compare/v0.11.7...v0.12.0)
 
