@@ -54,4 +54,9 @@ class CreatePage extends Component
     {
         return view('wordful::livewire.create-page')->layout('wordful::layouts.html');
     }
+
+    public function getPost()
+    {
+        return $this->page;
+    }
 }

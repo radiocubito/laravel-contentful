@@ -2,22 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-trix-toolbar {
-    @apply sticky top-0 z-10 bg-white;
-}
-
-.attachment-gallery {
-    @apply flex flex-wrap relative -mx-4 my-4;
-}
-
-.attachment-gallery .attachment {
-    @apply px-4 my-0;
-    flex: 1 0 33%;
-    max-width: 33%;
-}
-
-.attachment-gallery.attachment-gallery--2 .attachment,
-.attachment-gallery.attachment-gallery--4 .attachment {
-    flex-basis: 50%;
-    max-width: 50%;
+.ProseMirror p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    @apply float-left text-gray-500 pointer-events-none h-0
 }

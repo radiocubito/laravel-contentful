@@ -45,4 +45,9 @@ class EditPage extends Component
     {
         return view('wordful::livewire.edit-page')->layout('wordful::layouts.html');
     }
+
+    public function getPost()
+    {
+        return $this->page;
+    }
 }

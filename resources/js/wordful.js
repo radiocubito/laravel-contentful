@@ -1,0 +1,4 @@
+require('./editor');
+
+require('alpinejs');
+

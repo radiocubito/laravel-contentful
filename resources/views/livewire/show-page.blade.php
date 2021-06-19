@@ -63,7 +63,7 @@
         <div class="max-w-3xl px-4 sm:px-6 lg:px-8 mx-auto">
             <div>
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-900">{{ $page->title }}</h1>
+                    <h1 class="text-4xl font-extrabold text-gray-900">{{ $page->title }}</h1>
                 </div>
 
                 <div class="py-3 xl:pt-6 xl:pb-0">
