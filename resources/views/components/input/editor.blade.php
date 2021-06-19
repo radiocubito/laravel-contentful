@@ -5,7 +5,7 @@
         placeholder: '{{ __('Add some content…') }}',
         uploadFile(file) {
             return new Promise((accept, fail) => {
-                @this.upload('newImages', file, (uploadedFilename) => {
+                @this.upload('newFiles', file, (uploadedFilename) => {
                     accept(@this.call('completeUpload', uploadedFilename))
                 }, () => {
                     fail('Error')

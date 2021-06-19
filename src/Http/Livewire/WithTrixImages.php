@@ -6,17 +6,19 @@ trait WithTrixImages
 {
     public $newFiles = [];
 
-    public function completeUpload($uploadedUrl, $eventName)
+    public function completeUpload($uploadedUrl)
     {
         foreach ($this->newFiles as $image) {
             if ($image->getFilename() === $uploadedUrl) {
-                $imagePath = $this->post->storeImage($image);
-                $url = $this->post->getImageUrlAttribute($imagePath);
+                $imagePath = $this->getPost()->storeImage($image);
 
-                $this->dispatchBrowserEvent($eventName, ['url' => $url, 'href' => $url]);
-
-                return;
+                return $this->getPost()->getImageUrlAttribute($imagePath);
             }
         }
+    }
+
+    public function getPost()
+    {
+        return $this->post;
     }
 }
