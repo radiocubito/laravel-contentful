@@ -14,7 +14,7 @@
         <div class="relative" x-data="{ profileOpen: false }" >
             <div class="flex items-center flex-shrink-0 px-3 justify-between space-x-3">
                 <div class="pl-1.5 flex items-center flex-1 overflow-hidden">
-                    <img class="h-5 w-auto rounded" src="{{ config('site.logo') }}" alt="{{ config('app.name') }}">
+                    <img class="h-5 w-auto rounded" src="{{ config('site.icon_url') }}" alt="{{ config('app.name') }}">
                     <span class="text-sm leading-4 font-medium ml-2.5 whitespace-nowrap overflow-hidden overflow-ellipsis">{{ config('app.name') }}</span>
                 </div>
 
