@@ -12,7 +12,7 @@ class ManagePostSettings extends Component
 
     public Post $post;
 
-    public ?string $publishDate;
+    public ?string $publishDate = null;
 
     public $customExcerptEnabled = false;
 
